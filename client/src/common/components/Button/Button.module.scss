@@ -13,6 +13,9 @@
   background: $primaryOrange;
   color: #ffffff;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: .5em;
 }
 
 .commonButtonGray {

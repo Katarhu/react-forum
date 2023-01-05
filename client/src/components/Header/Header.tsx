@@ -17,7 +17,7 @@ function Header() {
                     </div>
                 </div>
 
-                <div>
+                <div className={styles.headerControls}>
                     <Button className={buttonStyles.commonButtonOrange}>
                         <FiUserPlus /> Register
                     </Button>
