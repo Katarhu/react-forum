@@ -1,9 +1,7 @@
-
-
 .logoContainer {
     width: fit-content;
-    font-size: 12px;
-    padding: 0 .7em .6em .7em;
+    font-size: 1em;
+    padding: 0 .35em .3em .35em;
     position: relative;
 
     &:after {
@@ -12,42 +10,40 @@
         bottom: 0;
         left: 0;
         right: 0;
-        height: 45%;
-        border-left: .35em solid #BCBBBC;
-        border-right: .35em solid #BCBBBC;
-        border-bottom: .35em solid #BCBBBC;
+        height: 35%;
+        border-left: .18em solid #BCBBBC;
+        border-right: .18em solid #BCBBBC;
+        border-bottom: .15em solid #BCBBBC;
     }
 }
 
 .logoParticle {
-    width: 1.25em;
-    height: 0.25em;
+    width: .8em;
+    height: 0.15em;
     background: #F48023;
     transform-origin: right bottom;
 }
 
-
 .logoParticle:nth-child(1) {
-    transform: rotate(55deg) translateX(80%);
-    margin-bottom: .45em;
+    transform: rotate(45deg) translateX(45%);
+    margin-bottom: .22em;
 }
 
 .logoParticle:nth-child(2) {
-    transform: rotate(45deg) translateX(40%);
-    margin-bottom: .25em;
+    transform: rotate(35deg) translateX(20%);
+    margin-bottom: .16em;
 }
 
 .logoParticle:nth-child(3) {
-    transform: rotate(35deg) translateX(18%);
-    margin-bottom: .15em;
-}
-
-.logoParticle:nth-child(4) {
-    transform: rotate(25deg) translateX(6%);
+    transform: rotate(25deg) translateX(5%);
     margin-bottom: .1em;
 }
 
-.logoParticle:nth-child(5) {
+.logoParticle:nth-child(4) {
     transform: rotate(12deg) translateX(0%);
     margin-bottom: .08em;
+}
+
+.logoParticle:nth-child(5) {
+    //height: 0.155em;
 }

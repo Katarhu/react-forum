@@ -8,7 +8,6 @@ function Logo() {
             <div className={styles.logoParticle}></div>
             <div className={styles.logoParticle}></div>
             <div className={styles.logoParticle}></div>
-            <div className={styles.logoParticle}></div>
         </div>
     );
 }
