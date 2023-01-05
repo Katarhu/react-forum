@@ -1,14 +1,14 @@
-import './Logo.css';
+import * as styles from './Logo.module.scss';
 
 function Logo() {
     return (
-        <div className="logo-container">
-            <div className="logo-particle"></div>
-            <div className="logo-particle"></div>
-            <div className="logo-particle"></div>
-            <div className="logo-particle"></div>
-            <div className="logo-particle"></div>
-            <div className="logo-particle"></div>
+        <div className={styles.logoContainer}>
+            <div className={styles.logoParticle}></div>
+            <div className={styles.logoParticle}></div>
+            <div className={styles.logoParticle}></div>
+            <div className={styles.logoParticle}></div>
+            <div className={styles.logoParticle}></div>
+            <div className={styles.logoParticle}></div>
         </div>
     );
 }

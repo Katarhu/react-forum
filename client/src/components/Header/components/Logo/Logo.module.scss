@@ -1,25 +1,25 @@
 
 
-.logo-container {
+.logoContainer {
     width: fit-content;
-    font-size: 16px;
+    font-size: 12px;
     padding: 0 .7em .6em .7em;
     position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 45%;
+        border-left: .35em solid #BCBBBC;
+        border-right: .35em solid #BCBBBC;
+        border-bottom: .35em solid #BCBBBC;
+    }
 }
 
-.logo-container:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 45%;
-    border-left: .35em solid #BCBBBC;
-    border-right: .35em solid #BCBBBC;
-    border-bottom: .35em solid #BCBBBC;
-}
-
-.logo-particle {
+.logoParticle {
     width: 1.25em;
     height: 0.25em;
     background: #F48023;
@@ -27,27 +27,27 @@
 }
 
 
-.logo-particle:nth-child(1) {
+.logoParticle:nth-child(1) {
     transform: rotate(55deg) translateX(80%);
     margin-bottom: .45em;
 }
 
-.logo-particle:nth-child(2) {
+.logoParticle:nth-child(2) {
     transform: rotate(45deg) translateX(40%);
     margin-bottom: .25em;
 }
 
-.logo-particle:nth-child(3) {
+.logoParticle:nth-child(3) {
     transform: rotate(35deg) translateX(18%);
     margin-bottom: .15em;
 }
 
-.logo-particle:nth-child(4) {
+.logoParticle:nth-child(4) {
     transform: rotate(25deg) translateX(6%);
     margin-bottom: .1em;
 }
 
-.logo-particle:nth-child(5) {
+.logoParticle:nth-child(5) {
     transform: rotate(12deg) translateX(0%);
     margin-bottom: .08em;
 }
