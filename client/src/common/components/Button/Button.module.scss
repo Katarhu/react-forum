@@ -6,6 +6,7 @@
 
   padding: 0.6em 1.5em;
   border-radius: .3em;
+  text-align: center;
 }
 
 .commonButtonOrange {
@@ -14,6 +15,7 @@
   color: #ffffff;
   font-weight: bold;
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: .5em;
 }

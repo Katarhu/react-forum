@@ -1,0 +1,57 @@
+
+.auth {
+  width: 100%;
+  font-size: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+
+  height: calc(100vh - 4em);
+}
+
+.authFormContainer {
+  flex-grow: 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.authForm {
+  max-width: 520px;
+  padding: 1em 2em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.authFormTitle {
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.authFormText {
+  font-size: 1.15em;
+  font-weight: 300;
+  line-height: 150%;
+}
+
+.authFormFieldset {
+
+}
+
+.authFormError {
+
+}
+
+.authImageContainer {
+  flex: 0 1 60%;
+}
+
+.authImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
