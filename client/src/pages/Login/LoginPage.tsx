@@ -1,4 +1,4 @@
-import {FormEvent} from "react";
+import {ChangeEvent, FormEvent, useState} from "react";
 
 import Button from "../../common/components/Button/Button";
 import { commonButtonOrange } from '../../common/components/Button/Button.module.scss';
@@ -15,9 +15,28 @@ import './LoginPage.scss';
 
 function LoginPage() {
 
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+
     const onSubmit = (event: FormEvent) => {
         event.preventDefault();
+
+        const loginCredentials = {
+            username,
+            password
+        }
+
+        console.log(loginCredentials);
     };
+
+    const handleUsernameChange = (event: ChangeEvent) => {
+        setUsername((event.target as HTMLInputElement).value);
+    }
+
+    const handlePasswordChange = (event: ChangeEvent) => {
+        setPassword((event.target as HTMLInputElement).value);
+    }
 
     return (
         <div className={authStyles.auth}>
@@ -37,15 +56,27 @@ function LoginPage() {
                         More than 150 questions are waiting for your wise suggestions!
                     </p>
 
-                    <fieldset className={authStyles.authFormFieldset}>
-                        <Input />
-                        <Input />
+                    <fieldset className={authStyles.authFormButtonFieldset}>
+                        <Input
+                            value={username}
+                            labelText="Username"
+                            onChange={handleUsernameChange}
+                        />
+                        <Input
+                            value={password}
+                            labelText="Password"
+                            onChange={handlePasswordChange}
+                            type="password"
+                        />
                     </fieldset>
 
-                    <p className={authStyles.authFormError}>error</p>
+                    <p className={authStyles.authFormError}>
+                        Wrong password!
+                    </p>
 
                     <Button
                         className={commonButtonOrange}
+                        type="submit"
                     >
                         Login
                     </Button>
@@ -57,6 +88,7 @@ function LoginPage() {
                 <img
                     className={authStyles.authImage}
                     src={LoginImage}
+                    draggable={false}
                     alt="Alemhelp auhtentification photo"
                 />
             </div>

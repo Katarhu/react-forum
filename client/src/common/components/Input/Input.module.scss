@@ -1,0 +1,59 @@
+
+
+.inputContainer {
+  font-size: 1em;
+
+  position: relative;
+}
+
+.input {
+  font-size: .85em;
+
+  width: 100%;
+
+  display: block;
+
+  position: relative;
+
+  border: none;
+
+  padding: 1.25em 2em .35em .8em;
+}
+
+.inputLined {
+  @extend .input;
+  background: transparent;
+  border-bottom: 2px solid #EAEAEA;
+}
+
+.inputOutlined {
+  @extend .input;
+  border: 2px solid #EAEAEA;
+  border-radius: .35em;
+}
+
+.label {
+  font-weight: 300;
+
+  text-overflow: ellipsis;
+  opacity: .55;
+  transition: transform .2s  0s ease;
+
+  white-space: nowrap;
+
+  position: absolute;
+  bottom: .85em;
+  left: .75em;
+
+  cursor: text;
+
+  user-select: none;
+}
+
+.input:focus + .label,
+.input:not(:placeholder-shown) + .label{
+  font-weight: 500;
+  transform: translate(-20%, -55%) scale(.60);
+  opacity: 1;
+  color: rgba(0,0,0, .5);
+}
