@@ -4,13 +4,11 @@ import Button from "../../common/components/Button/Button";
 import { commonButtonOrange } from '../../common/components/Button/Button.module.scss';
 
 import Input from "../../common/components/Input/Input";
-import {} from "../../common/components/Input/Input.module.scss";
+import { inputOutlined } from "../../common/components/Input/Input.module.scss";
 
 import LoginImage from "../../assets/LoginImage.jpg";
 
 import * as authStyles from '../../common/styles/Auth.module.scss';
-import './LoginPage.scss';
-
 
 
 function LoginPage() {
@@ -58,11 +56,13 @@ function LoginPage() {
 
                     <fieldset className={authStyles.authFormButtonFieldset}>
                         <Input
+                            className={inputOutlined}
                             value={username}
                             labelText="Username"
                             onChange={handleUsernameChange}
                         />
                         <Input
+                            className={inputOutlined}
                             value={password}
                             labelText="Password"
                             onChange={handlePasswordChange}
