@@ -3,6 +3,8 @@
   width: 100%;
   font-size: 20px;
 
+  background: #FAFAFA;
+
   display: flex;
   justify-content: space-between;
   gap: 1em;
@@ -38,12 +40,16 @@
   line-height: 150%;
 }
 
-.authFormFieldset {
-
+.authFormButtonFieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
 .authFormError {
-
+  font-size: .75em;
+  color: #FF0000;
+  margin-left: 1em;
 }
 
 .authImageContainer {
