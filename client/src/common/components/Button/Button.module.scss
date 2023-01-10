@@ -18,6 +18,16 @@
   justify-content: center;
   align-items: center;
   gap: .5em;
+
+  &:focus {
+    box-shadow: 0 0 0 5px rgba(255, 144, 53, 0.7);
+    outline: black;
+  }
+
+  &[disabled] {
+    opacity: .5;
+    pointer-events: none;
+  }
 }
 
 .commonButtonGray {

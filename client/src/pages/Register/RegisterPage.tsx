@@ -1,4 +1,8 @@
-import {ChangeEvent, FormEvent, useState} from "react";
+import React, {FormEvent, useState} from "react";
+
+import {useInput} from "../../hooks/useInput";
+
+import getInputError from "../../common/components/InputError/utils/getInputError";
 
 import Button from "../../common/components/Button/Button";
 import {commonButtonOrange} from "../../common/components/Button/Button.module.scss";
@@ -10,40 +14,41 @@ import RegisterImage from "../../assets/RegisterImage.jpg";
 
 import * as authStyles from "../../common/styles/Auth.module.scss";
 
+
 function RegisterPage() {
 
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [passwordRepeat, setPasswordRepeat] = useState('');
+    const username = useInput('', { required: true, minLength: 3, maxLength: 15 });
+    const email = useInput('', { required: true, minLength: 3, maxLength: 25, email: true });
+    const password = useInput('', { required: true, minLength: 3, maxLength: 15 });
+    const passwordRepeat = useInput('', { required: true, minLength: 3, maxLength: 15, password: password.value });
+
+    const [isShowPassword, setIsShowPassword] = useState(false);
+    const [isShowRepeatPassword, setIsShowRepeatPassword] = useState(false);
 
     const onSubmit = (event: FormEvent) => {
         event.preventDefault();
 
         const registerCredentials = {
-            username,
-            email,
-            password
+            username: username.value,
+            email: email.value,
+            password: password.value
         }
 
         console.log(registerCredentials);
     };
 
-    const handleUsernameChange = (event: ChangeEvent) => {
-        setUsername((event.target as HTMLInputElement).value);
-    }
+    const togglePassword = (event: React.MouseEvent<HTMLButtonElement>) => { event.preventDefault(); setIsShowPassword(prev => !prev)};
+    const toggleRepeatPassword = (event: React.MouseEvent<HTMLButtonElement>) => { event.preventDefault(); setIsShowRepeatPassword(prev => !prev)};
 
-    const handleEmailChange = (event: ChangeEvent) => {
-        setEmail((event.target as HTMLInputElement).value);
-    }
+    const usernameErrors = getInputError(username.errors, username.touched);
+    const emailErrors = getInputError(email.errors, email.touched);
+    const passwordErrors = getInputError(password.errors, password.touched);
+    const passwordRepeatErrors = getInputError(passwordRepeat.errors, passwordRepeat.touched);
 
-    const handlePasswordChange = (event: ChangeEvent) => {
-        setPassword((event.target as HTMLInputElement).value);
-    }
+    const passwordType = isShowPassword ? "text": "password";
+    const passwordRepeatType = isShowRepeatPassword ? "text": "password";
 
-    const handlePasswordRepeatChange = (event: ChangeEvent) => {
-        setPasswordRepeat((event.target as HTMLInputElement).value);
-    }
+    const isFormCorrect = [username.isValid, email.isValid, password.isValid, passwordRepeat.isValid].every(Boolean);
 
     return (
         <div className={authStyles.auth}>
@@ -63,33 +68,72 @@ function RegisterPage() {
                         Get more features and privileges by joining to the most helpful community
                     </p>
 
-                    <fieldset className={authStyles.authFormButtonFieldset}>
+                    <fieldset className={authStyles.authFormInputFieldset}>
                         <Input
                             className={inputOutlined}
-                            value={username}
+                            value={username.value}
                             labelText="Username"
-                            onChange={handleUsernameChange}
+                            onChange={username.onChange}
+                            onBlur={username.onBlur}
+                            autoComplete="alemhelp username"
                         />
+
+                        <div className={authStyles.authInputErrorsPlain}>
+                            {usernameErrors}
+                        </div>
+                    </fieldset>
+
+                    <fieldset className={authStyles.authFormInputFieldset}>
                         <Input
                             className={inputOutlined}
-                            value={email}
+                            value={email.value}
                             labelText="Email"
-                            onChange={handleEmailChange}
+                            onChange={email.onChange}
+                            onBlur={email.onBlur}
+                            autoComplete="alemhelp email"
                         />
+
+                        <div className={authStyles.authInputErrorsPlain}>
+                            {emailErrors}
+                        </div>
+                    </fieldset>
+
+                    <fieldset className={authStyles.authFormInputFieldset}>
                         <Input
                             className={inputOutlined}
-                            value={password}
+                            value={password.value}
                             labelText="Password"
-                            onChange={handlePasswordChange}
-                            type="password"
+                            onChange={password.onChange}
+                            onBlur={password.onBlur}
+                            type={passwordType}
+                            autoComplete="alemhelp password"
+                            showToggle={true}
+                            onToggle={togglePassword}
+                            isToggled={isShowPassword}
                         />
+
+                        <div className={authStyles.authInputErrorsShifted}>
+                            {passwordErrors}
+                        </div>
+                    </fieldset>
+
+                    <fieldset className={authStyles.authFormInputFieldset}>
                         <Input
                             className={inputOutlined}
-                            value={passwordRepeat}
+                            value={passwordRepeat.value}
                             labelText="Repeat password"
-                            onChange={handlePasswordRepeatChange}
-                            type="password"
+                            onChange={passwordRepeat.onChange}
+                            onBlur={passwordRepeat.onBlur}
+                            type={passwordRepeatType}
+                            autoComplete="alemhelp password"
+                            showToggle={true}
+                            onToggle={toggleRepeatPassword}
+                            isToggled={isShowRepeatPassword}
                         />
+
+                        <div className={authStyles.authInputErrorsShifted}>
+                            {passwordRepeatErrors}
+                        </div>
                     </fieldset>
 
                     <p className={authStyles.authFormError}>
@@ -99,6 +143,7 @@ function RegisterPage() {
                     <Button
                         className={commonButtonOrange}
                         type="submit"
+                        disabled={!isFormCorrect}
                     >
                         REGISTER
                     </Button>
@@ -107,6 +152,7 @@ function RegisterPage() {
             </div>
 
             <div className={authStyles.authImageContainer}>
+                <div className={authStyles.authImageScreen}></div>
                 <img
                     className={authStyles.authImage}
                     src={RegisterImage}

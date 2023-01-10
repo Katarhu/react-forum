@@ -1,4 +1,8 @@
-import {ChangeEvent, FormEvent, useState} from "react";
+import React, {FormEvent, useState} from "react";
+
+import {useInput} from "../../hooks/useInput";
+
+import getInputError from "../../common/components/InputError/utils/getInputError";
 
 import Button from "../../common/components/Button/Button";
 import { commonButtonOrange } from '../../common/components/Button/Button.module.scss';
@@ -13,28 +17,31 @@ import * as authStyles from '../../common/styles/Auth.module.scss';
 
 function LoginPage() {
 
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-
+    const username = useInput('', { minLength: 3, maxLength: 15, required: true });
+    const password = useInput('', { minLength: 3, maxLength: 15, required: true });
+    const [isPasswordToggled, setIsPasswordToggled] = useState(false);
 
     const onSubmit = (event: FormEvent) => {
         event.preventDefault();
 
         const loginCredentials = {
-            username,
-            password
+            username: username.value,
+            password: password.value
         }
 
         console.log(loginCredentials);
     };
 
-    const handleUsernameChange = (event: ChangeEvent) => {
-        setUsername((event.target as HTMLInputElement).value);
+    const togglePassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault();
+        setIsPasswordToggled((prev) => !prev);
     }
 
-    const handlePasswordChange = (event: ChangeEvent) => {
-        setPassword((event.target as HTMLInputElement).value);
-    }
+    const usernameErrors = getInputError(username.errors, username.touched);
+    const passwordErrors = getInputError(password.errors, password.touched);
+    const passwordType = isPasswordToggled ? "text" : "password";
+
+    const isFormValid = [username.isValid, password.isValid].every(Boolean);
 
     return (
         <div className={authStyles.auth}>
@@ -54,20 +61,38 @@ function LoginPage() {
                         More than 150 questions are waiting for your wise suggestions!
                     </p>
 
-                    <fieldset className={authStyles.authFormButtonFieldset}>
+                    <fieldset className={authStyles.authFormInputFieldset}>
                         <Input
                             className={inputOutlined}
-                            value={username}
+                            value={username.value}
                             labelText="Username"
-                            onChange={handleUsernameChange}
+                            onChange={username.onChange}
+                            onBlur={username.onBlur}
+                            autoComplete="alemhelp username"
                         />
+
+                        <div className={authStyles.authInputErrorsPlain}>
+                            {usernameErrors}
+                        </div>
+                    </fieldset>
+
+                    <fieldset className={authStyles.authFormInputFieldset}>
                         <Input
                             className={inputOutlined}
-                            value={password}
+                            value={password.value}
                             labelText="Password"
-                            onChange={handlePasswordChange}
-                            type="password"
+                            onChange={password.onChange}
+                            onBlur={password.onBlur}
+                            type={passwordType}
+                            autoComplete="alemhelp password"
+                            showToggle={true}
+                            onToggle={togglePassword}
+                            isToggled={isPasswordToggled}
                         />
+
+                        <div className={authStyles.authInputErrorsShifted}>
+                            {passwordErrors}
+                        </div>
                     </fieldset>
 
                     <p className={authStyles.authFormError}>
@@ -77,6 +102,7 @@ function LoginPage() {
                     <Button
                         className={commonButtonOrange}
                         type="submit"
+                        disabled={!isFormValid}
                     >
                         Login
                     </Button>
@@ -85,6 +111,7 @@ function LoginPage() {
             </div>
 
             <div className={authStyles.authImageContainer}>
+                <div className={authStyles.authImageScreen}></div>
                 <img
                     className={authStyles.authImage}
                     src={LoginImage}
