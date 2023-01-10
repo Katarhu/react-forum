@@ -4,32 +4,58 @@
   font-size: 1em;
 
   position: relative;
+
+  display: flex;
 }
 
 .input {
+  flex-grow: 1;
+
   font-size: .85em;
 
-  width: 100%;
-
-  display: block;
+  display: inline-block;
 
   position: relative;
 
   border: none;
 
   padding: 1.25em 2em .35em .8em;
+
+}
+
+.inputToggle {
+  //display: inline-block;
+  font-size: .8em;
+
+  background: #ECF0F1;
+  border: 2px solid #EAEAEA;
+
+  border-radius: 0 .35em .35em 0;
+  border-left: none;
+
+  display: grid;
+  place-content: center;
+  padding: 0 .5em;
 }
 
 .inputLined {
   @extend .input;
   background: transparent;
   border-bottom: 2px solid #EAEAEA;
+
+  &:focus {
+    border-bottom: 2px solid #000000;
+  }
 }
 
 .inputOutlined {
   @extend .input;
   border: 2px solid #EAEAEA;
-  border-radius: .35em;
+  border-radius: .35em 0 0 .35em;
+
+  &:focus {
+    box-shadow: 0 0 5px rgba(0,0,0, 0.25);
+  }
 }
 
 .label {
@@ -42,7 +68,7 @@
   white-space: nowrap;
 
   position: absolute;
-  bottom: .85em;
+  bottom: .7em;
   left: .75em;
 
   cursor: text;
@@ -50,10 +76,10 @@
   user-select: none;
 }
 
-.input:focus + .label,
-.input:not(:placeholder-shown) + .label{
+.input:focus ~ .label,
+.input:not(:placeholder-shown) ~ .label{
   font-weight: 500;
-  transform: translate(-20%, -55%) scale(.60);
+  transform: translate(-20%, -65%) scale(.55);
   opacity: 1;
   color: rgba(0,0,0, .5);
 }

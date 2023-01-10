@@ -1,0 +1,59 @@
+
+
+.inputErrors {
+  font-size: 1em;
+  flex: 0 0 25px;
+  padding: .5em 0;
+
+  position: relative;
+}
+
+.inputErrorsIcon {
+  font-size: .85em;
+  cursor: help;
+  color: red;
+}
+
+.inputErrorsIcon:hover + .inputErrorsList {
+  display: flex;
+}
+
+.inputErrorsList {
+  width: fit-content;
+
+  display: none;
+  flex-direction: column;
+  gap: .75em;
+
+  position: absolute;
+
+  top: 0;
+  transform: translate(-95%, -100%);
+
+  background: #ffeae5;
+  border: 1px solid rgb(255, 205, 199);
+  border-radius: .4em;
+  border-left: .4em solid #db3030;
+
+  padding: .75em .75em;
+}
+
+.inputErrorsListIcon {
+  color: #db3030;
+  margin-right: .25em;
+}
+
+.inputErrorsListItem {
+  font-size: .75em;
+  color: #db3030;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+
+  position: relative;
+
+  padding: 0 10px;
+
+  white-space: nowrap;
+}
