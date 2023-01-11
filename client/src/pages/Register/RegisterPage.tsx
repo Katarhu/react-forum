@@ -8,7 +8,7 @@ import Button from "../../common/components/Button/Button";
 import {commonButtonOrange} from "../../common/components/Button/Button.module.scss";
 
 import Input from "../../common/components/Input/Input";
-import { inputOutlined } from "../../common/components/Input/Input.module.scss";
+import { inputOutlinedPlain, inputOutlinedWithToggle } from "../../common/components/Input/Input.module.scss";
 
 import RegisterImage from "../../assets/RegisterImage.jpg";
 
@@ -70,7 +70,7 @@ function RegisterPage() {
 
                     <fieldset className={authStyles.authFormInputFieldset}>
                         <Input
-                            className={inputOutlined}
+                            className={inputOutlinedPlain}
                             value={username.value}
                             labelText="Username"
                             onChange={username.onChange}
@@ -85,7 +85,7 @@ function RegisterPage() {
 
                     <fieldset className={authStyles.authFormInputFieldset}>
                         <Input
-                            className={inputOutlined}
+                            className={inputOutlinedPlain}
                             value={email.value}
                             labelText="Email"
                             onChange={email.onChange}
@@ -100,7 +100,7 @@ function RegisterPage() {
 
                     <fieldset className={authStyles.authFormInputFieldset}>
                         <Input
-                            className={inputOutlined}
+                            className={inputOutlinedWithToggle}
                             value={password.value}
                             labelText="Password"
                             onChange={password.onChange}
@@ -119,7 +119,7 @@ function RegisterPage() {
 
                     <fieldset className={authStyles.authFormInputFieldset}>
                         <Input
-                            className={inputOutlined}
+                            className={inputOutlinedWithToggle}
                             value={passwordRepeat.value}
                             labelText="Repeat password"
                             onChange={passwordRepeat.onChange}
