@@ -8,7 +8,7 @@ import Button from "../../common/components/Button/Button";
 import { commonButtonOrange } from '../../common/components/Button/Button.module.scss';
 
 import Input from "../../common/components/Input/Input";
-import { inputOutlined } from "../../common/components/Input/Input.module.scss";
+import { inputOutlinedPlain, inputOutlinedWithToggle } from "../../common/components/Input/Input.module.scss";
 
 import LoginImage from "../../assets/LoginImage.jpg";
 
@@ -63,7 +63,7 @@ function LoginPage() {
 
                     <fieldset className={authStyles.authFormInputFieldset}>
                         <Input
-                            className={inputOutlined}
+                            className={inputOutlinedPlain}
                             value={username.value}
                             labelText="Username"
                             onChange={username.onChange}
@@ -78,7 +78,7 @@ function LoginPage() {
 
                     <fieldset className={authStyles.authFormInputFieldset}>
                         <Input
-                            className={inputOutlined}
+                            className={inputOutlinedWithToggle}
                             value={password.value}
                             labelText="Password"
                             onChange={password.onChange}
