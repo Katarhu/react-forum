@@ -1,0 +1,88 @@
+
+.skeletonLoader {
+  border: #BCBBBC;
+  background: #EAEAEA;
+
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+
+.skeletonContainer {
+  font-size: 1em;
+  max-width: 36em;
+  height: 225px;
+  border: 2px solid #EAEAEA;
+  border-radius: .5em;
+
+  padding: 1.25em 1.5em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.skeletonHeader {
+  display: flex;
+  gap: .75em;
+}
+
+.skeletonImage {
+  @extend .skeletonLoader;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+}
+
+.skeletonInfoContainer {
+
+}
+
+.skeletonUsername {
+  @extend .skeletonLoader;
+  font-size: 0.85em;
+  margin-bottom: .25em;
+
+  width: 6em;
+  height: 1em;
+}
+
+.skeletonCreationDate {
+  @extend .skeletonLoader;
+  width: 4em;
+  font-size: .6em;
+  height: 1em;
+}
+
+.skeletonTitle {
+  @extend .skeletonLoader;
+  font-size: 1.25em;
+  height: 1em;
+}
+
+.skeletonText {
+  @extend .skeletonLoader;
+  height: 1em;
+}
+
+.skeletonTagsContainer {
+  display: flex;
+  gap: .6em;
+}
+
+.skeletonTag {
+  @extend .skeletonLoader;
+  font-size: .8em;
+
+  width: 4em;
+  height: 1.75em;
+
+  padding: .45em 1.25em;
+
+  border-radius: .25em;
+}
+
+@keyframes skeleton-loading {
+  to {
+    background: #BCBBBC;
+  }
+}

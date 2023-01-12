@@ -1,0 +1,23 @@
+
+
+.notification {
+  font-size: 1em;
+  background: transparent;
+
+  position: relative;
+}
+
+.thereIsNotification {
+  position: absolute;
+
+  top: -10%;
+  right: 0;
+
+  width: .6em;
+  height: .6em;
+
+  background: #1682FD;
+
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+}
