@@ -4,8 +4,8 @@
 $linksPadding: 2em;
 
 .sidebar {
-  font-size: 20px;
-  height: calc(100vh - 4em);
+  font-size: var(--appFontSize);
+  min-height: calc(100vh - 4em);
   box-shadow: 0 5px 5px rgba(0,0,0, 0.35);
 
   display: flex;

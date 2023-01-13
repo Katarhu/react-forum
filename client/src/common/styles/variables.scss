@@ -1,4 +1,9 @@
 
+:root {
+  --appFontSize: 20px;
+}
+
+//
 
 $containerWidth: 1600px;
 
@@ -7,7 +12,7 @@ $containerWidth: 1600px;
 $primaryOrange: #F48023;
 $primaryGray: #EAEAEA;
 $grayButtonTextColor: #1682FD;
-$mainBackground: #E5E5E5;
+$mainBackground: #FAFAFA;
 
 // Screen sizes
 
@@ -15,3 +20,22 @@ $lg: 1200px;
 $md: 992px;
 $sm: 772px;
 $xs: 552px;
+
+
+@media screen and (max-width: $lg) {
+  :root {
+    --appFontSize: 16px;
+  }
+}
+
+@media screen and (max-width: $md) {
+  :root {
+    --appFontSize: 14px;
+  }
+}
+
+@media screen and (max-width: $xs) {
+  :root {
+    --appFontSize: 12px;
+  }
+}
