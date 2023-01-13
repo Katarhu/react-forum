@@ -12,7 +12,7 @@ interface MainLayoutProps {
 
 function MainLayout({ children }: MainLayoutProps) {
     return (
-        <main>
+        <main className={styles.mainLayout}>
             <Sidebar />
             {children}
             <MainPanel />

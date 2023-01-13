@@ -70,6 +70,15 @@
   }
 }
 
+.inputLinedOnFocus {
+  @extend .input;
+  border-bottom: 2px solid transparent;
+
+  &:focus {
+    border-bottom: 2px solid #EAEAEA;
+  }
+}
+
 .label {
   font-weight: 300;
 

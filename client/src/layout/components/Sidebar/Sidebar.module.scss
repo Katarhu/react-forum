@@ -1,0 +1,77 @@
+@import "../../../common/styles/variables";
+
+
+$linksPadding: 2em;
+
+.sidebar {
+  font-size: 20px;
+  height: calc(100vh - 4em);
+  box-shadow: 0 5px 5px rgba(0,0,0, 0.35);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+
+  background: #ffffff;
+}
+
+.sidebarSearchContainer {
+  display: flex;
+  align-items: center;
+  gap: .5em;
+
+  padding: 1.75em $linksPadding 0 $linksPadding;
+}
+
+.publicSidebarLinks {
+
+}
+
+.userSidebarLinks {
+
+}
+
+.sidebarLinksLabel {
+  font-size: .75em;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #4b4b4b;
+
+  padding: 0 calc($linksPadding + .4em);
+
+  margin-bottom: 1.25em;
+}
+
+.userSidebarLinksContainer {
+  display: flex;
+  flex-direction: column;
+  gap: .50em;
+}
+
+.sidebarLink {
+  display: flex;
+  gap: .75em;
+  padding: 0.75em $linksPadding;
+  font-weight: 500;
+}
+
+.sidebarLinkActive {
+  @extend .sidebarLink;
+  font-weight: 700;
+
+  border-left: 5px solid $primaryOrange;
+  background: rgba(244, 128, 35, 0.1);
+  padding: 0.75em calc($linksPadding - 5px);
+  color: $primaryOrange;
+
+  & .sidebarLinksIcon {
+    color: $primaryOrange;
+  }
+}
+
+.sidebarLinksIcon {
+  color: #808080;
+}
+
+

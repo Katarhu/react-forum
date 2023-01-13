@@ -16,7 +16,7 @@ import AddQuestionPage from "../pages/AddQuestionPage/AddQuestionPage";
 
 const router = createBrowserRouter([
     {
-        path: ROUTES.HOME,
+        path: ROUTES.INDEX,
         element: <App />,
         children: [
             {

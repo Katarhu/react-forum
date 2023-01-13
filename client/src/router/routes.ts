@@ -1,5 +1,6 @@
 
 const ROUTES = {
+    INDEX: "/",
     LOGIN: "/login",
     REGISTER: "/register",
     PROFILE: "/",
