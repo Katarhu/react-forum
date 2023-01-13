@@ -5,7 +5,9 @@ $linksPadding: 2em;
 
 .sidebar {
   font-size: var(--appFontSize);
+  width: 16em;
   min-height: calc(100vh - 4em);
+
   box-shadow: 0 5px 5px rgba(0,0,0, 0.35);
 
   display: flex;
@@ -13,14 +15,29 @@ $linksPadding: 2em;
   gap: 1.5em;
 
   background: #ffffff;
+  padding: 1em 0;
+
+  overflow: scroll;
 }
 
+
+
 .sidebarSearchContainer {
+  width: calc(100% - 2 *$linksPadding);
+  margin: 0 auto;
+
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: .5em;
 
-  padding: 1.75em $linksPadding 0 $linksPadding;
+
+  overflow: hidden;
+}
+
+.sidebarSearchIcon {
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
 .publicSidebarLinks {

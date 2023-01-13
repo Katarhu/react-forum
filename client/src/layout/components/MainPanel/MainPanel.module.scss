@@ -5,16 +5,24 @@ $linksColor: #1682fe;
 .panelContainer {
   font-size: var(--appFontSize);
 
-  padding: 2em 1.25em;
+  padding: 2em 3em 2em 0;
 }
 
-.panelLinksContainer {
+.panelLinks {
   width: 16em;
   background: #FFFFFF;
 
-  padding: 2em 2em;
+  padding: 2em;
   border-radius: .35em;
   box-shadow: 0 0 5px rgba(0,0,0, 0.25);
+
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.panelLinkContainer {
+
 }
 
 .panelLinksTitle {
@@ -24,16 +32,20 @@ $linksColor: #1682fe;
   padding: 0 0 .75em 0;
   display: flex;
   align-items: center;
-  gap: .25em;
+  gap: .45em;
+
+  margin-bottom: 1em;
 }
 
 .panelLinksTitleIcon {
-  font-size: 1.25em;
+  font-size: 1.15em;
   color: #828282;
 }
 
 .panelLinksList {
-
+  display: flex;
+  flex-direction: column;
+  gap: .6em;
 }
 
 .panelLinksListItem {
@@ -41,5 +53,24 @@ $linksColor: #1682fe;
 }
 
 .panelLink {
+  font-size: .75em;
+  line-height: 150%;
+  display: inline-block;
+  color: $linksColor;
 
+  position: relative;
+
+  padding-left: 1em;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: .4em;
+    height: .4em;
+    background: $linksColor;
+    border-radius: 50%;
+
+    top: .5em;
+    left: 0;
+  }
 }

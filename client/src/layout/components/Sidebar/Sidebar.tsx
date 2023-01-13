@@ -21,7 +21,7 @@ function Sidebar() {
     return (
         <nav className={styles.sidebar}>
             <div className={styles.sidebarSearchContainer}>
-                <FiSearch />
+                <FiSearch className={styles.sidebarSearchIcon} />
                 <Input
                     value={query}
                     onChange={handleQueryChanges}

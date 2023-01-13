@@ -2,8 +2,10 @@
 
 .mainLayout {
   display: flex;
+  gap: 1.25em;
 }
 
 .mainContainer {
   flex-grow: 1;
+  flex-shrink: 0;
 }
