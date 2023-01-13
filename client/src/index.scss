@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    background: #E5E5E5;
+    font-size: var(--appFontSize);
+    background: $mainBackground;
 }
 

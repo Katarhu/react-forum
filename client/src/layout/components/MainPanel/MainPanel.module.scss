@@ -1,0 +1,45 @@
+@import "../../../common/styles/variables.scss";
+
+$linksColor: #1682fe;
+
+.panelContainer {
+  font-size: var(--appFontSize);
+
+  padding: 2em 1.25em;
+}
+
+.panelLinksContainer {
+  width: 16em;
+  background: #FFFFFF;
+
+  padding: 2em 2em;
+  border-radius: .35em;
+  box-shadow: 0 0 5px rgba(0,0,0, 0.25);
+}
+
+.panelLinksTitle {
+  font-weight: 500;
+  border-bottom: 1px solid #f4f4f4;
+
+  padding: 0 0 .75em 0;
+  display: flex;
+  align-items: center;
+  gap: .25em;
+}
+
+.panelLinksTitleIcon {
+  font-size: 1.25em;
+  color: #828282;
+}
+
+.panelLinksList {
+
+}
+
+.panelLinksListItem {
+
+}
+
+.panelLink {
+
+}
