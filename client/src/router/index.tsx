@@ -7,17 +7,20 @@ import LoginPage from "../pages/Login/LoginPage";
 import RegisterPage from "../pages/Register/RegisterPage";
 import PostsPage from "../pages/PostsPage/PostsPage";
 import PostPage from "../pages/PostPage/PostPage";
-
-import ROUTES from "./routes";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import NotificationPage from "../pages/NotificationPage/NotificationPage";
 import AddQuestionPage from "../pages/AddQuestionPage/AddQuestionPage";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
+
+import ROUTES from "./routes";
+
 
 
 const router = createBrowserRouter([
     {
         path: ROUTES.INDEX,
         element: <App />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: ROUTES.LOGIN,
@@ -46,6 +49,10 @@ const router = createBrowserRouter([
             {
                 path: ROUTES.ADD_QUESTION,
                 element: <MainLayout children={<AddQuestionPage />}/>
+            },
+            {
+                path: ROUTES.NOT_MATCHING,
+                element: <MainLayout children={ <PostPage /> }/>
             }
         ]
     }
