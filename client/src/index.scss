@@ -9,5 +9,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: var(--appFontSize);
     background: $mainBackground;
+
+    overflow: hidden;
 }
 

@@ -4,7 +4,7 @@ import {BsTags} from "react-icons/bs";
 
 import * as styles from "../../Sidebar.module.scss";
 import ROUTES from "../../../../../router/routes";
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 function PublicSidebarLinks() {
     return (
@@ -12,17 +12,32 @@ function PublicSidebarLinks() {
             <p className={styles.sidebarLinksLabel}>Menu</p>
 
             <div className={styles.userSidebarLinksContainer}>
-                <Link className={styles.sidebarLink} to={ROUTES.POSTS}>
+                <NavLink
+                    to={ROUTES.POSTS}
+                    className={({ isActive}) =>
+                        isActive ? styles.sidebarLinkActive : styles.sidebarLink
+                    }
+                >
                     <RxHamburgerMenu className={styles.sidebarLinksIcon}/> Questions
-                </Link>
+                </NavLink>
 
-                <Link className={styles.sidebarLink} to={ROUTES.POSTS}>
+                <NavLink
+                    to={ROUTES.TAGS}
+                    className={({ isActive}) =>
+                        isActive ? styles.sidebarLinkActive : styles.sidebarLink
+                    }
+                >
                     <BsTags className={styles.sidebarLinksIcon}/> Tags
-                </Link>
+                </NavLink>
 
-                <Link className={styles.sidebarLinkActive} to={ROUTES.POSTS}>
+                <NavLink
+                    to={ROUTES.RANKINGS}
+                    className={({ isActive}) =>
+                        isActive ? styles.sidebarLinkActive : styles.sidebarLink
+                    }
+                >
                     <TbMedal2 className={styles.sidebarLinksIcon} />Rankings
-                </Link>
+                </NavLink>
             </div>
         </div>
     );

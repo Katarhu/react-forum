@@ -13,6 +13,8 @@ import AddQuestionPage from "../pages/AddQuestionPage/AddQuestionPage";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 import ROUTES from "./routes";
+import RankingsPage from "../pages/RankingsPage/RankingsPage";
+import TagsPage from "../pages/TagsPage/TagsPage";
 
 
 
@@ -49,6 +51,14 @@ const router = createBrowserRouter([
             {
                 path: ROUTES.ADD_QUESTION,
                 element: <MainLayout children={<AddQuestionPage />}/>
+            },
+            {
+                path: ROUTES.RANKINGS,
+                element: <MainLayout children={<RankingsPage />}/>
+            },
+            {
+                path: ROUTES.TAGS,
+                element: <MainLayout children={<TagsPage />}/>
             },
             {
                 path: ROUTES.NOT_MATCHING,

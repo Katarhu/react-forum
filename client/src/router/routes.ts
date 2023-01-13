@@ -8,6 +8,8 @@ const ROUTES = {
     POSTS: "/posts",
     POSTS_ID: "/posts/:id",
     NOTIFICATIONS: "/notifications",
+    TAGS: "/tags",
+    RANKINGS: "/rankings",
     NOT_MATCHING: "*",
 } as const
 
