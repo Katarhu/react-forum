@@ -15,8 +15,6 @@
   white-space: nowrap;
 
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.35);
-
-  animation: appear .35s ease-in-out;
 }
 
 .menuItem {
@@ -34,15 +32,4 @@
   display: flex;
   align-items: center;
   gap: .5em;
-}
-
-
-@keyframes appear {
-  0% {
-    clip-path: circle(0 at top);
-  }
-
-  100% {
-    clip-path: circle(250% at top);
-  }
 }

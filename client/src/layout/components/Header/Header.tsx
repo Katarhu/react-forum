@@ -22,8 +22,8 @@ function Header() {
                 </Link>
 
                 <nav className={styles.headerControls}>
-                    <AuthNav />
-                    {/*<PublicNav />*/}
+                    {/*<AuthNav />*/}
+                    <PublicNav />
                 </nav>
             </div>
         </header>
