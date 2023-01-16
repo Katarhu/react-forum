@@ -1,14 +1,24 @@
 import {ObjectValues} from "../common/types";
 
+export const UserRoles = {
+    USER: "user",
+    ADMIN: "admin",
+} as const;
+
+
+type UserRole = ObjectValues<typeof UserRoles>
+
+
 export interface IUser {
     id: string;
     email: string;
     username: string;
+    role: UserRole;
 }
 
 export const UserLoadingTypes = {
-    LOADING_USER: "LOADING_USER",
     LOADING_AUTH: "LOADING_AUTH",
+    LOADING_TOKEN_AUTH: "LOADING_TOKEN_AUTH",
     NONE: "NONE"
 } as const;
 

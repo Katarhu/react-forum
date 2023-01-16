@@ -22,42 +22,20 @@ export const UserSchema = new mongoose.Schema<IUser>({
 
 // JOI
 
-const emailValidationMessages = {
-  "string.empty": "Email should not be empty",
-  "string.required": "Email is required",
-  "string.email": "Email should be valid"
-};
-
-const passwordValidationMessages = {
-  "string.empty": "Password should not be empty",
-  "string.required": "Password is required"
-}
-
-const usernameValidationMessages = {
-  "string.empty": "Username should not be empty",
-  "string.required": "Username is required"
-}
-
 export const userCredentialsJoi = Joi.object({
-  email: Joi.string()
-    .required()
-    .email()
-    .messages(emailValidationMessages),
+  username: Joi.string()
+    .required(),
   password: Joi.string()
     .required()
-    .messages(passwordValidationMessages)
 }).options({allowUnknown: true});
 
 
 export const createUserJoi = Joi.object({
   username: Joi.string()
-    .required()
-    .messages(usernameValidationMessages),
+    .required(),
   password: Joi.string()
-    .required()
-    .messages(passwordValidationMessages),
+    .required(),
   email: Joi.string()
     .email()
-    .required()
-    .messages(emailValidationMessages),
+    .required(),
 }).options({allowUnknown: true});

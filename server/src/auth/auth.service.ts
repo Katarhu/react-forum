@@ -24,7 +24,7 @@ export class AuthService {
   ) {}
 
   async login(dto: UserCredentialsDto) {
-    const user = await this.userService.getUserByUserEmail(dto.email);
+    const user = await this.userService.getUserByUserName(dto.username);
 
     if( !user ) {
       throw new HttpException('Email or password is incorrect', HttpStatus.BAD_REQUEST);

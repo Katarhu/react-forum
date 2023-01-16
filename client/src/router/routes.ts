@@ -1,15 +1,20 @@
 
 const ROUTES = {
     INDEX: "/",
+
     LOGIN: "/login",
     REGISTER: "/register",
+
     PROFILE: "/profile",
-    ADD_QUESTION: "/posts/add",
-    POSTS: "/posts",
-    POSTS_ID: "/posts/:id",
     NOTIFICATIONS: "/notifications",
+
+    QUESTIONS: "/questions",
+    ADD_QUESTION: "/questions/add",
+    QUESTION_ID: (id?: string) => id ? `/questions/${id}` : "/questions/:id",
+
     TAGS: "/tags",
     RANKINGS: "/rankings",
+
     NOT_MATCHING: "*",
 } as const
 

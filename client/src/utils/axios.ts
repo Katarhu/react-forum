@@ -6,8 +6,7 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(async (config: AxiosRequestConfig) => {
-    config.headers = {...config.headers} as AxiosHeaders
-    config.headers.set("Authorization", `Bearer ${localStorage.getItem('token')}`)
+    (config.headers as AxiosHeaders).set("Authorization", `Bearer ${localStorage.getItem(environment.tokenKey)}`);
 
     return config;
 });

@@ -8,25 +8,25 @@ export interface IPanelLink {
 export const mustReadPosts: IPanelLink[] = [
     {
         content: "Please read rules before you start working on this platform",
-        to: ROUTES.POSTS,
+        to: ROUTES.QUESTIONS,
     },
     {
         content: "Vision & Strategy of Alemhelp",
-        to: ROUTES.POSTS,
+        to: ROUTES.QUESTIONS,
     }
 ]
 
 export const featuredLinks: IPanelLink[] = [
     {
         content: "Alemhelp source-code on GitHub",
-        to: ROUTES.POSTS,
+        to: ROUTES.QUESTIONS,
     },
     {
         content: "Golang best-practices",
-        to: ROUTES.POSTS,
+        to: ROUTES.QUESTIONS,
     },
     {
         content: "Alemhelp School dashboard",
-        to: ROUTES.POSTS,
+        to: ROUTES.QUESTIONS,
     }
 ]

@@ -48,19 +48,20 @@
 
 .authInputErrors {
   position: absolute;
-  top: 55%;
+  height: 100%;
+  top: 50%;
 
   transform: translateY(-50%);
 }
 
 .authInputErrorsPlain{
   @extend .authInputErrors;
-  right: .5em;
+  right: 0;
 }
 
 .authInputErrorsShifted{
   @extend .authInputErrors;
-  right: 2.25em;
+  right: 1.65em;
 }
 
 .authFormError {

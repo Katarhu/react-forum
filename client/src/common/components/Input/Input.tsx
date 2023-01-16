@@ -27,6 +27,7 @@ function Input({ type = "text", onBlur, onChange, value, labelText, className = 
     const toggle = showToggle ?
         <button
             onClick={onToggle}
+            type="button"
             className={styles.inputToggle}
         >
             {toggleIcon}
