@@ -1,14 +1,17 @@
-import React, {FormEvent, useEffect, useState} from "react";
+import React, {FormEvent, useState} from "react";
+
+import useOnUnmount from "../../hooks/useOnUnmount";
 
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 
+import {useInput} from "../../hooks/useInput";
+
 import {ILoginCredentials} from "../../models/login.model";
+
 import {loginUser} from "../../store/user/user.action.creators";
 import {clearAuthError} from "../../store/user/user.slice";
 
 import {selectAuthError} from "../../store/user/user.selectors";
-
-import {useInput} from "../../hooks/useInput";
 
 import getInputError from "../../common/components/InputError/utils/getInputError";
 
@@ -21,7 +24,6 @@ import { inputOutlinedPlain, inputOutlinedWithToggle } from "../../common/compon
 import LoginImage from "../../assets/LoginImage.jpg";
 
 import * as authStyles from '../../common/styles/Auth.module.scss';
-import useOnUnmount from "../../hooks/useOnUnmount";
 
 
 function LoginPage() {
