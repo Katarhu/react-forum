@@ -38,15 +38,9 @@ function RegisterPage() {
     const dispatch = useAppDispatch();
 
     useOnUnmount(() => {
-        console.log("register unmounting");
         if( registerError ) dispatch(clearAuthError());
-    }, [registerError]);
+    });
 
-    // useEffect(() => {
-    //     return () => {
-    //         if( registerError ) dispatch(clearAuthError());
-    //     }
-    // })
 
     const onSubmit = (event: FormEvent) => {
         event.preventDefault();

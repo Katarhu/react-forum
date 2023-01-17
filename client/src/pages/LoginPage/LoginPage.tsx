@@ -37,18 +37,9 @@ function LoginPage() {
 
 
     useOnUnmount(() => {
-        console.log("login unmounting");
-        // return loginError;
-        // if( loginError ) dispatch(clearAuthError());
-        return loginError;
-    }, [loginError]);
+        if( loginError ) dispatch(clearAuthError());
+    });
 
-    // useEffect(() => {
-    //     return () => {
-    //         // if( loginError ) dispatch(clearAuthError());
-    //         console.log('biba')
-    //     }
-    // }, [loginError])
 
     const onSubmit = (event: FormEvent) => {
         event.preventDefault();

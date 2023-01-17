@@ -1,28 +1,22 @@
 import {useEffect, useRef, useState} from "react";
 
 
-export default function useOnUnmount(callback: () => void, dependencies: any[] = []) {
+export default function useOnUnmount(callback: () => void) {
     const flag = useRef<any>(false);
+    const callbackRef = useRef<any>(callback);
 
     useEffect(() => {
         return () => {
-            // console.log(flag.current)
-            // console.log("second")
-            console.log(flag)
             if( flag.current ) {
-                console.log("second");
-                console.log(flag.current())
-                flag.current();
+                callbackRef.current();
             }
 
-            flag.current = callback;
+            flag.current = true;
         }
     }, [])
 
     useEffect(() => {
-        flag.current = false;
-
-        return () => { flag.current = callback }
+        callbackRef.current = callback;
     }, [callback])
 
 }
