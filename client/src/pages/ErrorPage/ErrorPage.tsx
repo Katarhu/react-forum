@@ -7,7 +7,7 @@ function ErrorPage() {
     return (
         <div>
             <h2>Error element</h2>
-            <Link to={ROUTES.POSTS}>Back to home page</Link>
+            <Link to={ROUTES.QUESTIONS}>Back to home page</Link>
         </div>
     );
 }

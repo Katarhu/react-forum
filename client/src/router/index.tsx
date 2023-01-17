@@ -15,6 +15,8 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ROUTES from "./routes";
 import RankingsPage from "../pages/RankingsPage/RankingsPage";
 import TagsPage from "../pages/TagsPage/TagsPage";
+import PublicRoute from "../components/PublicRoute/PublicRoute";
+import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 
 
 
@@ -25,11 +27,15 @@ const router = createBrowserRouter([
         children: [
             {
                 path: ROUTES.LOGIN,
-                element: <LoginPage/>
+                element: <PublicRoute to={ROUTES.QUESTIONS}>
+                            <LoginPage/>
+                        </PublicRoute>
             },
             {
                 path: ROUTES.REGISTER,
-                element: <RegisterPage />
+                element: <PublicRoute to={ROUTES.QUESTIONS}>
+                            <RegisterPage/>
+                        </PublicRoute>
             },
             {
                 path: ROUTES.QUESTIONS,
@@ -41,15 +47,21 @@ const router = createBrowserRouter([
             },
             {
                 path: ROUTES.PROFILE,
-                element: <MainLayout children={<ProfilePage />}/>
+                element: <PrivateRoute to={ROUTES.QUESTIONS}>
+                            <MainLayout children={<ProfilePage />}/>
+                        </PrivateRoute>
             },
             {
                 path: ROUTES.NOTIFICATIONS,
-                element: <MainLayout children={<NotificationPage />}/>
+                element: <PrivateRoute to={ROUTES.QUESTIONS}>
+                            <MainLayout children={<NotificationPage />}/>
+                        </PrivateRoute>
             },
             {
                 path: ROUTES.ADD_QUESTION,
-                element: <MainLayout children={<AddQuestionPage />}/>
+                element: <PrivateRoute to={ROUTES.QUESTIONS}>
+                            <MainLayout children={<AddQuestionPage />}/>
+                        </PrivateRoute>
             },
             {
                 path: ROUTES.RANKINGS,

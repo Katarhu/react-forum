@@ -13,15 +13,15 @@ function UserSidebarLinks() {
             <p className={styles.sidebarLinksLabel}>Personal Navigator</p>
 
             <div className={styles.userSidebarLinksContainer}>
-                <Link className={styles.sidebarLink} to={ROUTES.POSTS}>
+                <Link className={styles.sidebarLink} to={ROUTES.QUESTIONS}>
                     <BsPatchQuestion className={styles.sidebarLinksIcon}/> Your questions
                 </Link>
 
-                <Link className={styles.sidebarLink} to={ROUTES.POSTS}>
+                <Link className={styles.sidebarLink} to={ROUTES.QUESTIONS}>
                     <FaRegComment className={styles.sidebarLinksIcon}/> Your answers
                 </Link>
 
-                <Link className={styles.sidebarLink} to={ROUTES.POSTS}>
+                <Link className={styles.sidebarLink} to={ROUTES.QUESTIONS}>
                     <AiOutlineHeart className={styles.sidebarLinksIcon}/> Your likes & votes
                 </Link>
             </div>
