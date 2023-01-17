@@ -18,26 +18,6 @@ $linksPadding: 2em;
   padding: 1em 0;
 }
 
-
-
-.sidebarSearchContainer {
-  width: calc(100% - 2 *$linksPadding);
-  margin: 0 auto;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: .5em;
-
-
-  overflow: hidden;
-}
-
-.sidebarSearchIcon {
-  flex-grow: 1;
-  flex-shrink: 0;
-}
-
 .publicSidebarLinks {
 
 }

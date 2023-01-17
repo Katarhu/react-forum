@@ -1,27 +1,27 @@
 
 
 .inputContainer {
+  max-width: 100%;
   font-size: 1em;
 
   position: relative;
 
   display: flex;
+  overflow: hidden;
 }
 
 .input {
+  max-width: 100%;
   flex-grow: 1;
-  flex-shrink: 1;
-
   font-size: .85em;
 
-  display: inline-block;
+  display: block;
 
   position: relative;
 
   border: none;
 
   padding: 1.45em 2em .35em .8em;
-
 }
 
 .inputToggle {
