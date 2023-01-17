@@ -3,8 +3,8 @@ import {createBrowserRouter} from "react-router-dom";
 import App from "../App";
 import MainLayout from "../layout/components/MainLayout/MainLayout";
 
-import LoginPage from "../pages/Login/LoginPage";
-import RegisterPage from "../pages/Register/RegisterPage";
+import LoginPage from "../pages/LoginPage/LoginPage";
+import RegisterPage from "../pages/RegisterPage/RegisterPage";
 import PostsPage from "../pages/PostsPage/PostsPage";
 import PostPage from "../pages/PostPage/PostPage";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
@@ -20,7 +20,6 @@ import TagsPage from "../pages/TagsPage/TagsPage";
 
 const router = createBrowserRouter([
     {
-        path: ROUTES.INDEX,
         element: <App />,
         errorElement: <ErrorPage />,
         children: [
@@ -33,11 +32,11 @@ const router = createBrowserRouter([
                 element: <RegisterPage />
             },
             {
-                path: ROUTES.POSTS,
+                path: ROUTES.QUESTIONS,
                 element: <MainLayout children={<PostsPage />}/>
             },
             {
-                path: ROUTES.POSTS_ID,
+                path: ROUTES.QUESTION_ID(),
                 element: <MainLayout children={ <PostPage /> }/>
             },
             {
@@ -62,7 +61,7 @@ const router = createBrowserRouter([
             },
             {
                 path: ROUTES.NOT_MATCHING,
-                element: <MainLayout children={ <PostPage /> }/>
+                element: <MainLayout children={ <PostsPage /> }/>
             }
         ]
     }

@@ -13,7 +13,7 @@ function PublicSidebarLinks() {
 
             <div className={styles.userSidebarLinksContainer}>
                 <NavLink
-                    to={ROUTES.POSTS}
+                    to={ROUTES.QUESTIONS}
                     className={({ isActive}) =>
                         isActive ? styles.sidebarLinkActive : styles.sidebarLink
                     }

@@ -1,4 +1,4 @@
 export class UserCredentialsDto {
-  readonly email: string;
+  readonly username: string;
   readonly password: string;
 }

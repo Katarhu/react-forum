@@ -22,20 +22,8 @@ $sm: 772px;
 $xs: 552px;
 
 
-@media screen and (max-width: $lg) {
-  :root {
-    --appFontSize: 16px;
-  }
-}
-
-@media screen and (max-width: $md) {
-  :root {
-    --appFontSize: 14px;
-  }
-}
-
 @media screen and (max-width: $xs) {
   :root {
-    --appFontSize: 12px;
+    --appFontSize: 16px;
   }
 }

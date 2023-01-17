@@ -1,4 +1,12 @@
-import React, {FormEvent, useState} from "react";
+import React, {FormEvent, useEffect, useState} from "react";
+
+import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+
+import {ILoginCredentials} from "../../models/login.model";
+import {loginUser} from "../../store/user/user.action.creators";
+import {clearAuthError} from "../../store/user/user.slice";
+
+import {selectAuthError} from "../../store/user/user.selectors";
 
 import {useInput} from "../../hooks/useInput";
 
@@ -13,29 +21,42 @@ import { inputOutlinedPlain, inputOutlinedWithToggle } from "../../common/compon
 import LoginImage from "../../assets/LoginImage.jpg";
 
 import * as authStyles from '../../common/styles/Auth.module.scss';
+import useOnUnmount from "../../hooks/useOnUnmount";
 
 
 function LoginPage() {
 
-    const username = useInput('', { minLength: 3, maxLength: 15, required: true });
-    const password = useInput('', { minLength: 3, maxLength: 15, required: true });
+    const username = useInput('', { minLength: 3, maxLength: 30, required: true });
+    const password = useInput('', { minLength: 3, maxLength: 30, required: true });
+
     const [isPasswordToggled, setIsPasswordToggled] = useState(false);
+
+    const loginError = useAppSelector(selectAuthError);
+
+    const dispatch = useAppDispatch();
+
+
+    useOnUnmount(() => {
+        if( loginError ) dispatch(clearAuthError());
+    });
+
 
     const onSubmit = (event: FormEvent) => {
         event.preventDefault();
 
-        const loginCredentials = {
+        const loginCredentials: ILoginCredentials = {
             username: username.value,
             password: password.value
         }
 
-        console.log(loginCredentials);
+        dispatch(loginUser(loginCredentials));
     };
 
     const togglePassword = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.preventDefault();
         setIsPasswordToggled((prev) => !prev);
-    }
+    };
+
 
     const usernameErrors = getInputError(username.errors, username.touched);
     const passwordErrors = getInputError(password.errors, password.touched);
@@ -96,7 +117,7 @@ function LoginPage() {
                     </fieldset>
 
                     <p className={authStyles.authFormError}>
-                        Wrong password!
+                        {loginError}
                     </p>
 
                     <Button

@@ -11,13 +11,13 @@ import * as styles from "./UserControls.module.scss";
 function UserControls() {
 
     const [menuToggled, setMenuToggled] = useState(false);
-    const url = "";
+    const url = "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg";
 
     const toggleMenu = (event: React.MouseEvent) => {
         event.stopPropagation();
         setMenuToggled(prev => !prev);
+    };
 
-    }
     const closeMenu = () => {
         setMenuToggled(false);
     }

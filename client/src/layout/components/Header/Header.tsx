@@ -1,4 +1,8 @@
+import {memo} from "react";
 import {Link} from "react-router-dom";
+
+import {useAppSelector} from "../../../hooks/redux";
+import {selectIsAuth} from "../../../store/user/user.selectors";
 
 import Logo from './components/Logo/Logo';
 
@@ -8,13 +12,20 @@ import AuthNav from "./components/AuthNav/AuthNav";
 import ROUTES from "../../../router/routes";
 
 import * as styles from './Header.module.scss';
-import {memo} from "react";
+
 
 function Header() {
+
+    const isAuth = useAppSelector(selectIsAuth);
+
+    const navContent = isAuth ?
+        <AuthNav /> :
+        <PublicNav />
+
     return (
         <header className={styles.header}>
             <div className={styles.headerContainer}>
-                <Link to={ROUTES.POSTS} className={styles.headerLogo}>
+                <Link to={ROUTES.QUESTIONS} className={styles.headerLogo}>
                     <Logo />
                     <div>
                         alem<b>help</b>
@@ -22,8 +33,7 @@ function Header() {
                 </Link>
 
                 <nav className={styles.headerControls}>
-                    {/*<AuthNav />*/}
-                    <PublicNav />
+                    {navContent}
                 </nav>
             </div>
         </header>

@@ -1,11 +1,17 @@
-import React, {FormEvent, useState} from "react";
+import React, {FormEvent, useEffect, useState} from "react";
+
+import {useAppDispatch, useAppSelector} from "../../hooks/redux";
+
+import {IRegisterCredentials} from "../../models/register.model";
+import {registerUser} from "../../store/user/user.action.creators";
+import {clearAuthError} from "../../store/user/user.slice";
 
 import {useInput} from "../../hooks/useInput";
 
 import getInputError from "../../common/components/InputError/utils/getInputError";
 
 import Button from "../../common/components/Button/Button";
-import {commonButtonOrange} from "../../common/components/Button/Button.module.scss";
+import { commonButtonOrange } from "../../common/components/Button/Button.module.scss";
 
 import Input from "../../common/components/Input/Input";
 import { inputOutlinedPlain, inputOutlinedWithToggle } from "../../common/components/Input/Input.module.scss";
@@ -13,28 +19,39 @@ import { inputOutlinedPlain, inputOutlinedWithToggle } from "../../common/compon
 import RegisterImage from "../../assets/RegisterImage.jpg";
 
 import * as authStyles from "../../common/styles/Auth.module.scss";
+import {selectAuthError} from "../../store/user/user.selectors";
+import useOnUnmount from "../../hooks/useOnUnmount";
 
 
 function RegisterPage() {
 
-    const username = useInput('', { required: true, minLength: 3, maxLength: 15 });
-    const email = useInput('', { required: true, minLength: 3, maxLength: 25, email: true });
-    const password = useInput('', { required: true, minLength: 3, maxLength: 15 });
-    const passwordRepeat = useInput('', { required: true, minLength: 3, maxLength: 15, password: password.value });
+    const username = useInput('', { required: true, minLength: 3, maxLength: 30 });
+    const email = useInput('', { required: true, minLength: 3, maxLength: 30, email: true });
+    const password = useInput('', { required: true, minLength: 3, maxLength: 30 });
+    const passwordRepeat = useInput('', { required: true, minLength: 3, maxLength: 30, password: password.value });
 
     const [isShowPassword, setIsShowPassword] = useState(false);
     const [isShowRepeatPassword, setIsShowRepeatPassword] = useState(false);
 
+    const registerError = useAppSelector(selectAuthError);
+
+    const dispatch = useAppDispatch();
+
+    useOnUnmount(() => {
+        if( registerError ) dispatch(clearAuthError());
+    });
+
+
     const onSubmit = (event: FormEvent) => {
         event.preventDefault();
 
-        const registerCredentials = {
+        const registerCredentials: IRegisterCredentials = {
             username: username.value,
             email: email.value,
             password: password.value
-        }
+        };
 
-        console.log(registerCredentials);
+        dispatch(registerUser(registerCredentials))
     };
 
     const togglePassword = (event: React.MouseEvent<HTMLButtonElement>) => { event.preventDefault(); setIsShowPassword(prev => !prev)};
@@ -137,7 +154,7 @@ function RegisterPage() {
                     </fieldset>
 
                     <p className={authStyles.authFormError}>
-                        Wrong password!
+                        {registerError}
                     </p>
 
                     <Button

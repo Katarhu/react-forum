@@ -1,3 +1,5 @@
+import {memo} from "react";
+
 import MainPanelLinks from './components/MainPanelLinks/MainPanelLinks';
 
 import * as styles from "./MainPanel.module.scss";
@@ -11,4 +13,4 @@ function MainPanel() {
     );
 }
 
-export default MainPanel;
+export default memo(MainPanel);
