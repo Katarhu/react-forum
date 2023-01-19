@@ -1,42 +1,36 @@
-import {ChangeEvent, useState} from "react";
-
+import {ChangeEventHandler, useState} from "react";
 
 import * as styles from "./AddQuestionPage.module.scss";
+import TiptapEditor from "./components/TiptapEditor/TiptapEditor";
+import Input from "../../common/components/Input/Input";
+import {inputOutlinedPlain} from "../../common/components/Input/Input.module.scss";
+import {useInput} from "../../hooks/useInput";
+import Select from "../../common/components/Select/Select";
 
-// function useDebugValue(value: any) {
-//     const
-// }
 
 function AddQuestionPage() {
-
-    const [isCursive, setIsCursive] = useState(false);
-    const [isBold, setIsBold] = useState(false);
-    const [isUnderline, setIsUnderline] = useState(false);
-
-    const onChange = (event: any) => {
-        console.log(event.target.value)
-    }
-
-    const handleBoldToggle = () => { setIsBold(prev => !prev)};
-    const handleCursiveToggle = () => { setIsCursive(prev => !prev)};
-    const handleUnderlinedToggle = () => { setIsUnderline(prev => !prev)}
-
-    const div = `<div>Hello ro</div>`
+    const title = useInput('', { required: true, minLength: 3 });
 
     return (
-        <div>
-            <div>
-                <pre
-                    dangerouslySetInnerHTML={{__html: div}}
-                    contentEditable={true}
-                    onChange={onChange}
-                >
-                    {/*{formattedValue}*/}
-                </pre>
-            </div>
-            <button onClick={handleCursiveToggle}>Cursive</button>
-            <button onClick={handleBoldToggle}>Bold</button>
-            <button onClick={handleUnderlinedToggle}>Underlined</button>
+        <div className={styles.addQuestionPage}>
+            <form className={styles.questionForm}>
+                <fieldset>
+                    <Select
+                        label="Choose categories"
+                    />
+                </fieldset>
+
+                <fieldset>
+                    <Input
+                        className={inputOutlinedPlain}
+                        value={title.value}
+                        labelText={"Type catching attention title"}
+                        onChange={title.onChange}
+                    />
+                </fieldset>
+
+                <TiptapEditor/>
+            </form>
         </div>
     );
 }

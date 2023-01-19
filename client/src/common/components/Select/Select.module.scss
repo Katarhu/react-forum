@@ -1,0 +1,54 @@
+
+
+.selectContainer {
+  max-width: 100%;
+  font-size: 1em;
+
+  position: relative;
+}
+
+.select {
+  border: 2px solid #EAEAEA;
+  height: 2.5em;
+  border-radius: .35em;
+
+  position: relative;
+
+  cursor: pointer;
+
+  &:focus {
+    box-shadow: 0 0 3px rgba(0,0,0, 0.25);
+  }
+}
+
+.selectLabel {
+  position: absolute;
+  top: 50%;
+  left: .65em;
+  font-weight: 300;
+
+  opacity: .55;
+  transform: translateY(-50%);
+
+  pointer-events: none;
+
+  transition: transform .2s  0s ease;
+}
+
+.select:has(.selectedItem) .selectLabel {
+  font-weight: 500;
+  color: rgba(0,0,0, .5);
+
+  transform: translate(-23%, -165%) scale(.60);
+  background: #ffffff;
+
+  opacity: 1;
+}
+
+.selectedItem {
+
+}
+
+.selectItems {
+
+}
