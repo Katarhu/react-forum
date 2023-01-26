@@ -11,7 +11,7 @@ import {IUserInitialState} from "../../models/user.model";
 
 const initialState: IUserInitialState = {
     user: null,
-    token: null,
+    token: "token",
     loadingType: "NONE",
     error: null,
 }
