@@ -4,51 +4,65 @@
   max-width: 100%;
   font-size: 1em;
 
-  position: relative;
+  overflow: hidden;
 }
 
 .select {
   border: 2px solid #EAEAEA;
-  height: 2.5em;
   border-radius: .35em;
 
   position: relative;
 
   cursor: pointer;
 
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: .5em;
+
+  padding: .25em .5em;
+
   &:focus {
     box-shadow: 0 0 3px rgba(0,0,0, 0.25);
   }
 }
 
-.selectLabel {
-  position: absolute;
-  top: 50%;
-  left: .65em;
-  font-weight: 300;
-
-  opacity: .55;
-  transform: translateY(-50%);
-
-  pointer-events: none;
-
-  transition: transform .2s  0s ease;
-}
-
-.select:has(.selectedItem) .selectLabel {
-  font-weight: 500;
-  color: rgba(0,0,0, .5);
-
-  transform: translate(-23%, -165%) scale(.60);
-  background: #ffffff;
-
-  opacity: 1;
+.selectItems {
+  display: flex;
+  gap: .5em;
 }
 
 .selectedItem {
+  max-width: 10em;
 
+  font-size: .7em;
+  font-weight: 600;
+
+  background: #1682fe;
+  color: #ffffff;
+
+  padding: .45em .75em;
+
+  border-radius: 0.25em;
+
+  display: flex;
+  align-items: center;
+  gap: 0.35em;
+
+  overflow: hidden;
 }
 
-.selectItems {
+.selectedItemText {
+  white-space: nowrap;
+  flex: 1 1 7em;
 
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  line-height: 150%;
+}
+
+.selectedItemIcon {
+  flex: 0 0 1em;
 }

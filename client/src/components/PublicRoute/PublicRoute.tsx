@@ -1,7 +1,6 @@
 import {useAppSelector} from "../../hooks/redux";
 import {selectIsAuth} from "../../store/user/user.selectors";
 import {Navigate} from "react-router-dom";
-import {ReactNode} from "react";
 
 interface PublicRouteProps {
     to: string;

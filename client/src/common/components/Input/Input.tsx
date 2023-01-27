@@ -18,7 +18,7 @@ interface InputProps {
 }
 
 
-function Input({ type = "text", onBlur, onChange, value, labelText, className = styles.inputLined, autoComplete="alemhelp input", showToggle, isToggled, onToggle}: InputProps) {
+function Input({ type = "text", onBlur, onChange, value, labelText, className = styles.input, autoComplete="alemhelp input", showToggle, isToggled, onToggle}: InputProps) {
 
     const id = useId();
 

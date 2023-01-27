@@ -1,4 +1,4 @@
-import {createBrowserRouter} from "react-router-dom";
+import {createBrowserRouter, Navigate} from "react-router-dom";
 
 import App from "../App";
 import MainLayout from "../layout/components/MainLayout/MainLayout";
@@ -73,7 +73,7 @@ const router = createBrowserRouter([
             },
             {
                 path: ROUTES.NOT_MATCHING,
-                element: <MainLayout children={ <PostsPage /> }/>
+                element: <Navigate to={ROUTES.QUESTIONS}/>
             }
         ]
     }

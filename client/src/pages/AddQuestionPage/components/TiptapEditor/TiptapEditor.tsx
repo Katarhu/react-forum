@@ -38,10 +38,15 @@ function TiptapEditor() {
         },
     })
 
+
+    const handleSubmit = () => {
+        console.log("something")
+    }
+
     return (
         <div className={styles.editorContainer}>
             <TiptapMenuBar editor={editor}/>
-           <EditorContent editor={editor}/>
+           <EditorContent onSubmit={handleSubmit} editor={editor}/>
         </div>
     );
 }
