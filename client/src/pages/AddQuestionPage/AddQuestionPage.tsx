@@ -1,3 +1,4 @@
+import {FormEventHandler} from "react";
 import TiptapEditor from "./components/TiptapEditor/TiptapEditor";
 
 import {useInput} from "../../hooks/useInput";
@@ -5,10 +6,9 @@ import {useInput} from "../../hooks/useInput";
 import Input from "../../common/components/Input/Input";
 import {inputOutlinedPlain} from "../../common/components/Input/Input.module.scss";
 
-import Select from "../../common/components/Select/Select";
+import TagsSelect from "./components/TagsSelect/TagsSelect";
 
 import * as styles from "./AddQuestionPage.module.scss";
-import {FormEventHandler} from "react";
 
 
 function AddQuestionPage() {
@@ -25,8 +25,8 @@ function AddQuestionPage() {
                 className={styles.questionForm}
             >
                 <fieldset>
-                    <Select
-                        label="Choose categories"
+                    <TagsSelect
+                        placeholder="Choose categories"
                     />
                 </fieldset>
 

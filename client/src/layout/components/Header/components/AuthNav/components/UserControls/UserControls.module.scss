@@ -26,8 +26,17 @@
   }
 }
 
+.menuItemButton {
+  transition: background 0.3s ease, color .3s ease;
+  &:focus {
+    background: rgba(0, 0, 0, 0.05);
+    font-weight: bold;
+  }
+}
+
 .menuItemLogout {
   @extend .menuItem;
+  @extend .menuItemButton;
 
   display: flex;
   align-items: center;

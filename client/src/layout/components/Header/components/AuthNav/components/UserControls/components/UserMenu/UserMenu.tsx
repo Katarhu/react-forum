@@ -34,14 +34,14 @@ function UserMenu({ onClose }: MenuProps) {
     return (
         <ul ref={menuRef} className={styles.menu}>
             <li className={styles.menuItem}>
-                <Link to={ROUTES.PROFILE}>
+                <Link to={ROUTES.PROFILE} className={styles.menuItemButton}>
                     My profile
                 </Link>
             </li>
             <li className={styles.menuItemLogout}>
                 <button
                     onClick={handleUserLogout}
-                    className={logoutButton}
+                    className={[logoutButton, styles.menuItemButton].join(' ')}
                 >
                     <FiLogOut /> Logout
                 </button>

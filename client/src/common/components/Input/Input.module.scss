@@ -26,6 +26,21 @@
   padding: 1.45em 2em .35em .8em;
 }
 
+.inputWithPlaceholder {
+  max-width: 100%;
+  flex-grow: 1;
+
+  font-size: .85em;
+
+  padding: .35em .3em;
+
+  &::placeholder {
+    font-weight: 300;
+    opacity: 0.75;
+    font-size: 1.15em;
+  }
+}
+
 .inputToggle {
   font-size: .8em;
 

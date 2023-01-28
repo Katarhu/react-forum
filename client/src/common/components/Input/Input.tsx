@@ -1,24 +1,36 @@
-import React, {ChangeEvent, memo, useId} from "react";
+import React, {ChangeEvent, ChangeEventHandler, memo, MouseEventHandler, useId} from 'react';
 
 import {AiOutlineEyeInvisible, AiOutlineEye} from "react-icons/ai";
 
 import * as styles from './Input.module.scss';
 
-interface InputProps {
+interface InputDefaultProps {
     type?: "text" | "email" | "number" | "password";
     onBlur?: () => void;
-    onChange: (event: ChangeEvent) => void;
-    showToggle?: boolean;
-    onToggle?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-    isToggled?: boolean;
+    onChange: ChangeEventHandler;
     value: string | number;
-    labelText: string;
+    labelText?: string;
     className?: string;
     autoComplete?: string;
+    placeholder?: string;
+    disabled?: boolean;
 }
 
+interface InputToggleProps extends InputDefaultProps {
+    showToggle: true;
+    isToggled: boolean;
+    onToggle: MouseEventHandler;
+}
 
-function Input({ type = "text", onBlur, onChange, value, labelText, className = styles.input, autoComplete="alemhelp input", showToggle, isToggled, onToggle}: InputProps) {
+interface InputWithoutToggleProps extends InputDefaultProps {
+    showToggle?: undefined;
+    isToggled?: undefined;
+    onToggle?: undefined;
+}
+
+type InputProps =  InputToggleProps | InputWithoutToggleProps;
+
+function Input({ type = "text", onBlur, onChange, value, placeholder=" ", labelText, className = styles.input, autoComplete="alemhelp input", showToggle, isToggled, onToggle, disabled}: InputProps) {
 
     const id = useId();
 
@@ -42,10 +54,11 @@ function Input({ type = "text", onBlur, onChange, value, labelText, className = 
                 id={id}
                 type={type}
                 onBlur={onBlur}
-                placeholder={' '}
+                placeholder={placeholder}
                 onChange={onChange}
                 value={value.toString()}
                 autoComplete={autoComplete}
+                disabled={disabled}
             />
 
             {toggle}

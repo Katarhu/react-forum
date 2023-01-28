@@ -1,4 +1,4 @@
-import React, {FormEvent, useState} from "react";
+import React, {FormEvent, MouseEventHandler, useState} from 'react';
 
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 
@@ -54,8 +54,8 @@ function RegisterPage() {
         dispatch(registerUser(registerCredentials))
     };
 
-    const togglePassword = (event: React.MouseEvent<HTMLButtonElement>) => { event.preventDefault(); setIsShowPassword(prev => !prev)};
-    const toggleRepeatPassword = (event: React.MouseEvent<HTMLButtonElement>) => { event.preventDefault(); setIsShowRepeatPassword(prev => !prev)};
+    const togglePassword: MouseEventHandler = (event) => { event.preventDefault(); setIsShowPassword(prev => !prev)};
+    const toggleRepeatPassword: MouseEventHandler = (event) => { event.preventDefault(); setIsShowRepeatPassword(prev => !prev)};
 
     const usernameErrors = getInputError(username.errors, username.touched);
     const emailErrors = getInputError(email.errors, email.touched);
