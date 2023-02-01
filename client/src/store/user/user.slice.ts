@@ -20,54 +20,52 @@ export const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
-        logout: state => initialState,
+        logout: () => initialState,
         clearAuthError: state => ({ ...state, error: null }),
     },
-    extraReducers: {
+    extraReducers: (builder) => {
+        builder
+            // LOGIN
+            .addCase(loginUser.pending.type, (state) => {
+                state.loadingType = UserLoadingTypes.LOADING_AUTH;
+            })
+            .addCase(loginUser.fulfilled.type, (state, action: PayloadAction<IAuthResponse>) => {
+                state.user = action.payload.user;
+                state.token = action.payload.token;
+                state.loadingType = UserLoadingTypes.NONE;
+            })
+            .addCase(loginUser.rejected.type, (state, action: PayloadAction<string>) => {
+                state.loadingType = UserLoadingTypes.NONE;
+                state.error = action.payload;
+            })
+            // REGISTRATION
 
-        // LOGIN
+            .addCase(registerUser.pending.type, (state) => {
+                state.loadingType = UserLoadingTypes.LOADING_AUTH;
+            })
+            .addCase(registerUser.fulfilled.type, (state, action: PayloadAction<IAuthResponse>) => {
+                state.user = action.payload.user;
+                state.token = action.payload.token;
+                state.loadingType = UserLoadingTypes.NONE;
+            })
+            .addCase(registerUser.rejected.type, (state, action: PayloadAction<string>) => {
+                state.loadingType = UserLoadingTypes.NONE;
+                state.error = action.payload;
+            })
 
-        [loginUser.pending.type]: (state) => {
-            state.loadingType = UserLoadingTypes.LOADING_AUTH;
-        },
-        [loginUser.fulfilled.type]: (state, action: PayloadAction<IAuthResponse>) => {
-            state.user = action.payload.user;
-            state.token = action.payload.token;
-            state.loadingType = UserLoadingTypes.NONE;
-        },
-        [loginUser.rejected.type]: (state, action: PayloadAction<string>) => {
-            state.loadingType = UserLoadingTypes.NONE;
-            state.error = action.payload;
-        },
+            // AUTHENTICATION WITH TOKEN
 
-        // REGISTRATION
-
-        [registerUser.pending.type]: (state) => {
-            state.loadingType = UserLoadingTypes.LOADING_AUTH;
-        },
-        [registerUser.fulfilled.type]: (state, action: PayloadAction<IAuthResponse>) => {
-            state.user = action.payload.user;
-            state.token = action.payload.token;
-            state.loadingType = UserLoadingTypes.NONE;
-        },
-        [registerUser.rejected.type]: (state, action: PayloadAction<string>) => {
-            state.loadingType = UserLoadingTypes.NONE;
-            state.error = action.payload;
-        },
-
-        // AUTHENTICATION WITH TOKEN
-
-        [authUser.pending.type]: (state) => {
-            state.loadingType = UserLoadingTypes.LOADING_TOKEN_AUTH;
-        },
-        [authUser.fulfilled.type]: (state, action: PayloadAction<IAuthResponse>) => {
-            state.user = action.payload.user;
-            state.token = action.payload.token;
-            state.loadingType = UserLoadingTypes.NONE;
-        },
-        [authUser.rejected.type]: (state) => {
-            state.loadingType = UserLoadingTypes.NONE;
-        },
+            .addCase(authUser.pending.type, (state) => {
+                state.loadingType = UserLoadingTypes.LOADING_TOKEN_AUTH;
+            })
+            .addCase(authUser.fulfilled.type, (state, action: PayloadAction<IAuthResponse>) => {
+                state.user = action.payload.user;
+                state.token = action.payload.token;
+                state.loadingType = UserLoadingTypes.NONE;
+            })
+            .addCase(authUser.rejected.type, (state) => {
+                state.loadingType = UserLoadingTypes.NONE;
+            })
     }
 });
 
