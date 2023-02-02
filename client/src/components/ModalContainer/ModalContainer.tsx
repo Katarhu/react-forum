@@ -1,17 +1,17 @@
-import * as styles from "./Modal.module.scss";
 import {useAppSelector} from '../../hooks/redux';
-import {selectModalFeature} from '../../store/modal/modal.selectors';
-import ModalWrapper from './components/ModalWrapper';
 
-function Modal() {
+import {selectModalFeature} from '../../store/modal/modal.selectors';
+import DiscardChangesModal from "../DiscardChangesModal/DiscardChangesModal";
+
+function ModalContainer() {
 
     const {isDiscardChangesModal} = useAppSelector(selectModalFeature);
 
     return (
         <>
-            {isDiscardChangesModal && <ModalWrapper children={<div>hello</div>} />}
+            {isDiscardChangesModal && <DiscardChangesModal />}
         </>
     );
 }
 
-export default Modal;
+export default ModalContainer;

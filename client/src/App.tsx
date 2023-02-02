@@ -6,7 +6,7 @@ import {useAppDispatch} from "./hooks/redux";
 import {authUser} from "./store/user/user.action.creators";
 
 import Layout from "./layout/Layout";
-import Modal from './components/Modal/Modal';
+import ModalContainer from './components/ModalContainer/ModalContainer';
 
 import './App.css'
 
@@ -21,7 +21,7 @@ function App() {
 
     return (
         <Layout>
-            <Modal />
+            <ModalContainer />
             <Outlet />
         </Layout>
     )
