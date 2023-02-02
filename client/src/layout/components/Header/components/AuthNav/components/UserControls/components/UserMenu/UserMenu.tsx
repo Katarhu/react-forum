@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React, {createRef, useRef} from "react";
 import {Link} from "react-router-dom";
 
 import useClickOutside from "../../../../../../../../../hooks/useClickOutside";
@@ -21,10 +21,10 @@ interface MenuProps {
 }
 
 function UserMenu({ onClose }: MenuProps) {
-    const menuRef = useRef<HTMLUListElement>(null);
+    const menuRef = createRef<HTMLUListElement>();
     const dispatch = useAppDispatch();
 
-    useClickOutside(menuRef.current, onClose);
+    useClickOutside(menuRef, onClose);
 
     const handleUserLogout = () => {
         dispatch(logout());

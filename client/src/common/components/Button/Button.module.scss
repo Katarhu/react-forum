@@ -20,6 +20,7 @@
   gap: .5em;
 
   &:focus {
+    outline: transparent;
     box-shadow: 0 0 0 3px rgba(255, 144, 53, 0.7);
   }
 
@@ -51,4 +52,27 @@
   &:focus {
     box-shadow: 0 0 0 3px rgba(22, 130, 253, 0.7);
   }
+}
+
+.discardButton {
+  @extend .commonButton;
+
+  background: var(--red-600);
+  color: #fff;
+
+  &:hover {
+    background: var(--red-700);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 4px var(--red-focus);
+    outline: none;
+  }
+}
+
+.secondaryButton {
+  @extend .commonButton;
+  background: none;
+
+  opacity: .8;
 }
