@@ -1,12 +1,13 @@
-import {useEffect} from "react";
+import {Ref, RefObject, useCallback, useEffect} from "react";
 
-export default function useClickOutside(element: HTMLElement | null, callback: () => void) {
+export default function useClickOutside(elementRef: RefObject<HTMLElement | null>, callback: () => void) {
 
-    const onClick = (event: MouseEvent) => {
-        if( event.target === element ) return;
+    const onClick = useCallback((event: MouseEvent) => {
+
+        if( !elementRef.current || event.target === elementRef.current || elementRef.current.contains(event.target as HTMLElement)) return;
 
         callback();
-    }
+    }, [elementRef, callback])
 
     useEffect(() => {
         document.addEventListener('click', onClick)
@@ -14,5 +15,5 @@ export default function useClickOutside(element: HTMLElement | null, callback: (
         return () => {
             document.removeEventListener('click', onClick);
         }
-    }, [ element, callback ]);
+    }, [ elementRef, callback ]);
 }
