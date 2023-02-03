@@ -1,4 +1,4 @@
-import React, {createRef, ReactNode} from 'react';
+import React, {createRef, MouseEventHandler, ReactNode} from 'react';
 
 import useClickOutside from "../../../hooks/useClickOutside";
 
@@ -7,7 +7,7 @@ import {BiX} from "react-icons/all";
 import * as styles from "../Modal.module.scss";
 
 interface ModalWrapperProps extends CommonSubcomponentProps {
-    onClose: () => void;
+    onClose: MouseEventHandler;
 }
 
 interface CommonSubcomponentProps {

@@ -6,12 +6,20 @@ import {discardButton, secondaryButton} from "../../common/components/Button/But
 
 import {useAppDispatch} from "../../hooks/redux";
 import {closeDiscardChangesModal} from "../../store/modal/modal.slice";
+import {MouseEventHandler} from "react";
 
-function DiscardChangesModal() {
+
+export interface IDiscardChangesModalProps {
+    onDiscard: () => void;
+}
+
+function DiscardChangesModal({ onDiscard }: IDiscardChangesModalProps) {
 
     const dispatch = useAppDispatch();
 
-    const handleModalClose = () => {
+    const handleModalClose: MouseEventHandler = (event) => {
+        event.preventDefault();
+        event.stopPropagation();
         dispatch(closeDiscardChangesModal());
     }
 
@@ -32,11 +40,17 @@ function DiscardChangesModal() {
             </Modal.Body>
 
             <Modal.Controls>
-                <Button className={discardButton}>
+                <Button
+                    onClick={onDiscard}
+                    className={discardButton}
+                >
                     Discard changes
                 </Button>
 
-                <Button className={secondaryButton}>
+                <Button
+                    onClick={handleModalClose}
+                    className={secondaryButton}
+                >
                     Keep creating
                 </Button>
             </Modal.Controls>

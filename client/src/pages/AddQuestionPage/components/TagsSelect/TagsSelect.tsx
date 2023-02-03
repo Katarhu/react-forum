@@ -22,7 +22,7 @@ const options = [
 ]
 
 
-function TagsSelect({placeholder}: SelectProps) {
+function TagsSelect({ placeholder }: SelectProps) {
     const [query, setQuery] = useState('');
     const [value, setValue] = useState<ITag[]>([]);
 
@@ -42,15 +42,6 @@ function TagsSelect({placeholder}: SelectProps) {
         <div
             className={styles.selectContainer}
         >
-            {/*<Select*/}
-            {/*    isMulti*/}
-            {/*    value={value}*/}
-            {/*    onChange={handleSelectChange}*/}
-            {/*    options={options}*/}
-            {/*    inputValue={query}*/}
-            {/*    onInputChange={handleSelectInputChange}*/}
-            {/*/>*/}
-
             <CreatableSelect
                 isMulti
                 value={value}

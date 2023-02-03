@@ -1,9 +1,9 @@
-import {memo} from 'react';
+import {memo, MouseEventHandler} from 'react';
 
 import * as styles from './Button.module.scss';
 
 interface ButtonProps {
-    onClick?: () => void
+    onClick?: MouseEventHandler
     type?: 'button' | 'submit' | 'reset';
     disabled?: boolean;
     children: any;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ChangeEventHandler, FormEventHandler} from "react";
 import {EditorContent, useEditor} from "@tiptap/react";
 import {StarterKit} from "@tiptap/starter-kit";
 
@@ -10,8 +10,11 @@ import TiptapMenuBar from "../TiptapMenu/TiptapMenu";
 
 import * as styles from "./TiptapEditor.module.scss";
 
+interface TiptapEditorProps {
+    onUpdate: any;
+}
 
-function TiptapEditor() {
+function TiptapEditor({onUpdate}: TiptapEditorProps) {
     const editor = useEditor({
         extensions: [
             StarterKit,
@@ -36,17 +39,13 @@ function TiptapEditor() {
                 class: styles.editorContent
             }
         },
+        onUpdate: onUpdate
     })
-
-
-    const handleSubmit = () => {
-        console.log("something")
-    }
 
     return (
         <div className={styles.editorContainer}>
             <TiptapMenuBar editor={editor}/>
-           <EditorContent onSubmit={handleSubmit} editor={editor}/>
+            <EditorContent editor={editor}/>
         </div>
     );
 }

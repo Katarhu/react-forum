@@ -21,9 +21,14 @@
 
   position: relative;
 
-  border: none;
-
   padding: 1.45em 2em .35em .8em;
+
+  border: 2px solid transparent;
+
+  &:focus {
+    border: 2px solid var(--blue-700);
+    outline: none;
+  }
 }
 
 .inputWithPlaceholder {
