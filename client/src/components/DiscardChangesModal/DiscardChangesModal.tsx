@@ -1,5 +1,5 @@
-import Modal from "../ModalContainer/components/Modal";
-import {modalTitleDanger} from "../ModalContainer/Modal.module.scss";
+import Modal from "../../common/components/Modal/Modal";
+import {modalTitleDanger} from "../../common/components/Modal/Modal.module.scss";
 
 import Button from "../../common/components/Button/Button";
 import {discardButton, secondaryButton} from "../../common/components/Button/Button.module.scss";

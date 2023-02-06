@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+
 
 .commonButton {
   display: inline-block;
@@ -11,7 +11,7 @@
 
 .commonButtonOrange {
   @extend .commonButton;
-  background: $primaryOrange;
+  background: var(--orange-700);
   color: #ffffff;
   font-weight: bold;
   display: flex;
@@ -42,8 +42,8 @@
 
 .commonButtonGray {
   @extend .commonButton;
-  background: $primaryGray;
-  color: $grayButtonTextColor;
+  background: var(--gray-500);
+  color: var(--blue-700);
   font-weight: bold;
 
   display: grid;

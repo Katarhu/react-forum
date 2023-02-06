@@ -1,4 +1,3 @@
-@import './common/styles/variables.scss';
 
 /* Null styles */
 *{padding:0;margin:0;border:0}*,:after,:before{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}:active,:focus,a:active,a:focus{outline:0}aside,footer,header,nav{display:block}body,html{height:100%;width:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%}button,input,textarea{font-family:inherit}input::-ms-clear{display:none}button{cursor:pointer}button::-moz-focus-inner{padding:0;border:0}a,a:hover,a:visited{text-decoration:none}ul li{list-style:none}img{vertical-align:top}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color: inherit}
@@ -9,11 +8,49 @@ html {
     font-size: 18px;
 }
 
+
+:root {
+    --appFontSize: 1rem;
+    --containerWidth: 1600px;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     font-size: var(--appFontSize);
-    background: $mainBackground;
+    background: var(--gray-500);
 
     overflow: hidden;
 }
 
+body:not(.theme-dark) {
+
+    --text-medium: hsl(210, 8%, 25%);
+
+    --opacity-xs: .9;
+    --opacity-sm: .75;
+    --opacity-xl: .55;
+
+    --gray-500: hsl(0,0%, 96%);
+    --gray-600: hsl(0,0%, 92%);
+    --gray-700: hsl(0,0%, 88%);
+
+    --red-500: hsl(358, 59%, 63%);
+    --red-600: hsl(358, 61%, 47%);
+    --red-700: hsl(358, 63%, 41%);
+    --red-focus: rgba(194, 46, 50, 0.15);
+
+    --orange-400: hsl(27, 87%, 72%);
+    --orange-600: hsl(27, 89%, 65%);
+    --orange-700: hsl(27, 91%, 55%);
+
+    --blue-500: hsl(216, 90%, 64%);
+    --blue-600: hsl(214, 90%, 57%);
+    --blue-700: hsl(214, 90%, 46%);
+}
+
+
+@media screen and (max-width: 554px) {
+    :root {
+        --appFontSize: 0.9rem;
+    }
+}

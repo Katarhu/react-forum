@@ -1,5 +1,3 @@
-@import '../../../common/styles/variables.scss';
-
 .header {
     font-size: var(--appFontSize);
     height: 4em;
@@ -20,7 +18,7 @@
 }
 
 .headerContainer {
-    max-width: $containerWidth;
+    max-width: var(--containerWidth);
     margin: 0 auto;
     display: flex;
     justify-content: space-between;

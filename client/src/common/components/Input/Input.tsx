@@ -1,76 +1,40 @@
-import React, {ChangeEvent, ChangeEventHandler, memo, MouseEventHandler, useId} from 'react';
+import React, {ChangeEventHandler, FocusEventHandler, useId} from "react";
 
-import {AiOutlineEyeInvisible, AiOutlineEye} from "react-icons/ai";
+import * as styles from "./Input.module.scss";
 
-import * as styles from './Input.module.scss';
-
-interface InputDefaultProps {
-    type?: "text" | "email" | "number" | "password";
-    onBlur?: () => void;
-    onChange: ChangeEventHandler;
+export interface TextFieldProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
     value: string | number;
-    labelText?: string;
-    className?: string;
-    autoComplete?: string;
-    placeholder?: string;
-    disabled?: boolean;
+    onChange: ChangeEventHandler;
+    onBlur?: FocusEventHandler;
+    placeholderText?: string;
+
 }
-
-interface InputToggleProps extends InputDefaultProps {
-    showToggle: true;
-    isToggled: boolean;
-    onToggle: MouseEventHandler;
-}
-
-interface InputWithoutToggleProps extends InputDefaultProps {
-    showToggle?: undefined;
-    isToggled?: undefined;
-    onToggle?: undefined;
-}
-
-type InputProps =  InputToggleProps | InputWithoutToggleProps;
-
-function Input({ type = "text", onBlur, onChange, value, placeholder=" ", labelText, className = styles.input, autoComplete="alemhelp input", showToggle, isToggled, onToggle, disabled}: InputProps) {
+export function TextField({placeholderText, className, type,...props}: TextFieldProps) {
 
     const id = useId();
 
-    const toggleIcon = isToggled ? <AiOutlineEyeInvisible /> : <AiOutlineEye />
-
-    const toggle = showToggle ?
-        <button
-            onClick={onToggle}
-            type="button"
-            className={styles.inputToggle}
-        >
-            {toggleIcon}
-        </button>
-        :
-        undefined;
+    const label = placeholderText ?
+        <label className={styles.label} htmlFor={id}>{placeholderText}</label> :
+        null;
 
     return (
         <div className={styles.inputContainer}>
             <input
-                className={className}
                 id={id}
-                type={type}
-                onBlur={onBlur}
-                placeholder={placeholder}
-                onChange={onChange}
-                value={value.toString()}
-                autoComplete={autoComplete}
-                disabled={disabled}
+                className={className ? className : styles.inputOutlined}
+                type={type ? type : "text"}
+                placeholder=" "
+                {...props}
             />
-
-            {toggle}
-
-            <label
-                className={styles.label}
-                htmlFor={id}
-            >
-                {labelText}
-            </label>
+            {label}
         </div>
-    );
+    )
 }
 
-export default memo(Input);
+export function PasswordTextField() {
+
+}
+
+export function TextArea() {
+
+}

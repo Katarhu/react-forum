@@ -1,12 +1,12 @@
-import PostSkeleton from '../../common/components/PostSkeleton/PostSkeleton';
+import PostSkeleton from '../QuestionPage/components/PostSkeleton/PostSkeleton';
 
 import {AiOutlineClockCircle, AiOutlineCloseCircle} from 'react-icons/all';
 import {BsArrowUpRight} from 'react-icons/all';
 
-import * as styles from "./PostsPage.module.scss";
+import * as styles from "./QuestionsPage.module.scss";
 
 
-function PostsPage() {
+function QuestionsPage() {
     return (
         <div className={styles.postsPage}>
             <div className={styles.filterContainer}>
@@ -31,4 +31,4 @@ function PostsPage() {
     );
 }
 
-export default PostsPage;
+export default QuestionsPage;

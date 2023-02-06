@@ -4,7 +4,7 @@ import useClickOutside from "../../../hooks/useClickOutside";
 
 import {BiX} from "react-icons/all";
 
-import * as styles from "../Modal.module.scss";
+import * as styles from "./Modal.module.scss";
 
 interface ModalWrapperProps extends CommonSubcomponentProps {
     onClose: MouseEventHandler;
