@@ -2,7 +2,7 @@ import Modal from "../../common/components/Modal/Modal";
 import {modalTitleDanger} from "../../common/components/Modal/Modal.module.scss";
 
 import Button from "../../common/components/Button/Button";
-import {discardButton, secondaryButton} from "../../common/components/Button/Button.module.scss";
+import {commonButton} from "../../common/components/Button/Button.module.scss";
 
 import {useAppDispatch} from "../../hooks/redux";
 import {closeDiscardChangesModal} from "../../store/modal/modal.slice";
@@ -42,14 +42,14 @@ function DiscardChangesModal({ onDiscard }: IDiscardChangesModalProps) {
             <Modal.Controls>
                 <Button
                     onClick={onDiscard}
-                    className={discardButton}
+                    className={commonButton}
                 >
                     Discard changes
                 </Button>
 
                 <Button
                     onClick={handleModalClose}
-                    className={secondaryButton}
+                    className={commonButton}
                 >
                     Keep creating
                 </Button>

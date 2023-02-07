@@ -4,16 +4,16 @@ import {FiUserPlus} from "react-icons/all";
 
 import ROUTES from "../../../../../router/routes";
 
-import {commonButtonOrange, commonButtonGray} from "../../../../../common/components/Button/Button.module.scss";
+import {primaryOrange, primaryGray} from "../../../../../common/components/Button/Button.module.scss";
 
 
 const PublicNav = () =>
     <>
-        <Link to={ROUTES.REGISTER} className={commonButtonOrange}>
+        <Link to={ROUTES.REGISTER} className={primaryOrange}>
             <FiUserPlus /> Register
         </Link>
 
-        <Link to={ROUTES.LOGIN} className={commonButtonGray}>
+        <Link to={ROUTES.LOGIN} className={primaryGray}>
             Login
         </Link>
     </>

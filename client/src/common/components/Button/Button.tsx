@@ -1,8 +1,8 @@
-import {memo, MouseEventHandler} from 'react';
+import React, {memo, MouseEventHandler} from 'react';
 
 import * as styles from './Button.module.scss';
 
-interface ButtonProps {
+interface ButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>{
     onClick?: MouseEventHandler
     type?: 'button' | 'submit' | 'reset';
     disabled?: boolean;
@@ -12,14 +12,10 @@ interface ButtonProps {
 }
 
 
-function Button({ children, onClick, type='button', className = styles.commonButton, disabled, testId="common-button" }: ButtonProps) {
+function Button({ children, ...props }: ButtonProps) {
     return (
         <button
-            data-testid={testId}
-            className={className}
-            onClick={onClick}
-            type={type}
-            disabled={disabled}
+            {...props}
         >
             {children}
         </button>

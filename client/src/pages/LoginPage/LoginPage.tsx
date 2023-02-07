@@ -72,25 +72,27 @@ function LoginPage() {
                         More than 150 questions are waiting for your wise suggestions!
                     </Form.Text>
 
+                    <Form.TextInputValidated
+                        {...username}
+                    >
+                        <TextField
+                            value={username.value}
+                            onChange={username.onChange}
+                            onBlur={username.onBlur}
+                            labelText="Username"
+                        />
+                    </Form.TextInputValidated>
 
                     <Form.TextInputValidated
                         {...password}
                     >
                         <PasswordTextField
-                            {...password}
+                            value={password.value}
+                            onChange={password.onChange}
+                            onBlur={password.onBlur}
                             labelText="Password"
                         />
                     </Form.TextInputValidated>
-
-                    <Form.TextInputValidated
-                        {...username}
-                    >
-                        <TextField
-                            {...username}
-                            labelText="Username"
-                        />
-                    </Form.TextInputValidated>
-
                 </Form>
 
 

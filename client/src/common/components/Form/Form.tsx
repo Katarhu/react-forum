@@ -12,7 +12,7 @@ interface FormProps extends React.DetailedHTMLProps<React.FormHTMLAttributes<HTM
 interface FormTextProps {
     children: ReactNode;
 }
-function Form({ children, onSubmit }: FormProps) {
+const Form = ({ children, onSubmit }: FormProps) => {
 
     return (
         <form

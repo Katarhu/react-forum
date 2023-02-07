@@ -33,7 +33,7 @@ export const TextField = memo(({labelText, placeholder=" ", className, type,...p
     )
 })
 
-export const PasswordTextField = memo(({labelText, placeholder=" ", className, ...props}: TextFieldProps) => {
+export const PasswordTextField = memo(({labelText, placeholder=" ", className, value, ...props}: TextFieldProps) => {
 
     const [isToggled, toggle] = useBooleanToggle(false);
 
@@ -53,6 +53,7 @@ export const PasswordTextField = memo(({labelText, placeholder=" ", className, .
                     className={className ? className : styles.inputOutlinedPassword}
                     type={isToggled ? "text" : "password" }
                     placeholder={placeholder}
+                    value={value.toString()}
                     {...props}
                 />
                 <button

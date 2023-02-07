@@ -12,7 +12,7 @@ import {environment} from "../../../../../../../../../environment";
 
 import ROUTES from "../../../../../../../../../router/routes";
 
-import {logoutButton} from "../../../../../../../../../common/components/Button/Button.module.scss";
+import {commonButton} from "../../../../../../../../../common/components/Button/Button.module.scss";
 import * as styles from "../../UserControls.module.scss";
 
 
@@ -41,7 +41,7 @@ function UserMenu({ onClose }: MenuProps) {
             <li className={styles.menuItemLogout}>
                 <button
                     onClick={handleUserLogout}
-                    className={[logoutButton, styles.menuItemButton].join(' ')}
+                    className={[commonButton, styles.menuItemButton].join(' ')}
                 >
                     <FiLogOut /> Logout
                 </button>
