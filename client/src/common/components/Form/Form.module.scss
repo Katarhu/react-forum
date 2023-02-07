@@ -1,5 +1,4 @@
 
-
 .form {
   max-width: 520px;
   padding: 1em 2em;
@@ -29,4 +28,82 @@
   font-size: 1.15em;
   font-weight: 300;
   line-height: 150%;
+}
+
+// FORM INPUT ERROR
+
+.formInputValidatedContainer {
+  height: 100%;
+  display: flex;
+
+
+}
+
+
+
+.formInputErrorsContainer {
+  min-height: 100%;
+
+  display: grid;
+  place-items: center;
+}
+
+
+.formInputErrors {
+  width: 2em;
+  text-align: center;
+  font-size: 1em;
+
+  position: relative;
+}
+
+.formInputErrorsIcon {
+  font-size: .85em;
+  cursor: help;
+  color: red;
+}
+
+.formInputErrors:hover .formInputErrorsList {
+  display: flex;
+}
+
+.formInputErrorsList {
+  width: fit-content;
+
+  display: none;
+  flex-direction: column;
+  gap: .75em;
+
+  position: absolute;
+
+  top: 50%;
+  right: 0;
+  transform: translate(-.5em, -120%);
+
+  background: #ffeae5;
+  border: 1px solid rgb(255, 205, 199);
+  border-radius: .4em;
+  border-left: .4em solid #db3030;
+
+  padding: .75em .75em;
+}
+
+.formInputErrorsListIcon {
+  color: #db3030;
+  margin-right: .25em;
+}
+
+.formInputErrorsListItem {
+  font-size: .75em;
+  color: #db3030;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+
+  position: relative;
+
+  padding: 0 10px;
+
+  white-space: nowrap;
 }

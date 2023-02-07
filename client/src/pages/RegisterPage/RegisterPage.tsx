@@ -8,7 +8,7 @@ import {clearAuthError} from "../../store/user/user.slice";
 
 import {useInput} from "../../hooks/useInput";
 
-import getInputError from "../../common/components/InputError/utils/getInputError";
+import getInputError from "../../common/components/Form/utils/getInputError";
 
 import Button from "../../common/components/Button/Button";
 import { commonButtonOrange } from "../../common/components/Button/Button.module.scss";

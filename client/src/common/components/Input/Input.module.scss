@@ -1,16 +1,21 @@
 
 .inputContainer {
   width: 100%;
+  max-width: 100%;
   font-size: 18px;
   position: relative;
-
 
   --inputTopPadding: 1.55em;
   --inputInlinePadding: .8em;
   --inputBottomPadding: 0.4em;
 
-
   padding: var(--containerBlockPadding) 0;
+
+  overflow: hidden;
+}
+
+.inputPasswordContainer {
+  display: flex;
 }
 
 .inputCommon {
@@ -23,8 +28,12 @@
 
 }
 
+
+
 .inputOutlined {
   @extend .inputCommon;
+
+  --borderRadius: 0.35em;
 
   border: 2px solid var(--gray-700);
   border-radius: .35em;
@@ -33,6 +42,12 @@
   &:focus {
     border: 2px solid var(--blue-700);
   }
+}
+
+.inputOutlinedPassword {
+  @extend .inputOutlined;
+
+  border-radius: var(--borderRadius) 0 0 var(--borderRadius);
 }
 
 .inputLined {
@@ -47,8 +62,15 @@
 }
 
 .label {
+  max-width: calc(100% - var(--inputInlinePadding) * 2);
   position: absolute;
   line-height: 125%;
+
+  text-align: center;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 
   bottom: calc(var(--inputBottomPadding) + .35em);
   left: var(--inputInlinePadding);
@@ -57,16 +79,44 @@
 
   opacity: var(--opacity-xl);
 
-  transition: bottom .2s ease-out, left .2s ease-out, transform .2s linear;
+  transition: bottom .2s ease-out,
+              left .2s ease-out,
+              transform .2s linear,
+              max-width .2s linear;
 
   transform: scale(var(--skale));
+
+  transform-origin: left;
 
   pointer-events: none;
 }
 
-:is(.inputCommon:focus, .inputCommon:not(:placeholder-shown)) ~ .label {
+
+:is(
+  .inputCommon:focus,
+  .inputCommon:not(:placeholder-shown),
+  .inputPasswordContainer:has(.inputCommon:focus),
+  .inputPasswordContainer:has(.inputCommon:not(:placeholder-shown))
+) ~ .label {
+  text-overflow: ellipsis;
+  max-width: calc((100% - var(--inputInlinePadding) * 2) * ( 1 / var(--skale)));
+
   bottom: calc(var(--inputBottomPadding) + 1.05em);
-  left: calc(var(--inputInlinePadding) - .8em);
+  left: var(--inputInlinePadding);
 
   --skale: 0.65;
+}
+
+.inputToggle {
+  font-size: .8em;
+
+  background: #ECF0F1;
+  border: 2px solid #EAEAEA;
+
+  border-radius: 0 .35em .35em 0;
+  border-left: none;
+
+  display: grid;
+  place-content: center;
+  padding: 0 .5em;
 }

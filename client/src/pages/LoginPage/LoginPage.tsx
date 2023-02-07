@@ -13,7 +13,7 @@ import {clearAuthError} from "../../store/user/user.slice";
 
 import {selectAuthError} from "../../store/user/user.selectors";
 
-import getInputError from "../../common/components/InputError/utils/getInputError";
+import getInputError from "../../common/components/Form/utils/getInputError";
 
 import Button from "../../common/components/Button/Button";
 import { commonButtonOrange } from '../../common/components/Button/Button.module.scss';
@@ -22,8 +22,10 @@ import { commonButtonOrange } from '../../common/components/Button/Button.module
 import LoginImage from "../../assets/LoginImage.jpg";
 
 import * as authStyles from '../../common/styles/Auth.module.scss';
+
 import Form from "../../common/components/Form/Form";
-import {TextField} from "../../common/components/Input/Input";
+import {PasswordTextField, TextField} from "../../common/components/Input/Input";
+import {inputLined} from "../../common/components/Input/Input.module.scss";
 
 
 function LoginPage() {
@@ -54,22 +56,8 @@ function LoginPage() {
         dispatch(loginUser(loginCredentials));
     };
 
-    const togglePassword = (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault();
-        setIsPasswordToggled((prev) => !prev);
-    };
-
-
-    const usernameErrors = getInputError(username.errors, username.touched);
-    const passwordErrors = getInputError(password.errors, password.touched);
-    const passwordType = isPasswordToggled ? "text" : "password";
 
     const isFormValid = [username.isValid, password.isValid].every(Boolean);
-
-    const [value, setValue] = useState("");
-    const onChange: ChangeEventHandler = (event) => {
-        setValue((event.target as HTMLInputElement).value);
-    }
 
     return (
         <div className={authStyles.auth}>
@@ -79,22 +67,29 @@ function LoginPage() {
                     <Form.Title>
                         We’ve missed you!
                     </Form.Title>
+
                     <Form.Text>
                         More than 150 questions are waiting for your wise suggestions!
                     </Form.Text>
 
-                    <TextField
-                        placeholderText="Username"
-                        value={value}
-                        onChange={onChange}
-                    />
 
-                    <TextField
-                        placeholderText="Password"
-                        type="password"
-                        value={value}
-                        onChange={onChange}
-                    />
+                    <Form.TextInputValidated
+                        {...password}
+                    >
+                        <PasswordTextField
+                            {...password}
+                            labelText="Password"
+                        />
+                    </Form.TextInputValidated>
+
+                    <Form.TextInputValidated
+                        {...username}
+                    >
+                        <TextField
+                            {...username}
+                            labelText="Username"
+                        />
+                    </Form.TextInputValidated>
 
                 </Form>
 

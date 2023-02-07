@@ -2,6 +2,7 @@ import React, {FormEventHandler, ReactNode} from "react";
 
 import * as styles from "./Form.module.scss";
 import {TextField, TextFieldProps} from "../Input/Input";
+import getInputError from "./utils/getInputError";
 
 interface FormProps extends React.DetailedHTMLProps<React.FormHTMLAttributes<HTMLFormElement>, HTMLFormElement>{
     children: ReactNode;
@@ -44,11 +45,22 @@ Form.Text = function FormText({children}: FormTextProps) {
     )
 }
 
+interface TextInputValidatedProps {
+    touched: boolean;
+    errors: string[];
+    children: ReactNode;
+}
 
-Form.TextInputValidated = function FormTextFieldValidated(props: TextFieldProps) {
+Form.TextInputValidated = function FormTextFieldValidated({children, errors, touched}: TextInputValidatedProps) {
+
+    const inputErrorItems = getInputError(errors, touched);
+
     return (
-        <div>
-            <TextField {...props}/>
+        <div className={styles.formInputValidatedContainer}>
+            {children}
+            <div className={styles.formInputErrorsContainer}>
+                {inputErrorItems}
+            </div>
         </div>
     )
 }
