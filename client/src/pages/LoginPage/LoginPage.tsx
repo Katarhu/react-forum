@@ -14,7 +14,7 @@ import {PasswordTextField, TextField} from "../../common/components/Input/Input"
 import {loginUser} from "../../store/user/user.action.creators";
 import {clearAuthError} from "../../store/user/user.slice";
 
-import {selectAuthError} from "../../store/user/user.selectors";
+import {selectAuthError, selectIsLoadingAuth} from "../../store/user/user.selectors";
 
 import LoginImage from "../../assets/LoginImage.jpg";
 
@@ -26,6 +26,7 @@ function LoginPage() {
     const password = useInput('', {minLength: 3, maxLength: 30, required: true});
 
     const loginError = useAppSelector(selectAuthError);
+    const isLoading = useAppSelector(selectIsLoadingAuth);
 
     const dispatch = useAppDispatch();
 
@@ -36,7 +37,7 @@ function LoginPage() {
     const handleFormSubmit = (event: FormEvent) => {
         event.preventDefault();
 
-        if (!isFormValid) return;
+        if (!isFormValid || isLoading) return;
 
         const loginCredentials: ILoginCredentials = {
             username: username.value,

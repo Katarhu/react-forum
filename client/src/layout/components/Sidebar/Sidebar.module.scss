@@ -1,6 +1,3 @@
-@import "../../../common/styles/variables";
-
-
 $linksPadding: 2em;
 
 .sidebar {
@@ -9,6 +6,8 @@ $linksPadding: 2em;
   min-height: calc(100vh - 4em);
 
   box-shadow: 0 5px 5px rgba(0,0,0, 0.35);
+
+  --linksPadding: 2em;
 
   display: flex;
   flex-direction: column;
@@ -33,7 +32,7 @@ $linksPadding: 2em;
   font-weight: 500;
   color: #4b4b4b;
 
-  padding: 0 calc($linksPadding + .4em);
+  padding: 0 calc(var(--linksPadding) + .4em);
 
   margin-bottom: 1.25em;
 }
@@ -47,7 +46,7 @@ $linksPadding: 2em;
 .sidebarLink {
   display: flex;
   gap: .75em;
-  padding: 0.75em $linksPadding;
+  padding: 0.75em var(--linksPadding);
   font-weight: 500;
 }
 
@@ -55,13 +54,13 @@ $linksPadding: 2em;
   @extend .sidebarLink;
   font-weight: 700;
 
-  border-left: 5px solid $primaryOrange;
+  border-left: 5px solid var(--orange-700);
   background: rgba(244, 128, 35, 0.1);
   padding: 0.75em calc($linksPadding - 5px);
-  color: $primaryOrange;
+  color: var(--orange-700);
 
   & .sidebarLinksIcon {
-    color: $primaryOrange;
+    color: var(--orange-700);
   }
 }
 

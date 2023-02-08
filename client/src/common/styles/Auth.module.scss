@@ -19,54 +19,6 @@
   align-items: center;
 }
 
-.authForm {
-  max-width: 520px;
-  padding: 1em 2em;
-
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-
-.authFormTitle {
-  font-size: 2em;
-  font-weight: 700;
-}
-
-.authFormText {
-  font-size: 1.15em;
-  font-weight: 300;
-  line-height: 150%;
-}
-
-.authFormInputFieldset {
-  position: relative;
-}
-
-.authInputErrors {
-  position: absolute;
-  height: 100%;
-  top: 50%;
-
-  transform: translateY(-50%);
-}
-
-.authInputErrorsPlain{
-  @extend .authInputErrors;
-  right: 0;
-}
-
-.authInputErrorsShifted{
-  @extend .authInputErrors;
-  right: 1.65em;
-}
-
-.authFormError {
-  font-size: .75em;
-  color: #FF0000;
-  margin-left: 1em;
-}
-
 .authImageContainer {
   flex: 0 1 60%;
   position: relative;

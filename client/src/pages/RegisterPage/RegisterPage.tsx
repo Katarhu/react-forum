@@ -11,7 +11,7 @@ import {useInput} from "../../hooks/useInput";
 import Form from "../../common/components/Form/Form";
 import {PasswordTextField, TextField} from "../../common/components/Input/Input";
 
-import {selectAuthError} from "../../store/user/user.selectors";
+import {selectAuthError, selectIsLoadingAuth} from "../../store/user/user.selectors";
 import useOnUnmount from "../../hooks/useOnUnmount";
 
 import RegisterImage from "../../assets/RegisterImage.jpg";
@@ -26,6 +26,7 @@ function RegisterPage() {
     const passwordRepeat = useInput('', { required: true, minLength: 3, maxLength: 30, password: password.value });
 
     const registerError = useAppSelector(selectAuthError);
+    const isLoading = useAppSelector(selectIsLoadingAuth);
 
     const dispatch = useAppDispatch();
 
@@ -35,6 +36,8 @@ function RegisterPage() {
 
     const onSubmit = (event: FormEvent) => {
         event.preventDefault();
+
+        if (!isFormValid || isLoading) return;
 
         const registerCredentials: IRegisterCredentials = {
             username: username.value,

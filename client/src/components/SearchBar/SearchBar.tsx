@@ -2,8 +2,8 @@ import {ChangeEvent, useState} from "react";
 
 import {FiSearch} from "react-icons/fi";
 
-import Input from "../../common/components/Input/Input";
-import {inputLinedOnFocus} from "../../common/components/Input/Input.module.scss";
+import {TextField} from "../../common/components/Input/Input";
+import {inputLineFocused} from "../../common/components/Input/Input.module.scss";
 
 import * as styles from "./SearchBar.module.scss";
 
@@ -18,11 +18,12 @@ function SearchBar() {
     return (
         <div className={styles.sidebarSearchContainer}>
             <FiSearch className={styles.sidebarSearchIcon} />
-            <Input
+
+            <TextField
                 value={query}
                 onChange={handleQueryChanges}
                 labelText="Search"
-                className={inputLinedOnFocus}
+                className={inputLineFocused}
             />
         </div>
     );
