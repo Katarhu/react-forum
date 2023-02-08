@@ -1,7 +1,7 @@
-import PostSkeleton from '../QuestionPage/components/PostSkeleton/PostSkeleton';
-
 import {AiOutlineClockCircle, AiOutlineCloseCircle} from 'react-icons/all';
 import {BsArrowUpRight} from 'react-icons/all';
+
+import PostSkeleton from './components/PostSkeleton/PostSkeleton';
 
 import * as styles from "./QuestionsPage.module.scss";
 
@@ -22,10 +22,11 @@ function QuestionsPage() {
             </div>
 
             <div className={styles.postsContainer}>
-                <PostSkeleton/>
-                <PostSkeleton/>
-                <PostSkeleton/>
-                <PostSkeleton/>
+                <PostSkeleton />
+                <PostSkeleton />
+                <PostSkeleton />
+                <PostSkeleton />
+                <PostSkeleton />
             </div>
         </div>
     );

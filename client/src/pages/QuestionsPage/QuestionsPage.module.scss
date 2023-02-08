@@ -17,8 +17,8 @@
 }
 
 .filterSelected {
-  color: #FFFFFF;
-  background: #1682FD;
+  color: var(--white);
+  background: var(--blue-500);
 }
 
 .filter {
@@ -28,7 +28,7 @@
 
   border-radius: 1.5em;
 
-  color: #ADADAD;
+  color: var(--gray-xl);
 
   padding: .5em 1.25em;
 

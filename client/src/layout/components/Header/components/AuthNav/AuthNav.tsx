@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 
 import ROUTES from "../../../../../router/routes";
 
-import { commonButton } from "../../../../../common/components/Button/Button.module.scss";
+import {primaryOrange} from "../../../../../common/components/Button/Button.module.scss";
 
 import {BiMessageRoundedAdd} from "react-icons/bi"
 
@@ -15,7 +15,7 @@ function AuthNav() {
 
     return (
         <>
-            <Link to={ROUTES.ADD_QUESTION} className={commonButton}>
+            <Link to={ROUTES.ADD_QUESTION} className={primaryOrange}>
                 <BiMessageRoundedAdd/> Ask a question
             </Link>
 

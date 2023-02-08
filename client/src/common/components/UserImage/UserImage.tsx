@@ -5,14 +5,16 @@ import * as styles from "./UserImage.module.scss";
 interface UserImageProps {
     url: string;
     className?: string;
-    alt?: string
-    onClick?: (event: React.MouseEvent) => void;
+    alt?: string;
+    maxWidth?: number;
 }
 
-const UserImage = ({ url, className = styles.userImageContainer, alt = "User image", onClick}: UserImageProps) =>
-    <button
-        onClick={onClick}
+const UserImage = ({ url, className = styles.userImageContainer, alt = "User image", maxWidth}: UserImageProps) =>
+    <div
         className={className}
+        style={{
+            maxWidth: maxWidth ? maxWidth + "em" : undefined,
+        }}
     >
         <img
             className={styles.userImage}
@@ -20,7 +22,7 @@ const UserImage = ({ url, className = styles.userImageContainer, alt = "User ima
             src={url}
             alt={alt}
         />
-    </button>
+    </div>
 
 
 export default memo(UserImage);

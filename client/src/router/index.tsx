@@ -37,10 +37,10 @@ const router = createBrowserRouter([
                             <RegisterPage/>
                         </PublicRoute>
             },
-            // {
-            //     path: ROUTES.QUESTIONS,
-            //     element: <MainLayout children={<QuestionsPage />}/>
-            // },
+            {
+                path: ROUTES.QUESTIONS,
+                element: <MainLayout children={<QuestionsPage />}/>
+            },
             // {
             //     path: ROUTES.QUESTION_ID(),
             //     element: <MainLayout children={ <QuestionPage /> }/>
@@ -71,10 +71,10 @@ const router = createBrowserRouter([
             //     path: ROUTES.TAGS,
             //     element: <MainLayout children={<TagsPage />}/>
             // },
-            // {
-            //     path: ROUTES.NOT_MATCHING,
-            //     element: <Navigate to={ROUTES.QUESTIONS}/>
-            // }
+            {
+                path: ROUTES.NOT_MATCHING,
+                element: <Navigate to={ROUTES.QUESTIONS}/>
+            }
         ]
     }
 ]);

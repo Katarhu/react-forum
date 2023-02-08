@@ -38,37 +38,37 @@ function Modal({children, onClose}: ModalWrapperProps) {
 }
 
 
-Modal.Header = function ModalHeader({children, className = "", ...props}: CommonSubcomponentProps) {
+Modal.Header = ({children, className = "", ...props}: CommonSubcomponentProps) => {
     return <div className={`${styles.modalHeader} ${className}`} {...props}>
         {children}
     </div>
 }
 
-Modal.Title = function ModalTitle({children, className = "", ...props}: CommonSubcomponentProps) {
+Modal.Title = ({children, className = "", ...props}: CommonSubcomponentProps) => {
     return <h2 className={`${styles.modalTitle} ${className}`} {...props}>
         {children}
     </h2>
 }
 
-Modal.SubTitle = function ModalSubTitle({children, className = "", ...props}: CommonSubcomponentProps) {
+Modal.SubTitle = ({children, className = "", ...props}: CommonSubcomponentProps) => {
     return <h3 className={`${styles.modalSubtitle} ${className}`} {...props}>
         {children}
     </h3>
 };
 
-Modal.Body = function ModalBody({children, className = "", ...props}: CommonSubcomponentProps) {
+Modal.Body = ({children, className = "", ...props}: CommonSubcomponentProps) => {
     return <div className={`${styles.modalBody} ${className}`} {...props}>
         {children}
     </div>
 };
 
-Modal.Text = function ModalText({children, className = "", ...props}: CommonSubcomponentProps) {
+Modal.Text = ({children, className = "", ...props}: CommonSubcomponentProps) => {
     return <p className={`${styles.modalText} ${className}`} {...props}>
         {children}
     </p>
 };
 
-Modal.Controls = function ModalControls({children, className = "", ...props}: CommonSubcomponentProps) {
+Modal.Controls = ({children, className = "", ...props}: CommonSubcomponentProps) => {
     return <div className={`${styles.modalControls} ${className}`} {...props}>
         {children}
     </div>

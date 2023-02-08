@@ -1,7 +1,7 @@
 
 .skeletonLoader {
-  border: #BCBBBC;
-  background: #EAEAEA;
+  border: var(--gray-md);
+  background: var(--gray-600);
 
   animation: skeleton-loading 1s linear infinite alternate;
 }
@@ -12,10 +12,10 @@
   width: 100%;
   max-width: 36em;
   min-width: 24em;
-  border: 2px solid #EAEAEA;
+  border: 2px solid var(--gray-600);
   border-radius: .5em;
 
-  background: #ffffff;
+  background: var(--white);
 
   padding: 1.25em 1.5em;
 
@@ -86,6 +86,6 @@
 
 @keyframes skeleton-loading {
   to {
-    background: #BCBBBC;
+    background: var(--g);
   }
 }
