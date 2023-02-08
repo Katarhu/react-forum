@@ -10,7 +10,7 @@
   font-size: .8em;
   line-height: 125%;
 
-  padding: 0.6em 1.5em;
+  padding: 0.75em 1.5em;
   border-radius: .3em;
   text-align: center;
 
@@ -27,6 +27,11 @@
 
   &:focus {
     box-shadow: 0 0 0 4px var(--shadowColor);
+  }
+
+  :is(&[disabled], &[aria-disabled="true"]) {
+    pointer-events: none;
+    opacity: 0.65;
   }
 }
 
@@ -57,5 +62,20 @@
 
   &:focus {
     --shadowColor: var(--blue-400);
+  }
+}
+
+.primaryDanger {
+  @extend .commonButton;
+
+  --background: var(--red-700);
+  --color: var(--white);
+
+  &:focus {
+    --shadowColor: var(--red-500);
+  }
+
+  &:hover {
+    --background: var(--red-600);
   }
 }

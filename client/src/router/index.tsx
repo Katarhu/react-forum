@@ -31,12 +31,12 @@ const router = createBrowserRouter([
                             <LoginPage/>
                         </PublicRoute>
             },
-            // {
-            //     path: ROUTES.REGISTER,
-            //     element: <PublicRoute to={ROUTES.QUESTIONS}>
-            //                 <RegisterPage/>
-            //             </PublicRoute>
-            // },
+            {
+                path: ROUTES.REGISTER,
+                element: <PublicRoute to={ROUTES.QUESTIONS}>
+                            <RegisterPage/>
+                        </PublicRoute>
+            },
             // {
             //     path: ROUTES.QUESTIONS,
             //     element: <MainLayout children={<QuestionsPage />}/>
