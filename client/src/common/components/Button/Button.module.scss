@@ -6,16 +6,15 @@
   align-items: center;
   gap: .5em;
 
-  font-weight: bold;
   font-size: .8em;
+  font-weight: bold;
   line-height: 125%;
 
   padding: 0.75em 1.5em;
-  border-radius: .3em;
   text-align: center;
 
   --background: transparent;
-  --shadowColor: var(--gray-600);
+  --shadowColor: var(--gray-md);
   --color: var(--black);
 
   background: var(--background);
@@ -77,5 +76,20 @@
 
   &:hover {
     --background: var(--red-600);
+  }
+}
+
+.secondaryDanger {
+  @extend .commonButton;
+
+  --background: var(--white);
+  --color: var(--red-700);
+
+  &:focus {
+    --shadowColor: var(--gray-md);
+  }
+
+  &:hover {
+    --background: var(--gray-600);
   }
 }

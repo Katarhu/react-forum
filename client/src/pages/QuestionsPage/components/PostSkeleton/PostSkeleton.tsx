@@ -7,7 +7,7 @@ const PostSkeleton = () => {
                 <Skeleton.Circle maxWidth={2.25}/>
                 <Skeleton.Box flex column gap={0.15}>
                     <Skeleton.Text maxWidth={7}/>
-                    <Skeleton.Text maxWidth={5} size={0.75} />
+                    <Skeleton.Text maxWidth={5} size={0.75}/>
                 </Skeleton.Box>
             </Skeleton.Box>
 
@@ -18,9 +18,9 @@ const PostSkeleton = () => {
             </Skeleton.Box>
 
             <Skeleton.Box flex gap={0.5}>
-                <Skeleton.Text maxWidth={2.5} size={1.25}/>
-                <Skeleton.Text maxWidth={2.5} size={1.25}/>
-                <Skeleton.Text maxWidth={2.5} size={1.25}/>
+                <Skeleton.Text maxWidth={2} size={2}/>
+                <Skeleton.Text maxWidth={2} size={2}/>
+                <Skeleton.Text maxWidth={2} size={2}/>
             </Skeleton.Box>
         </Skeleton>
     )

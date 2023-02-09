@@ -1,7 +1,5 @@
-import {AiOutlineClockCircle, AiOutlineCloseCircle} from 'react-icons/all';
-import {BsArrowUpRight} from 'react-icons/all';
-
 import PostSkeleton from './components/PostSkeleton/PostSkeleton';
+import FilterButtons from "./components/FilterButtons/FilterButtons";
 
 import * as styles from "./QuestionsPage.module.scss";
 
@@ -9,17 +7,7 @@ import * as styles from "./QuestionsPage.module.scss";
 function QuestionsPage() {
     return (
         <div className={styles.postsPage}>
-            <div className={styles.filterContainer}>
-                <button className={styles.filter}>
-                    <AiOutlineClockCircle /> New
-                </button>
-                <button className={styles.filter}>
-                    <BsArrowUpRight /> Top
-                </button>
-                <button className={styles.filter}>
-                    <AiOutlineCloseCircle /> Closed
-                </button>
-            </div>
+            <FilterButtons />
 
             <div className={styles.postsContainer}>
                 <PostSkeleton />

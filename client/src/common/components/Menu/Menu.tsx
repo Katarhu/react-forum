@@ -1,5 +1,7 @@
 import * as styles from './Menu.module.scss';
-import {ReactNode} from 'react';
+import {createRef, ReactNode} from 'react';
+import {MenuContextProvider, useMenu} from "./context/MenuContext";
+import useClickOutside from "../../../hooks/useClickOutside";
 
 interface MenuProps {
     children: ReactNode;
@@ -7,53 +9,111 @@ interface MenuProps {
 
 const Menu = ({ children }: MenuProps) => {
     return (
-        <div className={styles.menuContainer}>
-            {children}
-        </div>
+        <MenuContextProvider>
+            <div className={styles.menuContainer}>
+                {children}
+            </div>
+        </MenuContextProvider>
     );
 };
 
 interface MenuBodyProps {
     children: ReactNode;
+    flex?: boolean;
+    column?: boolean;
+    gap?: number;
 }
 
-Menu.Body = ({ children }: MenuBodyProps) => {
+Menu.Body = ({ children, flex, column, gap }: MenuBodyProps) => {
     return (
-        <div className={styles.menuBody}>
+        <div
+            className={styles.menuBody}
+            style={{
+                display: flex ? "flex" : undefined,
+                flexDirection: column ? "column" : undefined,
+                gap: gap ?  gap + "em" : undefined,
+            }}
+        >
             {children}
         </div>
     )
 }
 
-interface MenuDropdownProps {
-
+interface MenuToggleProps {
+    children: ReactNode;
 }
 
-Menu.Dropdown = () => {
+Menu.Toggle = ({ children }: MenuToggleProps) => {
+
+    const {handleToggle} = useMenu();
+
     return (
-        <div></div>
+        <button
+            className={styles.menuToggle}
+            onClick={handleToggle}
+        >
+            {children}
+        </button>
+    )
+}
+
+interface MenuToggleIconProps {
+    size?: number;
+}
+
+Menu.ToggleIcon = ({ size }: MenuToggleIconProps) => {
+    return (
+        <span
+            className={styles.menuToggleIcon}
+            style={{
+                fontSize: size ? size + "em" : undefined,
+            }}
+        >
+            ▼
+        </span>
     )
 }
 
 interface MenuDropdownProps {
-
+    children: ReactNode;
 }
 
-Menu.DropdownItem = () => {
+Menu.Dropdown = ({ children }: MenuDropdownProps) => {
+    const menuRef = createRef<HTMLUListElement>();
+    const {isOpen, handleClose} = useMenu();
+
+    useClickOutside(menuRef, handleClose);
+
+    return isOpen ?
+        <ul
+            className={styles.menuDropdown}
+            ref={menuRef}
+            role="menu"
+        >
+            {children}
+        </ul>
+        :
+        null;
+}
+
+interface MenuDropdownItemProps {
+    children: ReactNode;
+}
+
+Menu.DropdownItem = ({ children }: MenuDropdownItemProps) => {
     return (
-        <div></div>
+        <li
+            className={styles.menuDropdownItem}
+            role="menuitem"
+        >
+            {children}
+        </li>
     )
 }
 
-Menu.Toggle = () => {
+Menu.DropdownDivider = () => {
     return (
-        <div></div>
-    )
-}
-
-Menu.ToggleIcon = () => {
-    return (
-        <div></div>
+        <hr className={styles.menuDropdownDivider}/>
     )
 }
 

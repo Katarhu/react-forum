@@ -4,15 +4,19 @@ export default function useClickOutside(elementRef: RefObject<HTMLElement | null
 
     const onClick = useCallback((event: React.MouseEvent) => {
 
-        event.stopPropagation();
+        console.log("click")
 
         if( !elementRef.current || event.target === elementRef.current || elementRef.current.contains(event.target as HTMLElement)) return;
 
         callback(event);
 
-    }, [elementRef, callback])
+    }, [elementRef, callback]);
 
     useEffect(() => {
+        if( !elementRef.current ) {
+            return document.removeEventListener('click', onClick as any);
+        }
+
         document.addEventListener('click', onClick as any)
 
         return () => {

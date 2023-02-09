@@ -55,6 +55,10 @@ body:not(.theme-dark) {
     --blue-500: hsl(216, 90%, 64%);
     --blue-600: hsl(214, 90%, 57%);
     --blue-700: hsl(214, 90%, 46%);
+
+    --shadow-dark-500: hsl(0, 0%, 0%, 15%);
+    --shadow-dark-600: hsl(0, 0%, 0%, 35%);
+    --shadow-dark-700: hsl(0, 0%, 0%, 50%);
 }
 
 
