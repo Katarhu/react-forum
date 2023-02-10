@@ -3,13 +3,13 @@ import TiptapEditor from "./components/TiptapEditor/TiptapEditor";
 
 import {useInput} from "../../hooks/useInput";
 
-import Input from "../../common/components/Input/Input";
-import {inputOutlinedPlain} from "../../common/components/Input/Input.module.scss";
+import {TextField} from "../../common/components/Input/Input";
+// import {inputOutlinedPlain} from "../../common/components/Input/Input.module.scss";
 
 import TagsSelect from "./components/TagsSelect/TagsSelect";
 
 import Button from "../../common/components/Button/Button";
-import {secondaryButton, commonButtonOrange} from "../../common/components/Button/Button.module.scss";
+import {primaryOrange, secondaryDanger} from "../../common/components/Button/Button.module.scss";
 
 import {useAppDispatch} from "../../hooks/redux";
 import {openDiscardChangesModal} from "../../store/modal/modal.slice";
@@ -32,7 +32,7 @@ function AddQuestionPage() {
 
     }
     const handleDiscardChanges = () => {
-        // dispatch(openDiscardChangesModal({ onDiscard }))
+        dispatch(openDiscardChangesModal({ onDiscard }))
     }
 
     const handleSaveQuestion = () => {
@@ -56,8 +56,8 @@ function AddQuestionPage() {
                 </div>
 
                 <div>
-                    <Input
-                        className={inputOutlinedPlain}
+                    <TextField
+                        // className={inputOutlinedPlain}
                         value={title.value}
                         labelText={"Type catching attention title"}
                         onChange={title.onChange}
@@ -69,14 +69,16 @@ function AddQuestionPage() {
                 <div className={styles.questionControls}>
                     <Button
                         onClick={handleSaveQuestion}
-                        className={commonButtonOrange}
+                        className={primaryOrange}
+                        rounded
                     >
                         Save new question
                     </Button>
 
                     <Button
                         onClick={handleDiscardChanges}
-                        className={secondaryButton}
+                        className={secondaryDanger}
+                        rounded
                     >
                         Discard changes
                     </Button>

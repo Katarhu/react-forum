@@ -1,6 +1,6 @@
 import React, {createRef, MouseEventHandler, ReactNode} from 'react';
 
-import useClickOutside from "../../../hooks/useClickOutside";
+import useClickOutside from "../../../hooks/useOnClickOutside";
 
 import {BiX} from "react-icons/all";
 

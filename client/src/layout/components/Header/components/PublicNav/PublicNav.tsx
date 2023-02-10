@@ -1,21 +1,21 @@
-import {Link} from "react-router-dom";
+import {AppLink} from "../../../../../common/components/Button/Button";
 
 import {FiUserPlus} from "react-icons/all";
 
-import ROUTES from "../../../../../router/routes";
-
 import {primaryOrange, primaryGray} from "../../../../../common/components/Button/Button.module.scss";
+
+import ROUTES from "../../../../../router/routes";
 
 
 const PublicNav = () =>
     <>
-        <Link to={ROUTES.REGISTER} className={primaryOrange}>
+        <AppLink to={ROUTES.REGISTER} className={primaryOrange} rounded>
             <FiUserPlus /> Register
-        </Link>
+        </AppLink>
 
-        <Link to={ROUTES.LOGIN} className={primaryGray}>
+        <AppLink to={ROUTES.LOGIN} className={primaryGray} rounded>
             Login
-        </Link>
+        </AppLink>
     </>
 
 export default PublicNav;

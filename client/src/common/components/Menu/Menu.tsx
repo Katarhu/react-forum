@@ -1,19 +1,49 @@
 import * as styles from './Menu.module.scss';
-import {createRef, ReactNode} from 'react';
-import {MenuContextProvider, useMenu} from "./context/MenuContext";
-import useClickOutside from "../../../hooks/useClickOutside";
+import {createRef, MouseEventHandler, ReactNode, useState} from 'react';
+import {MenuContext, useMenu} from "./context/MenuContext";
+import useClickOutside from "../../../hooks/useOnClickOutside";
 
 interface MenuProps {
     children: ReactNode;
 }
 
 const Menu = ({ children }: MenuProps) => {
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleOpen: MouseEventHandler = (event) => {
+        event.stopPropagation();
+        setIsOpen(true);
+    }
+
+    const handleClose: MouseEventHandler = (event) => {
+        event.stopPropagation();
+        setIsOpen(false);
+    }
+
+    const handleToggle: MouseEventHandler = (event) => {
+        event.stopPropagation();
+        setIsOpen(prev => !prev)
+    }
+
+    const menuRef = createRef<HTMLDivElement>();
+
+    useClickOutside(menuRef, handleClose, "mousedown");
+
     return (
-        <MenuContextProvider>
-            <div className={styles.menuContainer}>
+        <MenuContext.Provider value={{
+            isOpen,
+            handleClose,
+            handleOpen,
+            handleToggle,
+        }}>
+            <div
+                className={styles.menuContainer}
+                ref={menuRef}
+            >
                 {children}
             </div>
-        </MenuContextProvider>
+        </MenuContext.Provider>
     );
 };
 
@@ -50,6 +80,8 @@ Menu.Toggle = ({ children }: MenuToggleProps) => {
     return (
         <button
             className={styles.menuToggle}
+            aria-controls="primary-navigation"
+            aria-label="menu"
             onClick={handleToggle}
         >
             {children}
@@ -79,15 +111,11 @@ interface MenuDropdownProps {
 }
 
 Menu.Dropdown = ({ children }: MenuDropdownProps) => {
-    const menuRef = createRef<HTMLUListElement>();
-    const {isOpen, handleClose} = useMenu();
-
-    useClickOutside(menuRef, handleClose);
+    const {isOpen} = useMenu();
 
     return isOpen ?
         <ul
             className={styles.menuDropdown}
-            ref={menuRef}
             role="menu"
         >
             {children}
