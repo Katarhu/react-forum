@@ -9,11 +9,11 @@ import ROUTES from "../../../../../router/routes";
 
 const PublicNav = () =>
     <>
-        <AppLink to={ROUTES.REGISTER} className={primaryOrange} rounded>
+        <AppLink to={ROUTES.REGISTER} className={primaryOrange}>
             <FiUserPlus /> Register
         </AppLink>
 
-        <AppLink to={ROUTES.LOGIN} className={primaryGray} rounded>
+        <AppLink to={ROUTES.LOGIN} className={primaryGray}>
             Login
         </AppLink>
     </>

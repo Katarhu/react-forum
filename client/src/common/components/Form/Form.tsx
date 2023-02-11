@@ -11,17 +11,21 @@ interface FormProps extends React.DetailedHTMLProps<React.FormHTMLAttributes<HTM
     children: ReactNode;
     onSubmit: FormEventHandler;
     maxWidth?: number;
+    minWidth?: number;
 }
 
 interface FormTextProps {
     children: ReactNode;
 }
-const Form = ({ children, onSubmit, maxWidth }: FormProps) => {
+const Form = ({ children, onSubmit, maxWidth, minWidth }: FormProps) => {
 
     return (
         <form
             className={styles.form}
-            style={{ maxWidth }}
+            style={{
+                maxWidth: maxWidth ? maxWidth + "em" : undefined,
+                minWidth: minWidth ? minWidth + "em" : undefined,
+            }}
             onSubmit={onSubmit}
         >
             {children}

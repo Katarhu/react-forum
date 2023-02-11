@@ -9,7 +9,7 @@ interface MenuProps {
 
 const Menu = ({ children }: MenuProps) => {
 
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
 
     const handleOpen: MouseEventHandler = (event) => {
         event.stopPropagation();

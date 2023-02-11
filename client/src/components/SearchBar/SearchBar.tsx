@@ -1,4 +1,4 @@
-import {ChangeEvent, useState} from "react";
+import {ChangeEvent, useId, useState} from "react";
 
 import {FiSearch} from "react-icons/fi";
 
@@ -10,6 +10,7 @@ import * as styles from "./SearchBar.module.scss";
 
 function SearchBar() {
     const [query, setQuery] = useState('');
+    const id = useId();
 
     const handleQueryChanges = (event: ChangeEvent) => {
         setQuery((event.target as HTMLInputElement).value)
@@ -17,9 +18,12 @@ function SearchBar() {
 
     return (
         <div className={styles.sidebarSearchContainer}>
-            <FiSearch className={styles.sidebarSearchIcon} />
+            <label htmlFor={id} className={styles.sidebarSearchLabel}>
+                <FiSearch className={styles.sidebarSearchIcon} />
+            </label>
 
             <TextField
+                id={id}
                 value={query}
                 onChange={handleQueryChanges}
                 labelText="Search"

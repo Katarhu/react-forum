@@ -7,11 +7,11 @@
 
 .panelLinks {
   width: 16em;
-  background: #FFFFFF;
+  background: var(--white);
 
   padding: 2em;
   border-radius: .35em;
-  box-shadow: 0 0 5px rgba(0,0,0, 0.25);
+  box-shadow: 0 0 5px var(--black-transparent-600);
 
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@
 
 .panelLinksTitle {
   font-weight: 500;
-  border-bottom: 1px solid #f4f4f4;
+  border-bottom: 1px solid var(--gray-700);
 
   padding: 0 0 .75em 0;
   display: flex;
@@ -36,7 +36,7 @@
 
 .panelLinksTitleIcon {
   font-size: 1.15em;
-  color: #828282;
+  color: var(--gray-xl);
 }
 
 .panelLinksList {
@@ -62,9 +62,11 @@
   &:before {
     content: '';
     position: absolute;
-    width: .4em;
-    height: .4em;
-    color: var(--blue-700);
+    width: .35em;
+
+    aspect-ratio: 1;
+
+    background: var(--blue-700);
     border-radius: 50%;
 
     top: .5em;

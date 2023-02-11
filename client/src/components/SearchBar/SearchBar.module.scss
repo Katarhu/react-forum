@@ -13,6 +13,13 @@
   overflow: hidden;
 }
 
+.sidebarSearchLabel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
 .sidebarSearchIcon {
   flex-grow: 1;
   flex-shrink: 0;

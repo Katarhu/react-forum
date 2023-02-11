@@ -1,4 +1,4 @@
-import React, {MouseEventHandler, RefObject} from "react";
+import {MouseEventHandler, RefObject} from "react";
 
 import useEventListener from "./useEventListener";
 

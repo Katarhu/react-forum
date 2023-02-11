@@ -3,7 +3,7 @@ import * as styles from "./ProfilePage.module.scss";
 
 function ProfilePage() {
     return (
-        <div className={styles.profilePage}>
+        <div>
             Profile
         </div>
     );

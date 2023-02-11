@@ -15,6 +15,7 @@ import {useAppDispatch} from "../../hooks/redux";
 import {openDiscardChangesModal} from "../../store/modal/modal.slice";
 
 import * as styles from "./AddQuestionPage.module.scss";
+import Form from "../../common/components/Form/Form";
 
 
 function AddQuestionPage() {
@@ -45,45 +46,26 @@ function AddQuestionPage() {
 
     return (
         <div className={styles.addQuestionPage}>
-            <form
+            <Form
                 onSubmit={handleFormSubmit}
-                className={styles.questionForm}
+                maxWidth={36}
+                minWidth={24}
             >
-                <div>
-                    <TagsSelect
-                        placeholder="Choose categories"
-                    />
-                </div>
+                <TagsSelect placeholder="Choose categories" />
 
-                <div>
-                    <TextField
-                        // className={inputOutlinedPlain}
-                        value={title.value}
-                        labelText={"Type catching attention title"}
-                        onChange={title.onChange}
-                    />
-                </div>
+                <TextField
+                    value={title.value}
+                    labelText={"Type catching attention title"}
+                    onChange={title.onChange}
+                />
 
                 <TiptapEditor onUpdate={handleContentUpdate}/>
 
-                <div className={styles.questionControls}>
-                    <Button
-                        onClick={handleSaveQuestion}
-                        className={primaryOrange}
-                        rounded
-                    >
-                        Save new question
-                    </Button>
-
-                    <Button
-                        onClick={handleDiscardChanges}
-                        className={secondaryDanger}
-                        rounded
-                    >
-                        Discard changes
-                    </Button>
-                </div>
-            </form>
+                <Form.Controls>
+                    <Form.SubmitButton>Save new question</Form.SubmitButton>
+                    <Form.DeclineButton className={secondaryDanger}>Discard changes</Form.DeclineButton>
+                </Form.Controls>
+            </Form>
         </div>
     );
 }

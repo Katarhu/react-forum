@@ -11,7 +11,7 @@ import {commonButton, secondaryDanger} from "../../../../../../../common/compone
 
 import ROUTES from "../../../../../../../router/routes";
 
-function UserControls() {
+function UserMenu() {
 
     const url = "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg";
 
@@ -33,19 +33,19 @@ function UserControls() {
 
             <Menu.Dropdown>
                 <Menu.DropdownItem>
-                    <AppLink className={commonButton} to={ROUTES.PROFILE}>My Profile</AppLink>
+                    <AppLink className={commonButton} to={ROUTES.PROFILE} notRounded>My Profile</AppLink>
                 </Menu.DropdownItem>
 
                 <Menu.DropdownDivider />
 
                 <Menu.DropdownItem>
-                    <AppLink className={commonButton} to={ROUTES.PROFILE}><FiSettings /> Settings</AppLink>
+                    <AppLink className={commonButton} to={ROUTES.PROFILE} notRounded><FiSettings /> Settings</AppLink>
                 </Menu.DropdownItem>
 
                 <Menu.DropdownDivider />
 
                 <Menu.DropdownItem>
-                    <Button className={secondaryDanger}><FiLogOut /> Logout</Button>
+                    <Button className={secondaryDanger} notRounded><FiLogOut /> Logout</Button>
                 </Menu.DropdownItem>
 
             </Menu.Dropdown>
@@ -53,4 +53,4 @@ function UserControls() {
     );
 }
 
-export default UserControls;
+export default UserMenu;

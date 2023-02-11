@@ -41,36 +41,36 @@ const router = createBrowserRouter([
                 path: ROUTES.QUESTIONS,
                 element: <MainLayout children={<QuestionsPage />}/>
             },
-            // {
-            //     path: ROUTES.QUESTION_ID(),
-            //     element: <MainLayout children={ <QuestionPage /> }/>
-            // },
-            // {
-            //     path: ROUTES.PROFILE,
-            //     element: <PrivateRoute to={ROUTES.QUESTIONS}>
-            //                 <MainLayout children={<ProfilePage />}/>
-            //             </PrivateRoute>
-            // },
-            // {
-            //     path: ROUTES.NOTIFICATIONS,
-            //     element: <PrivateRoute to={ROUTES.QUESTIONS}>
-            //                 <MainLayout children={<NotificationPage />}/>
-            //             </PrivateRoute>
-            // },
-            // {
-            //     path: ROUTES.ADD_QUESTION,
-            //     element: <PrivateRoute to={ROUTES.QUESTIONS}>
-            //                 <MainLayout children={<AddQuestionPage />}/>
-            //             </PrivateRoute>
-            // },
-            // {
-            //     path: ROUTES.RANKINGS,
-            //     element: <MainLayout children={<RankingsPage />}/>
-            // },
-            // {
-            //     path: ROUTES.TAGS,
-            //     element: <MainLayout children={<TagsPage />}/>
-            // },
+            {
+                path: ROUTES.QUESTION_ID(),
+                element: <MainLayout children={ <QuestionPage /> }/>
+            },
+            {
+                path: ROUTES.PROFILE,
+                element: <PrivateRoute to={ROUTES.QUESTIONS}>
+                            <MainLayout children={<ProfilePage />}/>
+                        </PrivateRoute>
+            },
+            {
+                path: ROUTES.NOTIFICATIONS,
+                element: <PrivateRoute to={ROUTES.QUESTIONS}>
+                            <MainLayout children={<NotificationPage />}/>
+                        </PrivateRoute>
+            },
+            {
+                path: ROUTES.ADD_QUESTION,
+                element: <PrivateRoute to={ROUTES.QUESTIONS}>
+                            <MainLayout children={<AddQuestionPage />}/>
+                        </PrivateRoute>
+            },
+            {
+                path: ROUTES.RANKINGS,
+                element: <MainLayout children={<RankingsPage />}/>
+            },
+            {
+                path: ROUTES.TAGS,
+                element: <MainLayout children={<TagsPage />}/>
+            },
             {
                 path: ROUTES.NOT_MATCHING,
                 element: <Navigate to={ROUTES.QUESTIONS}/>

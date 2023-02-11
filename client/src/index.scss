@@ -40,12 +40,18 @@ body:not(.theme-dark) {
     --gray-xl: hsl(0, 0%, 66%);
 
     --white: hsl(0, 0%, 100%);
+
+    --black-transparent-600: hsl(0, 0%, 25%, 65%);
+    --black-600: hsl(0, 0%, 25%);
+    --black-700: hsl(0, 0%, 30%);
     --black: hsl(0, 0%, 0%);
 
     --red-500: hsl(358, 59%, 63%);
     --red-600: hsl(358, 61%, 47%);
     --red-700: hsl(358, 63%, 41%);
 
+    --orange-transparent-400: hsl(27, 87%, 72%, 20%);
+    --orange-transparent-500: hsl(27, 95%, 85%, 25%);
     --orange-500: hsl(27, 87%, 72%);
     --orange-600: hsl(27, 89%, 65%);
     --orange-700: hsl(27, 91%, 55%);

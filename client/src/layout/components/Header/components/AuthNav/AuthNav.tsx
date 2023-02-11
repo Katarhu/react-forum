@@ -8,7 +8,7 @@ import {BiMessageRoundedAdd} from "react-icons/bi"
 
 import NotificationIcon from "./components/NotificationIcon/NotificationIcon";
 
-import UserControls from "./components/UserControls/UserControls";
+import UserMenu from "./components/UserMenu/UserMenu";
 import {AppLink} from "../../../../../common/components/Button/Button";
 
 
@@ -16,13 +16,13 @@ function AuthNav() {
 
     return (
         <>
-            <AppLink to={ROUTES.ADD_QUESTION} className={primaryOrange} rounded>
+            <AppLink to={ROUTES.ADD_QUESTION} className={primaryOrange}>
                 <BiMessageRoundedAdd/> Ask a question
             </AppLink>
 
             <NotificationIcon />
 
-            <UserControls />
+            <UserMenu />
         </>
     );
 }

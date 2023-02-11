@@ -11,18 +11,18 @@ export interface ButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAtt
     testId?: string;
     className?: string;
     ref?: any;
-    rounded?: boolean;
+    notRounded?: boolean;
 }
 
 
-const Button = ({ children, disabled, rounded, className = styles.commonButton, ...props }: ButtonProps) => {
+const Button = ({ children, disabled, notRounded, className = styles.commonButton, ...props }: ButtonProps) => {
     return (
         <button
             className={className}
             aria-disabled={disabled}
             disabled={disabled}
             style={{
-                borderRadius: rounded ? ".3em" : undefined,
+                borderRadius: notRounded ? "unset" : undefined,
             }}
             {...props}
         >
@@ -33,16 +33,16 @@ const Button = ({ children, disabled, rounded, className = styles.commonButton, 
 
 interface AppLinkProps extends LinkProps {
     className?: string;
-    rounded?: boolean;
+    notRounded?: boolean;
 }
 
-export const AppLink = ({ children, rounded, className = styles.commonButton, to }: AppLinkProps) => {
+export const AppLink = ({ children, notRounded, className = styles.commonButton, to }: AppLinkProps) => {
     return (
         <Link
             className={className}
             to={to}
             style={{
-                borderRadius: rounded ? ".3em" : undefined,
+                borderRadius: notRounded ? "unset" : undefined,
             }}
         >
             {children}
