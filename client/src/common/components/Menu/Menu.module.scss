@@ -11,26 +11,54 @@
 .menuDropdown {
   position: absolute;
   bottom: 0;
-  right: 0;
+
+  --left: unset;
+  --right: unset;
+
+  left: var(--left);
+  right: var(--right);
 
   background: var(--white);
   white-space: nowrap;
 
-  border: 1px solid var(--gray-xl);
-  border-radius: 0.3em;
-  overflow: hidden;
+  --borderRadius: 0.3em;
 
-  transform: translateY(115%);
+  border: 1px solid var(--gray-xl);
+  border-radius: var(--borderRadius);
+
+  padding: 1.5em 1em;
+
+  --transformX: 0;
+
+  transform: translateY(calc(100% + 1.15em)) translateX(var(--transformX));
+
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+}
+
+.menuDropdownRight {
+  @extend .menuDropdown;
+
+  --left: 0;
+}
+
+.menuDropdownLeft {
+  @extend .menuDropdown;
+
+  --right: 0;
+}
+
+.menuDropdownCenter {
+  @extend .menuDropdown;
+
+  --left: 50%;
+  --transformX: -50%;
 }
 
 .menuDropdownItem {
-
-
   & > * {
-    font-size: 1em;
     width: 100%;
-
-    padding: .75em 2.5em;
   }
 }
 

@@ -1,15 +1,15 @@
-import React, {useState} from "react";
-
 import Menu from '../../../../../../../common/components/Menu/Menu';
+
+import {FiLogOut, FiSettings} from "react-icons/fi";
 
 import UserImage from '../../../../../../../common/components/UserImage/UserImage';
 import UserIcon from "../../../../../../../common/components/UserIcon/UserIcon";
-import {Link} from "react-router-dom";
-import ROUTES from "../../../../../../../router/routes";
 
-import {FiLogOut} from "react-icons/fi";
+
 import Button, {AppLink} from "../../../../../../../common/components/Button/Button";
 import {commonButton, secondaryDanger} from "../../../../../../../common/components/Button/Button.module.scss";
+
+import ROUTES from "../../../../../../../router/routes";
 
 function UserControls() {
 
@@ -39,8 +39,15 @@ function UserControls() {
                 <Menu.DropdownDivider />
 
                 <Menu.DropdownItem>
+                    <AppLink className={commonButton} to={ROUTES.PROFILE}><FiSettings /> Settings</AppLink>
+                </Menu.DropdownItem>
+
+                <Menu.DropdownDivider />
+
+                <Menu.DropdownItem>
                     <Button className={secondaryDanger}><FiLogOut /> Logout</Button>
                 </Menu.DropdownItem>
+
             </Menu.Dropdown>
         </Menu>
     );

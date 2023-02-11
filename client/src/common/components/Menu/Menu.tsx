@@ -9,7 +9,7 @@ interface MenuProps {
 
 const Menu = ({ children }: MenuProps) => {
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
 
     const handleOpen: MouseEventHandler = (event) => {
         event.stopPropagation();
@@ -108,14 +108,22 @@ Menu.ToggleIcon = ({ size }: MenuToggleIconProps) => {
 
 interface MenuDropdownProps {
     children: ReactNode;
+    left?: boolean;
+    center?: boolean;
+    right?: boolean;
 }
 
-Menu.Dropdown = ({ children }: MenuDropdownProps) => {
+Menu.Dropdown = ({ children, right, left, center }: MenuDropdownProps) => {
     const {isOpen} = useMenu();
+
+    const className = left ? styles.menuDropdownLeft :
+                      right ? styles.menuDropdownRight :
+                      center ? styles.menuDropdownCenter : styles.menuDropdownLeft;
+
 
     return isOpen ?
         <ul
-            className={styles.menuDropdown}
+            className={className}
             role="menu"
         >
             {children}
