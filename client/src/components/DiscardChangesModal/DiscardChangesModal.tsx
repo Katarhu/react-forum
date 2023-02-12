@@ -43,7 +43,6 @@ function DiscardChangesModal({ onDiscard }: IDiscardChangesModalProps) {
                 <Button
                     onClick={onDiscard}
                     className={primaryDanger}
-                    rounded
                 >
                     Discard changes
                 </Button>
@@ -51,7 +50,6 @@ function DiscardChangesModal({ onDiscard }: IDiscardChangesModalProps) {
                 <Button
                     onClick={handleModalClose}
                     className={secondaryDanger}
-                    rounded
                 >
                     Keep creating
                 </Button>

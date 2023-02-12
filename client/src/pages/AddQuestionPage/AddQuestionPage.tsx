@@ -30,7 +30,7 @@ function AddQuestionPage() {
     }
 
     const onDiscard = () => {
-
+        console.log(title.value);
     }
     const handleDiscardChanges = () => {
         dispatch(openDiscardChangesModal({ onDiscard }))
@@ -46,26 +46,31 @@ function AddQuestionPage() {
 
     return (
         <div className={styles.addQuestionPage}>
-            <Form
-                onSubmit={handleFormSubmit}
-                maxWidth={36}
-                minWidth={24}
-            >
-                <TagsSelect placeholder="Choose categories" />
+            <div className={styles.questionFormContainer}>
+                <Form
+                    onSubmit={handleFormSubmit}
+                >
+                    <TagsSelect placeholder="Choose categories" />
 
-                <TextField
-                    value={title.value}
-                    labelText={"Type catching attention title"}
-                    onChange={title.onChange}
-                />
+                    <TextField
+                        value={title.value}
+                        labelText={"Type catching attention title"}
+                        onChange={title.onChange}
+                    />
 
-                <TiptapEditor onUpdate={handleContentUpdate}/>
+                    <TiptapEditor onUpdate={handleContentUpdate}/>
 
-                <Form.Controls>
-                    <Form.SubmitButton>Save new question</Form.SubmitButton>
-                    <Form.DeclineButton className={secondaryDanger}>Discard changes</Form.DeclineButton>
-                </Form.Controls>
-            </Form>
+                    <Form.Controls>
+                        <Form.SubmitButton>
+                            Save new question
+                        </Form.SubmitButton>
+                        <Form.DeclineButton className={secondaryDanger} onClick={handleDiscardChanges}>
+                            Discard changes
+                        </Form.DeclineButton>
+                    </Form.Controls>
+                </Form>
+
+            </div>
         </div>
     );
 }

@@ -1,10 +1,13 @@
 import React, {RefObject, useEffect, useRef} from "react";
 
+
 type ReactWindowEventMap = {
     [K in keyof WindowEventMap]: WindowEventMap[K] extends MouseEvent
         ? React.MouseEvent<Element, MouseEvent>
         : WindowEventMap[K];
 };
+
+
 function useEventListener<K extends keyof WindowEventMap>(
     eventName: K,
     handler: (event: ReactWindowEventMap[K]) => void,
@@ -31,6 +34,7 @@ function useEventListener<K extends keyof DocumentEventMap>(
 ): void;
 
 function useEventListener<
+    E,
     KW extends keyof WindowEventMap,
     KH extends keyof HTMLElementEventMap,
     T extends HTMLElement | MediaQueryList | void = void,

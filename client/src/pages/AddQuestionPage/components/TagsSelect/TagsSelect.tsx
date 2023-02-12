@@ -4,8 +4,9 @@ import {BaseSyntheticEvent, useState} from 'react';
 import {ITag} from '../../../../models/tags.model';
 
 import * as styles from "./TagsSelect.module.scss";
+import "./TagsSelect.module.scss";
 
-import Select, {MultiValue, SingleValue} from "react-select";
+import Select, {ClassNamesConfig, GroupBase, MultiValue, SingleValue} from 'react-select';
 import {InputActionMeta} from "react-select";
 import CreatableSelect from "react-select/creatable";
 
@@ -19,7 +20,12 @@ const options = [
     { id: "2", label: "second-tag", value: "second"},
     { id: "3", label: "third-tag", value: "third"},
     { id: "4", label: "forth-tag", value: "forth"},
-]
+];
+
+const classNames:  ClassNamesConfig<ITag, true, GroupBase<ITag>> = {
+    control: () => styles.selectControl,
+    placeholder: () => styles.selectPlaceholder,
+}
 
 
 function TagsSelect({ placeholder }: SelectProps) {
@@ -43,6 +49,7 @@ function TagsSelect({ placeholder }: SelectProps) {
             className={styles.selectContainer}
         >
             <CreatableSelect
+                classNames={classNames}
                 isMulti
                 value={value}
                 onChange={handleSelectChange}

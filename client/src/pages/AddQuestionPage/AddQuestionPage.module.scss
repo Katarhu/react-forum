@@ -2,27 +2,21 @@
 .addQuestionPage {
 
 
-  padding-top: 2em;
-}
-
-.questionForm {
-  width: 100%;
-  max-width: 36em;
-  min-width: 24em;
-
-  margin: 0 auto;
-
-  background: #ffffff;
-  box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.15);
-
-  padding: 1.5em 2em;
-
-  display: flex;
-  flex-direction: column;
-  gap: 1.5em;
+  padding-block: 2em;
 }
 
 .questionControls {
   display: flex;
   gap: 1em;
+}
+
+.questionFormContainer {
+  width: 100%;
+  max-width: 36em;
+  margin: 0 auto;
+  padding: 1em .5em;
+
+  border-radius: .5em;
+
+  background: var(--white);
 }

@@ -6,3 +6,43 @@
 
   position: relative;
 }
+
+.select {
+  padding-block: 1.6em;
+}
+
+.react-select-container {
+
+}
+
+.react-select__value-container {
+
+}
+
+.react-select__indicators {
+
+}
+
+.react-select__menu {
+
+}
+
+.react-select__menu-list {
+
+}
+
+.react-select__option {
+
+}
+
+.selectControl {
+  border: 2px solid var(--gray-700) !important;
+  border-radius: .35em !important;
+  padding-top: 0.4em;
+  padding-bottom: 0.2em;
+}
+
+.selectPlaceholder {
+  color: var(--black) !important;
+  opacity: var(--opacity-xl);
+}

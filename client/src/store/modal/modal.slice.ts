@@ -14,11 +14,11 @@ export const modalSlice = createSlice({
     reducers: {
         openDiscardChangesModal: (state, action: PayloadAction<IDiscardChangesModalProps>) => {
             state.discardModal.isActive = true;
-            // state.discardModal.props = action.payload;
+            state.discardModal.props = action.payload;
         },
         closeDiscardChangesModal: (state) => {
             state.discardModal.isActive = false;
-            // state.discardModal.props = null;
+            state.discardModal.props = null;
         },
 
 
