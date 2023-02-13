@@ -1,7 +1,7 @@
-import * as styles from "../../QuestionsPage.module.scss";
-
 import {AiOutlineClockCircle, AiOutlineCloseCircle} from "react-icons/ai";
 import { BsArrowUpRight} from "react-icons/bs";
+
+import * as styles from "../../QuestionsPage.module.scss";
 
 const FilterButtons = () => {
     return (

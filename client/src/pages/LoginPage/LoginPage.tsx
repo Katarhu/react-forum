@@ -6,17 +6,17 @@ import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 
 import {useInput} from "../../hooks/useInput";
 
-import {ILoginCredentials} from "../../models/login.model";
-
-import Form from "../../common/components/Form/Form";
-import {PasswordTextField, TextField} from "../../common/components/Input/Input";
-
 import {loginUser} from "../../store/user/user.action.creators";
 import {clearAuthError} from "../../store/user/user.slice";
 
 import {selectAuthError, selectIsLoadingAuth} from "../../store/user/user.selectors";
 
+import Form from "../../common/components/Form/Form";
+import {PasswordTextField, TextField} from "../../common/components/Input/Input";
+
 import LoginImage from "../../assets/LoginImage.jpg";
+
+import {ILoginCredentials} from "../../models/login.model";
 
 import * as authStyles from '../../common/styles/Auth.module.scss';
 

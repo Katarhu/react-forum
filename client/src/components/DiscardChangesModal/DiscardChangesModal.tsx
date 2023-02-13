@@ -1,3 +1,5 @@
+import {MouseEventHandler} from "react";
+
 import Modal from "../../common/components/Modal/Modal";
 import {modalTitleDanger} from "../../common/components/Modal/Modal.module.scss";
 
@@ -6,7 +8,6 @@ import {primaryDanger, secondaryDanger} from "../../common/components/Button/But
 
 import {useAppDispatch} from "../../hooks/redux";
 import {closeDiscardChangesModal} from "../../store/modal/modal.slice";
-import {MouseEventHandler} from "react";
 
 
 export interface IDiscardChangesModalProps {

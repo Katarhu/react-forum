@@ -1,14 +1,12 @@
-import {BaseSyntheticEvent, useState} from 'react';
+import {useState} from 'react';
 
+import {ClassNamesConfig, GroupBase, MultiValue} from 'react-select';
+import CreatableSelect from "react-select/creatable";
+import {InputActionMeta} from "react-select";
 
 import {ITag} from '../../../../models/tags.model';
 
 import * as styles from "./TagsSelect.module.scss";
-import "./TagsSelect.module.scss";
-
-import Select, {ClassNamesConfig, GroupBase, MultiValue, SingleValue} from 'react-select';
-import {InputActionMeta} from "react-select";
-import CreatableSelect from "react-select/creatable";
 
 
 interface SelectProps {

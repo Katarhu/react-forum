@@ -6,15 +6,32 @@ import {BiX} from "react-icons/all";
 
 import * as styles from "./Modal.module.scss";
 
-interface ModalWrapperProps extends CommonSubcomponentProps {
-    onClose: MouseEventHandler;
-}
 
 interface CommonSubcomponentProps {
     children: ReactNode;
     className?: string;
     style?: React.CSSProperties
 }
+
+interface ModalWrapperProps extends CommonSubcomponentProps {
+    onClose: MouseEventHandler;
+}
+
+interface FlexContainer extends CommonSubcomponentProps {
+    flex?: boolean;
+    alignCenter?: boolean;
+    justifyCenter?: boolean;
+    column?: boolean;
+    gap?: number;
+}
+
+interface SizeableComponent extends CommonSubcomponentProps {
+    size?: number;
+}
+
+
+type ModalContainer = CommonSubcomponentProps & FlexContainer;
+type ModalText = CommonSubcomponentProps & SizeableComponent;
 
 function Modal({children, onClose}: ModalWrapperProps) {
 
@@ -37,41 +54,94 @@ function Modal({children, onClose}: ModalWrapperProps) {
     );
 }
 
-
-Modal.Header = ({children, className = "", ...props}: CommonSubcomponentProps) => {
-    return <div className={`${styles.modalHeader} ${className}`} {...props}>
-        {children}
-    </div>
+Modal.Header = ({children, className = styles.modalHeader, size, ...props}: ModalText) => {
+    return (
+        <div
+            className={className}
+            {...props}
+        >
+            {children}
+        </div>
+    )
 }
 
-Modal.Title = ({children, className = "", ...props}: CommonSubcomponentProps) => {
-    return <h2 className={`${styles.modalTitle} ${className}`} {...props}>
-        {children}
-    </h2>
+Modal.Title = ({children, className = styles.modalTitle, size=1.25, ...props}: ModalText) => {
+    return (
+        <h2
+            className={className}
+            style={{
+                fontSize: size + "em",
+            }}
+            {...props}
+        >
+            {children}
+        </h2>
+    )
 }
 
-Modal.SubTitle = ({children, className = "", ...props}: CommonSubcomponentProps) => {
-    return <h3 className={`${styles.modalSubtitle} ${className}`} {...props}>
-        {children}
-    </h3>
+Modal.SubTitle = ({children, className = styles.modalSubtitle, size = 1, ...props}: ModalText) => {
+    return (
+        <h3
+            className={className}
+            style={{
+                fontSize: size + "em",
+            }}
+            {...props}
+        >
+            {children}
+        </h3>
+    )
 };
 
-Modal.Body = ({children, className = "", ...props}: CommonSubcomponentProps) => {
-    return <div className={`${styles.modalBody} ${className}`} {...props}>
-        {children}
-    </div>
+
+Modal.Body = ({children, className = styles.modalBody, flex, column, alignCenter, justifyCenter, gap, ...props}: ModalContainer) => {
+    return (
+        <div
+            className={className}
+            style={{
+                display: flex ? "flex" : undefined,
+                alignItems: alignCenter ? "center" : undefined,
+                justifyContent: justifyCenter ? "center" :undefined,
+                flexDirection: column ? "column" : undefined,
+                gap: gap ? gap + "em" : undefined,
+            }}
+            {...props}
+        >
+            {children}
+        </div>
+    )
 };
 
-Modal.Text = ({children, className = "", ...props}: CommonSubcomponentProps) => {
-    return <p className={`${styles.modalText} ${className}`} {...props}>
-        {children}
-    </p>
+Modal.Text = ({children, className = styles.modalText, size = 0.75, ...props}: ModalText) => {
+    return (
+        <p
+            className={className}
+            style={{
+                fontSize: size + "em"
+            }}
+            {...props}
+        >
+            {children}
+        </p>
+    )
 };
 
-Modal.Controls = ({children, className = "", ...props}: CommonSubcomponentProps) => {
-    return <div className={`${styles.modalControls} ${className}`} {...props}>
-        {children}
-    </div>
+Modal.Controls = ({children, className = styles.modalControls, flex, alignCenter, column, justifyCenter, gap, ...props}: ModalContainer) => {
+    return (
+        <div
+            className={className}
+            style={{
+                display: flex ? "flex" : undefined,
+                alignItems: alignCenter ? "center" : undefined,
+                justifyContent: justifyCenter ? "center" :undefined,
+                flexDirection: column ? "column" : undefined,
+                gap: gap ? gap + "em" : undefined,
+            }}
+            {...props}
+        >
+            {children}
+        </div>
+    )
 };
 
 export default Modal;

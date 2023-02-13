@@ -1,20 +1,22 @@
 import React, {FormEvent} from 'react';
 
+import useOnUnmount from "../../hooks/useOnUnmount";
+
+import {useInput} from "../../hooks/useInput";
+
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 
-import {IRegisterCredentials} from "../../models/register.model";
 import {registerUser} from "../../store/user/user.action.creators";
 import {clearAuthError} from "../../store/user/user.slice";
 
-import {useInput} from "../../hooks/useInput";
+import {selectAuthError, selectIsLoadingAuth} from "../../store/user/user.selectors";
 
 import Form from "../../common/components/Form/Form";
 import {PasswordTextField, TextField} from "../../common/components/Input/Input";
 
-import {selectAuthError, selectIsLoadingAuth} from "../../store/user/user.selectors";
-import useOnUnmount from "../../hooks/useOnUnmount";
-
 import RegisterImage from "../../assets/RegisterImage.jpg";
+
+import {IRegisterCredentials} from "../../models/register.model";
 
 import * as authStyles from "../../common/styles/Auth.module.scss";
 

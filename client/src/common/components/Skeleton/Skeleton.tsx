@@ -2,11 +2,32 @@ import React, {ReactNode} from 'react';
 
 import * as styles from "./Skeleton.module.scss";
 
-interface SkeletonProps {
+interface ChildProps {
     children: ReactNode;
+}
+
+interface FlexProps {
+    flex?: boolean;
+    column?: boolean;
+    alignCenter?: boolean;
+    gap?: number;
+}
+
+interface WidthProps {
+    width?: number;
     maxWidth?: number;
     minWidth?: number;
 }
+
+interface SizeableProps {
+    size?: number;
+}
+
+type SkeletonProps = ChildProps & WidthProps;
+
+type SkeletonTextProps = SizeableProps & WidthProps;
+
+type SkeletonContainer = ChildProps & FlexProps;
 
 const Skeleton = ({ children, maxWidth, minWidth }: SkeletonProps) => {
     return (
@@ -22,12 +43,6 @@ const Skeleton = ({ children, maxWidth, minWidth }: SkeletonProps) => {
     );
 };
 
-interface SkeletonTextProps {
-    width?: number;
-    maxWidth?: number;
-    size?: number;
-}
-
 Skeleton.Text = ({ width, maxWidth, size }: SkeletonTextProps) => {
     return (
         <div
@@ -41,30 +56,21 @@ Skeleton.Text = ({ width, maxWidth, size }: SkeletonTextProps) => {
     )
 }
 
-interface SkeletonCircleProps {
-    maxWidth?: number;
-}
-
-Skeleton.Circle = ({ maxWidth }: SkeletonCircleProps) => {
+Skeleton.Circle = ({ maxWidth, width, minWidth }: WidthProps) => {
     return (
         <div
             className={styles.skeletonCircle}
             style={{
                 maxWidth: maxWidth ? maxWidth + "em" : undefined,
+                width: width ? width + "%" : undefined,
+                minWidth: minWidth ? minWidth + "em" : undefined,
             }}
         />
     )
 }
 
-interface SkeletonBoxProps {
-    children: ReactNode;
-    flex?: boolean;
-    column?: boolean;
-    alignCenter?: boolean;
-    gap?: number;
-}
 
-Skeleton.Box = ({ children, gap, alignCenter, flex, column }: SkeletonBoxProps) => {
+Skeleton.Box = ({ children, gap, alignCenter, flex, column }: SkeletonContainer) => {
     return (
         <div
             className={styles.skeletonBox}

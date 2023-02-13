@@ -1,11 +1,12 @@
 import React, {FormEventHandler, ReactNode} from "react";
 
-import * as styles from "./Form.module.scss";
+import Button, {ButtonProps} from "../Button/Button";
+import {primaryOrange, primaryDanger} from "../Button/Button.module.scss";
 
 import getInputError from "./utils/getInputError";
 
-import Button, {ButtonProps} from "../Button/Button";
-import {primaryOrange, primaryDanger} from "../Button/Button.module.scss";
+import * as styles from "./Form.module.scss";
+
 
 interface FormProps extends React.DetailedHTMLProps<React.FormHTMLAttributes<HTMLFormElement>, HTMLFormElement>{
     children: ReactNode;

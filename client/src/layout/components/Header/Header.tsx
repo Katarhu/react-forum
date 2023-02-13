@@ -10,7 +10,7 @@ import Logo from './components/Logo/Logo';
 import PublicNav from "./components/PublicNav/PublicNav";
 import AuthNav from "./components/AuthNav/AuthNav";
 
-import ROUTES from "../../../router/routes";
+import ROUTES from "../../../router/constants/routes";
 
 import * as styles from './Header.module.scss';
 

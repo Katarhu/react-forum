@@ -3,13 +3,12 @@ import React from "react";
 import * as styles from './UserIcon.module.scss';
 
 
-interface UserIconProps {
+interface UserIconProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
     className?: string;
-    onClick?: (event: React.MouseEvent) => void;
 }
 
-const UserIcon = ({ className = styles.userIcon, onClick }: UserIconProps) =>
-    <button onClick={onClick} className={className}></button>
+const UserIcon = ({ className = styles.userIcon, ...props }: UserIconProps) =>
+    <div className={className} {...props} />
 
 
 export default UserIcon;

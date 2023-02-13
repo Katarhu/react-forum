@@ -11,13 +11,12 @@ import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import NotificationPage from "../pages/NotificationPage/NotificationPage";
 import AddQuestionPage from "../pages/AddQuestionPage/AddQuestionPage";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
-
-import ROUTES from "./routes";
 import RankingsPage from "../pages/RankingsPage/RankingsPage";
 import TagsPage from "../pages/TagsPage/TagsPage";
 import PublicRoute from "../components/PublicRoute/PublicRoute";
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 
+import ROUTES from "./constants/routes";
 
 
 const router = createBrowserRouter([

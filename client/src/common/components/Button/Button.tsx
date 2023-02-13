@@ -1,7 +1,8 @@
 import React, {memo, MouseEventHandler} from 'react';
 
-import * as styles from './Button.module.scss';
 import {Link, LinkProps} from "react-router-dom";
+
+import * as styles from './Button.module.scss';
 
 export interface ButtonProps extends React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>{
     onClick?: MouseEventHandler

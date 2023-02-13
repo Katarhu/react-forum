@@ -4,7 +4,7 @@ import {FiUserPlus} from "react-icons/all";
 
 import {primaryOrange, primaryGray} from "../../../../../common/components/Button/Button.module.scss";
 
-import ROUTES from "../../../../../router/routes";
+import ROUTES from "../../../../../router/constants/routes";
 
 
 const PublicNav = () =>

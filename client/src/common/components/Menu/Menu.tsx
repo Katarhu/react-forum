@@ -1,7 +1,11 @@
-import * as styles from './Menu.module.scss';
 import {createRef, MouseEventHandler, ReactNode, useState} from 'react';
-import {MenuContext, useMenu} from "./context/MenuContext";
+
 import useClickOutside from "../../../hooks/useOnClickOutside";
+
+import {MenuContext, useMenu} from "./context/MenuContext";
+
+import * as styles from './Menu.module.scss';
+
 
 interface MenuProps {
     children: ReactNode;
@@ -137,9 +141,13 @@ interface MenuDropdownItemProps {
 }
 
 Menu.DropdownItem = ({ children }: MenuDropdownItemProps) => {
+
+    const {handleClose} = useMenu();
+
     return (
         <li
             className={styles.menuDropdownItem}
+            onClick={handleClose}
             role="menuitem"
         >
             {children}

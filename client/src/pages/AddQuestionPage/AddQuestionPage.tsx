@@ -1,21 +1,20 @@
 import {FormEventHandler, useState} from "react";
-import TiptapEditor from "./components/TiptapEditor/TiptapEditor";
-
-import {useInput} from "../../hooks/useInput";
-
-import {TextField} from "../../common/components/Input/Input";
-// import {inputOutlinedPlain} from "../../common/components/Input/Input.module.scss";
-
-import TagsSelect from "./components/TagsSelect/TagsSelect";
-
-import Button from "../../common/components/Button/Button";
-import {primaryOrange, secondaryDanger} from "../../common/components/Button/Button.module.scss";
 
 import {useAppDispatch} from "../../hooks/redux";
 import {openDiscardChangesModal} from "../../store/modal/modal.slice";
 
-import * as styles from "./AddQuestionPage.module.scss";
+import {useInput} from "../../hooks/useInput";
+
 import Form from "../../common/components/Form/Form";
+import {TextField} from "../../common/components/Input/Input";
+
+import TiptapEditor from "./components/TiptapEditor/TiptapEditor";
+
+import TagsSelect from "./components/TagsSelect/TagsSelect";
+
+import {secondaryDanger} from "../../common/components/Button/Button.module.scss";
+
+import * as styles from "./AddQuestionPage.module.scss";
 
 
 function AddQuestionPage() {
@@ -69,7 +68,6 @@ function AddQuestionPage() {
                         </Form.DeclineButton>
                     </Form.Controls>
                 </Form>
-
             </div>
         </div>
     );

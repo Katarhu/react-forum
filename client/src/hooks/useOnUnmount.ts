@@ -2,8 +2,8 @@ import {useEffect, useRef} from "react";
 
 
 export default function useOnUnmount(callback: () => void) {
-    const flag = useRef<any>(false);
-    const callbackRef = useRef<any>(callback);
+    const flag = useRef<boolean>(false);
+    const callbackRef = useRef<typeof callback>(callback);
 
     useEffect(() => {
         return () => {

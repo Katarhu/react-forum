@@ -1,16 +1,18 @@
 import React, {ChangeEventHandler, FocusEventHandler, memo, useId, useState} from "react";
 
-import * as styles from "./Input.module.scss";
-import {AiOutlineEye, AiOutlineEyeInvisible} from "react-icons/all";
 import useBooleanToggle from "../../../hooks/useBooleanToggle";
+
+import {AiOutlineEye, AiOutlineEyeInvisible} from "react-icons/all";
+
+import * as styles from "./Input.module.scss";
+
 
 export interface TextFieldProps extends React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
     value: string | number;
     onChange: ChangeEventHandler;
-    onBlur?: FocusEventHandler;
     labelText?: string;
-
 }
+
 export const TextField = memo(({labelText, placeholder=" ", className, type,...props}: TextFieldProps) => {
 
     const id = useId();
@@ -69,7 +71,3 @@ export const PasswordTextField = memo(({labelText, placeholder=" ", className, v
         </div>
     )
 })
-
-export function TextArea() {
-
-}

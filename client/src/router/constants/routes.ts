@@ -16,6 +16,10 @@ const ROUTES = {
     RANKINGS: "/rankings",
 
     NOT_MATCHING: "*",
-} as const
+} as const;
+
+export type IRoutesKeys = keyof typeof ROUTES;
+
+export type IRoute = typeof ROUTES[IRoutesKeys] | string;
 
 export default ROUTES;

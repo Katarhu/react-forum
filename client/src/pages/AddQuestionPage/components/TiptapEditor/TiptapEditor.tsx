@@ -1,4 +1,5 @@
-import React, {ChangeEventHandler, FormEventHandler} from "react";
+import React from "react";
+
 import {EditorContent, useEditor} from "@tiptap/react";
 import {StarterKit} from "@tiptap/starter-kit";
 
@@ -9,6 +10,7 @@ import {Paragraph} from "@tiptap/extension-paragraph"
 import TiptapMenuBar from "../TiptapMenu/TiptapMenu";
 
 import * as styles from "./TiptapEditor.module.scss";
+
 
 interface TiptapEditorProps {
     onUpdate: any;

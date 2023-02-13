@@ -1,8 +1,10 @@
-import React, {ChangeEvent, useCallback, useState} from 'react';
+import {ChangeEvent, ChangeEventHandler, useCallback, useState} from 'react';
 
 import {IValidatorKeys, useValidation} from './useValidation';
 
-type InputValueType = string | number | never;
+type InputValueType = string | number;
+
+type InitialValue<T> = T | (() => T);
 
 interface useInputReturn<T> {
     value: T,
@@ -13,8 +15,20 @@ interface useInputReturn<T> {
     errors: string[];
 }
 
-export function useInput<T extends InputValueType = InputValueType>(initialValue: T, validators: IValidatorKeys = {}) {
-    const [value, setValue] = useState<InputValueType>(initialValue);
+export function useInput<T extends InputValueType>(
+    initialValue: T,
+    validators: IValidatorKeys,
+): useInputReturn<T>
+
+export function useInput<T  extends InputValueType>(initialValue: InitialValue<T>, validators: IValidatorKeys = {}) {
+    const [value, setValue] = useState<T>(() => {
+        if (typeof  initialValue === "function") {
+            return initialValue();
+        }
+
+        return initialValue;
+    });
+
     const [touched, setIsTouched] = useState(false);
     const { isValid, errors } = useValidation(value, validators);
 
@@ -22,8 +36,9 @@ export function useInput<T extends InputValueType = InputValueType>(initialValue
         setIsTouched(true);
     }, []);
 
-    const onChange = useCallback((event: ChangeEvent) => {
-        setValue((event.target as HTMLInputElement).value);
+    const onChange: ChangeEventHandler = useCallback((event) => {
+        const target = event.target as HTMLInputElement;
+        setValue(target.value as T);
     }, []);
 
     return {
@@ -33,5 +48,5 @@ export function useInput<T extends InputValueType = InputValueType>(initialValue
         touched,
         isValid,
         errors
-    } as useInputReturn<T>
+    }
 }
