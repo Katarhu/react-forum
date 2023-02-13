@@ -1,7 +1,7 @@
 import {useEffect, useRef} from "react";
 
 
-export default function useOnMount(callback: () => void) {
+export default function useOnMount(callback: () => void, dependencies: any[] = []) {
     const flag = useRef(false);
 
     useEffect(() => {
@@ -9,5 +9,5 @@ export default function useOnMount(callback: () => void) {
             callback();
             flag.current = true;
         }
-    },[]);
+    }, dependencies);
 }

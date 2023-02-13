@@ -1,15 +1,16 @@
 import {memo} from "react";
-import {Link} from "react-router-dom";
 
 import {useAppSelector} from "../../../hooks/redux";
 import {selectIsAuth} from "../../../store/user/user.selectors";
+
+import {AppLink} from "../../../common/components/Button/Button";
 
 import Logo from './components/Logo/Logo';
 
 import PublicNav from "./components/PublicNav/PublicNav";
 import AuthNav from "./components/AuthNav/AuthNav";
 
-import ROUTES from "../../../router/routes";
+import ROUTES from "../../../router/constants/routes";
 
 import * as styles from './Header.module.scss';
 
@@ -25,12 +26,12 @@ function Header() {
     return (
         <header className={styles.header}>
             <div className={styles.headerContainer}>
-                <Link to={ROUTES.QUESTIONS} className={styles.headerLogo}>
+                <AppLink to={ROUTES.QUESTIONS} className={styles.headerLogo}>
                     <Logo />
                     <div>
                         alem<b>help</b>
                     </div>
-                </Link>
+                </AppLink>
 
                 <nav className={styles.headerControls}>
                     {navContent}

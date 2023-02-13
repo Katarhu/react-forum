@@ -2,17 +2,20 @@ import React, {memo} from "react";
 
 import * as styles from "./UserImage.module.scss";
 
-interface UserImageProps {
+interface UserImageProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
     url: string;
     className?: string;
-    alt?: string
-    onClick?: (event: React.MouseEvent) => void;
+    maxWidth?: number;
+    alt?: string;
 }
 
-const UserImage = ({ url, className = styles.userImageContainer, alt = "User image", onClick}: UserImageProps) =>
-    <button
-        onClick={onClick}
+const UserImage = ({ url, className = styles.userImageContainer, alt = "User image", maxWidth, ...props}: UserImageProps) =>
+    <div
         className={className}
+        style={{
+            maxWidth: maxWidth ? maxWidth + "em" : undefined,
+        }}
+        {...props}
     >
         <img
             className={styles.userImage}
@@ -20,7 +23,7 @@ const UserImage = ({ url, className = styles.userImageContainer, alt = "User ima
             src={url}
             alt={alt}
         />
-    </button>
+    </div>
 
 
 export default memo(UserImage);

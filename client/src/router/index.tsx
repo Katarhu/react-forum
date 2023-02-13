@@ -1,23 +1,22 @@
-import {createBrowserRouter} from "react-router-dom";
+import {createBrowserRouter, Navigate} from "react-router-dom";
 
 import App from "../App";
 import MainLayout from "../layout/components/MainLayout/MainLayout";
 
 import LoginPage from "../pages/LoginPage/LoginPage";
 import RegisterPage from "../pages/RegisterPage/RegisterPage";
-import PostsPage from "../pages/PostsPage/PostsPage";
-import PostPage from "../pages/PostPage/PostPage";
+import QuestionsPage from "../pages/QuestionsPage/QuestionsPage";
+import QuestionPage from "../pages/QuestionPage/QuestionPage";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import NotificationPage from "../pages/NotificationPage/NotificationPage";
 import AddQuestionPage from "../pages/AddQuestionPage/AddQuestionPage";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
-
-import ROUTES from "./routes";
 import RankingsPage from "../pages/RankingsPage/RankingsPage";
 import TagsPage from "../pages/TagsPage/TagsPage";
 import PublicRoute from "../components/PublicRoute/PublicRoute";
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 
+import ROUTES from "./constants/routes";
 
 
 const router = createBrowserRouter([
@@ -39,11 +38,11 @@ const router = createBrowserRouter([
             },
             {
                 path: ROUTES.QUESTIONS,
-                element: <MainLayout children={<PostsPage />}/>
+                element: <MainLayout children={<QuestionsPage />}/>
             },
             {
                 path: ROUTES.QUESTION_ID(),
-                element: <MainLayout children={ <PostPage /> }/>
+                element: <MainLayout children={ <QuestionPage /> }/>
             },
             {
                 path: ROUTES.PROFILE,
@@ -73,7 +72,7 @@ const router = createBrowserRouter([
             },
             {
                 path: ROUTES.NOT_MATCHING,
-                element: <MainLayout children={ <PostsPage /> }/>
+                element: <Navigate to={ROUTES.QUESTIONS}/>
             }
         ]
     }

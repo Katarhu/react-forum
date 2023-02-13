@@ -1,7 +1,7 @@
-import {ReactNode} from "react";
+import {Navigate} from "react-router-dom";
+
 import {useAppSelector} from "../../hooks/redux";
 import {selectIsAuth, selectIsUserAdmin} from "../../store/user/user.selectors";
-import {Navigate} from "react-router-dom";
 
 
 interface AdminRouteProps {

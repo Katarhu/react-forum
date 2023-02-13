@@ -1,16 +1,25 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+
+import {IModalInitialState} from "./modal.types";
+import {IDiscardChangesModalProps} from "../../components/DiscardChangesModal/DiscardChangesModal";
 
 
-const initialState = {
-    isDiscardChangesModal: true,
+const initialState: IModalInitialState = {
+    discardModal: { isActive: false, props: null },
 };
 
 export const modalSlice = createSlice({
     name: "modal",
     initialState,
     reducers: {
-        openDiscardChangesModal: (state) => ({ ...state, isDiscardChangesModal: true }),
-        closeDiscardChangesModal: (state) => ({ ...state, isDiscardChangesModal: false }),
+        openDiscardChangesModal: (state, action: PayloadAction<IDiscardChangesModalProps>) => {
+            state.discardModal.isActive = true;
+            state.discardModal.props = action.payload;
+        },
+        closeDiscardChangesModal: (state) => {
+            state.discardModal.isActive = false;
+            state.discardModal.props = null;
+        },
 
 
     },
@@ -19,5 +28,6 @@ export const modalSlice = createSlice({
 export default modalSlice.reducer;
 
 export const {
-    closeDiscardChangesModal
+    closeDiscardChangesModal,
+    openDiscardChangesModal
 } = modalSlice.actions;

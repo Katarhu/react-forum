@@ -1,4 +1,4 @@
-import ROUTES from '../../../../router/routes';
+import ROUTES from '../../../../router/constants/routes';
 
 export interface IPanelLink {
     content: string;

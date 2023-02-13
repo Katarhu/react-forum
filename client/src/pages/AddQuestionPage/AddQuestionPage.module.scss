@@ -1,0 +1,22 @@
+
+.addQuestionPage {
+
+
+  padding-block: 2em;
+}
+
+.questionControls {
+  display: flex;
+  gap: 1em;
+}
+
+.questionFormContainer {
+  width: 100%;
+  max-width: 36em;
+  margin: 0 auto;
+  padding: 1em .5em;
+
+  border-radius: .5em;
+
+  background: var(--white);
+}

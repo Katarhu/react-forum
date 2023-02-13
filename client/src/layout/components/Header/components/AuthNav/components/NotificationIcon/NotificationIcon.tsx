@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 
 import {BsBell} from "react-icons/all";
 
-import ROUTES from "../../../../../../../router/routes";
+import ROUTES from "../../../../../../../router/constants/routes";
 
 import * as styles from './NotificationIcon.module.scss';
 

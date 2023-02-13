@@ -5,6 +5,30 @@
   background: transparent;
 
   position: relative;
+
+  transform-origin: top;
+
+  &:focus {
+    animation: bell-ring .75s ease-in-out;
+  }
+}
+
+@keyframes bell-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-26deg);
+  }
+
+  50% {
+    transform: rotate(12deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .thereIsNotification {

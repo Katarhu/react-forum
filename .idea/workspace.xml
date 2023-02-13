@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="51a55527-561f-465f-9ea2-111324a61572" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/common/components/Input/Input.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/common/components/Input/Input.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/layout/components/Sidebar/Sidebar.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layout/components/Sidebar/Sidebar.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/layout/components/Sidebar/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/layout/components/Sidebar/Sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/hooks/useOnMount.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/hooks/useOnMount.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/AddQuestionPage/components/TagsSelect/TagsSelect.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/AddQuestionPage/components/TagsSelect/TagsSelect.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/AddQuestionPage/components/TagsSelect/TagsSelect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/AddQuestionPage/components/TagsSelect/TagsSelect.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/AddQuestionPage/components/TagsSelect/components/Tag/Tag.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/AddQuestionPage/components/TagsSelect/components/TagDropdown/TagDropdown.tsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +35,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/DESKTOP FILES/React/react-forum&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
@@ -38,6 +43,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\DESKTOP FILES\React\react-forum\client\src\pages\AddQuestionPage\components" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -47,7 +57,14 @@
       <option name="presentableId" value="Default" />
       <updated>1673882918833</updated>
       <workItem from="1673882927474" duration="2064000" />
-      <workItem from="1673947079867" duration="4309000" />
+      <workItem from="1673947079867" duration="10108000" />
+      <workItem from="1673987212945" duration="77000" />
+      <workItem from="1674063470353" duration="3312000" />
+      <workItem from="1674135348176" duration="14449000" />
+      <workItem from="1674252030748" duration="50000" />
+      <workItem from="1674494909977" duration="377000" />
+      <workItem from="1674923830893" duration="4371000" />
+      <workItem from="1674949597074" duration="2489000" />
     </task>
     <servers />
   </component>
@@ -71,7 +88,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/layout/components/Sidebar/components/UserSibedarLinks/UserSidebarLinks.tsx</url>
           <line>15</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

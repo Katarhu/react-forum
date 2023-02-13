@@ -1,6 +1,6 @@
 import * as styles from "./ErrorPage.module.scss";
 import {Link} from "react-router-dom";
-import ROUTES from "../../router/routes";
+import ROUTES from "../../router/constants/routes";
 
 
 function ErrorPage() {

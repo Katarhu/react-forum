@@ -1,20 +1,17 @@
-@import "../../../common/styles/variables";
-
-
-$linksPadding: 2em;
-
 .sidebar {
   font-size: var(--appFontSize);
   width: 16em;
   min-height: calc(100vh - 4em);
 
-  box-shadow: 0 5px 5px rgba(0,0,0, 0.35);
+  box-shadow: 0 5px 5px var(--shadow-dark-600);
+
+  --linksPadding: 2em;
 
   display: flex;
   flex-direction: column;
   gap: 1.5em;
 
-  background: #ffffff;
+  background: var(--white);
   padding: 1em 0;
 }
 
@@ -31,9 +28,9 @@ $linksPadding: 2em;
   display: inline-block;
   text-transform: uppercase;
   font-weight: 500;
-  color: #4b4b4b;
+  color: var(--black-700);
 
-  padding: 0 calc($linksPadding + .4em);
+  padding: 0 calc(var(--linksPadding) + .4em);
 
   margin-bottom: 1.25em;
 }
@@ -41,32 +38,41 @@ $linksPadding: 2em;
 .userSidebarLinksContainer {
   display: flex;
   flex-direction: column;
-  gap: .50em;
 }
 
 .sidebarLink {
   display: flex;
   gap: .75em;
-  padding: 0.75em $linksPadding;
+  padding: 1em var(--linksPadding);
   font-weight: 500;
+
+  --borderColor: transparent;
+  --background: transparent;
+  --color: var(--black);
+
+  border-left: 5px solid var(--borderColor);
+  background: var(--background);
+  color: var(--color);
+
+  &:hover {
+    --background: var(--orange-transparent-500);
+  }
 }
 
 .sidebarLinkActive {
   @extend .sidebarLink;
   font-weight: 700;
 
-  border-left: 5px solid $primaryOrange;
-  background: rgba(244, 128, 35, 0.1);
-  padding: 0.75em calc($linksPadding - 5px);
-  color: $primaryOrange;
+  --borderColor: var(--orange-700);
+  --background: var(--orange-transparent-400);
+  --color: var(--orange-700);
+
 
   & .sidebarLinksIcon {
-    color: $primaryOrange;
+    color: var(--orange-700);
   }
 }
 
 .sidebarLinksIcon {
-  color: #808080;
+  color: var(--gray-xl);
 }
-
-

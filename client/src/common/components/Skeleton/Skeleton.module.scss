@@ -1,0 +1,51 @@
+.skeletonContainer {
+  font-size: 1em;
+  width: 100%;
+  border: 2px solid var(--gray-600);
+  border-radius: .5em;
+
+  background: var(--white);
+
+  padding: 1.25em 1.5em;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  --defaultHeightMultiplier: 0.65em;
+}
+
+.skeletonText {
+  @extend .skeletonLoader;
+
+  width: 100%;
+  height: var(--defaultHeightMultiplier);
+  border-radius: .15em;
+}
+
+.skeletonCircle {
+  @extend .skeletonLoader;
+
+  width: 100%;
+  max-width: calc(var(--defaultHeightMultiplier) * 3);
+
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.skeletonBox {
+  width: 100%;
+}
+
+.skeletonLoader {
+  border: var(--gray-md);
+  background: var(--gray-600);
+
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  to {
+    background: var(--gray-md);
+  }
+}

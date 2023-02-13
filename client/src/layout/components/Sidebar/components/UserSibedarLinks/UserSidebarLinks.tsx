@@ -1,11 +1,12 @@
+import {Link} from "react-router-dom";
 import {BsPatchQuestion} from "react-icons/bs";
 import {AiOutlineHeart} from "react-icons/ai";
 import {FaRegComment} from "react-icons/fa";
 
-import ROUTES from "../../../../../router/routes";
+import ROUTES from "../../../../../router/constants/routes";
 
 import * as styles from "../../Sidebar.module.scss";
-import {Link} from "react-router-dom";
+
 
 function UserSidebarLinks() {
     return (

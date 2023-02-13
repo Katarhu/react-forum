@@ -6,21 +6,25 @@
 
     &:after {
         content: '';
+        height: 35%;
         position: absolute;
         bottom: 0;
         left: 0;
         right: 0;
-        height: 35%;
-        border-left: .18em solid #BCBBBC;
-        border-right: .18em solid #BCBBBC;
-        border-bottom: .15em solid #BCBBBC;
+
+        --borderColor: var(--gray-800);
+        --borderSize: 0.2em;
+
+        border-left: var(--borderSize) solid var(--borderColor);
+        border-right: var(--borderSize) solid var(--borderColor);
+        border-bottom: var(--borderSize) solid var(--borderColor);
     }
 }
 
 .logoParticle {
     width: .8em;
     height: 0.15em;
-    background: #F48023;
+    background: var(--orange-600);
     transform-origin: right bottom;
 }
 

@@ -1,34 +1,115 @@
 
-
 .inputContainer {
+  width: 100%;
   max-width: 100%;
-  font-size: 1em;
-
+  font-size: 18px;
   position: relative;
 
-  display: flex;
+  --inputTopPadding: 1.55em;
+  --inputInlinePadding: .8em;
+  --inputBottomPadding: 0.4em;
+
+  padding: var(--containerBlockPadding) 0;
+
   overflow: hidden;
 }
 
-.input {
-  max-width: 100%;
-  flex-grow: 1;
-  font-size: .85em;
+.inputPasswordContainer {
+  display: flex;
+}
 
-  display: block;
+.inputCommon {
+  width: 100%;
+  font-size: 0.9em;
 
-  position: relative;
+  background: transparent;
 
-  border: none;
+  padding: var(--inputTopPadding) var(--inputInlinePadding) var(--inputBottomPadding);
 
-  padding: 1.45em 2em .35em .8em;
+}
+
+.inputOutlined {
+  @extend .inputCommon;
+
+  --borderRadius: 0.35em;
+
+  border: 2px solid var(--gray-700);
+  border-radius: .35em;
+  transition: border .3s ease;
+
+  &:focus {
+    border: 2px solid var(--blue-700);
+  }
+}
+
+.inputOutlinedPassword {
+  @extend .inputOutlined;
+
+  border-radius: var(--borderRadius) 0 0 var(--borderRadius);
+}
+
+.inputLined {
+  @extend .inputCommon;
+
+  border-bottom: 2px solid var(--gray-700);
+  transition: border-bottom-color .3s ease;
+
+  &:focus {
+    border-bottom-color: var(--blue-600);
+  }
+}
+
+.label {
+  max-width: calc(100% - var(--inputInlinePadding) * 2);
+  position: absolute;
+  line-height: 125%;
+
+  text-align: center;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  bottom: calc(var(--inputBottomPadding) + .35em);
+  left: var(--inputInlinePadding);
+
+  --skale: 1;
+
+  opacity: var(--opacity-xl);
+
+  transition: bottom .2s ease-out,
+              left .2s ease-out,
+              transform .2s linear,
+              max-width .2s linear;
+
+  transform: scale(var(--skale));
+
+  transform-origin: left;
+
+  pointer-events: none;
+}
+
+
+:is(
+  .inputCommon:focus,
+  .inputCommon:not(:placeholder-shown),
+  .inputPasswordContainer:has(.inputCommon:focus),
+  .inputPasswordContainer:has(.inputCommon:not(:placeholder-shown))
+) ~ .label {
+  text-overflow: ellipsis;
+  max-width: calc((100% - var(--inputInlinePadding) * 2) * ( 1 / var(--skale)));
+
+  bottom: calc(var(--inputBottomPadding) + 1.05em);
+  left: var(--inputInlinePadding);
+
+  --skale: 0.65;
 }
 
 .inputToggle {
   font-size: .8em;
 
-  background: #ECF0F1;
-  border: 2px solid #EAEAEA;
+  background: var(--gray-600);
+  border: 2px solid var(--gray-700);
 
   border-radius: 0 .35em .35em 0;
   border-left: none;
@@ -36,78 +117,22 @@
   display: grid;
   place-content: center;
   padding: 0 .5em;
-}
-
-.inputLined {
-  @extend .input;
-  background: transparent;
-  border-bottom: 2px solid #EAEAEA;
 
   &:focus {
-    border-bottom: 2px solid #000000;
+    background: var(--gray-800);
+  }
+
+  &:hover {
+    background: var(--gray-800);
   }
 }
 
-.inputOutlined {
-  @extend .input;
-  border: 2px solid #EAEAEA;
+.inputLineFocused {
+    @extend .inputCommon;
+
+    border-bottom: 2px solid transparent;
 
   &:focus {
-    box-shadow: 0 0 3px rgba(0,0,0, 0.25);
+    border-bottom-color: var(--blue-600);
   }
-}
-
-.inputOutlinedPlain {
-  @extend .inputOutlined;
-  border-radius: .35em;
-}
-
-.inputOutlinedWithToggle {
-  @extend .inputOutlined;
-  border-radius: .35em 0 0 .35em;
-
-  &:focus ~ .inputToggle {
-    box-shadow: 0 0 3px rgba(0,0,0, 0.25);
-  }
-}
-
-.inputLinedOnFocus {
-  @extend .input;
-  border-bottom: 2px solid transparent;
-
-  &:focus {
-    border-bottom: 2px solid #EAEAEA;
-  }
-
-  &:not(:placeholder-shown) {
-    border-bottom: 2px solid #EAEAEA;
-  }
-}
-
-.label {
-  font-weight: 300;
-
-  text-overflow: ellipsis;
-  opacity: .55;
-  transition: transform .2s  0s ease;
-
-  white-space: nowrap;
-
-  position: absolute;
-  bottom: .7em;
-  left: .75em;
-
-  cursor: text;
-
-  user-select: none;
-}
-
-.input:focus ~ .label,
-.input:not(:placeholder-shown) ~ .label{
-  font-weight: 500;
-  color: rgba(0,0,0, .5);
-
-  transform: translate(-23%, -85%) scale(.55);
-
-  opacity: 1;
 }

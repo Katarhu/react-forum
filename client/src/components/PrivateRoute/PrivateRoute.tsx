@@ -1,8 +1,7 @@
-import {ReactNode} from "react";
+import {Navigate} from "react-router-dom";
 
 import {selectIsAuth} from "../../store/user/user.selectors";
 import {useAppSelector} from "../../hooks/redux";
-import {Navigate} from "react-router-dom";
 
 
 interface PrivateRouteProps {

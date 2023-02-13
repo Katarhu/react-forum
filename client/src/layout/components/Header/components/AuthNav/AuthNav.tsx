@@ -1,27 +1,26 @@
-import {Link} from "react-router-dom";
-
-import ROUTES from "../../../../../router/routes";
-
-import { commonButtonOrange } from "../../../../../common/components/Button/Button.module.scss";
-
-import {BiMessageRoundedAdd} from "react-icons/bi"
+import UserMenu from "./components/UserMenu/UserMenu";
 
 import NotificationIcon from "./components/NotificationIcon/NotificationIcon";
 
-import UserControls from "./components/UserControls/UserControls";
+import {BiMessageRoundedAdd} from "react-icons/bi"
+
+import {AppLink} from "../../../../../common/components/Button/Button";
+import {primaryOrange} from "../../../../../common/components/Button/Button.module.scss";
+
+import ROUTES from "../../../../../router/constants/routes";
 
 
 function AuthNav() {
 
     return (
         <>
-            <Link to={ROUTES.ADD_QUESTION} className={commonButtonOrange}>
+            <AppLink to={ROUTES.ADD_QUESTION} className={primaryOrange}>
                 <BiMessageRoundedAdd/> Ask a question
-            </Link>
+            </AppLink>
 
             <NotificationIcon />
 
-            <UserControls />
+            <UserMenu />
         </>
     );
 }

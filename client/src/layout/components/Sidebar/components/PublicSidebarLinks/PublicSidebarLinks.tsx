@@ -1,10 +1,12 @@
+import {NavLink} from "react-router-dom";
+
 import {RxHamburgerMenu} from "react-icons/rx";
 import {TbMedal2} from "react-icons/tb";
 import {BsTags} from "react-icons/bs";
 
+import ROUTES from "../../../../../router/constants/routes";
+
 import * as styles from "../../Sidebar.module.scss";
-import ROUTES from "../../../../../router/routes";
-import {Link, NavLink} from "react-router-dom";
 
 function PublicSidebarLinks() {
     return (

@@ -3,9 +3,12 @@
 .mainLayout {
   display: flex;
   gap: 1.25em;
+
 }
 
 .mainContainer {
+  //max-height: calc(100vh - 4em);
   flex-grow: 1;
-  flex-shrink: 0;
+  flex-shrink: 1;
+  //overflow-y: scroll;
 }
